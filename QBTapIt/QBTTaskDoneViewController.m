@@ -35,4 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBAction Selectors
+- (IBAction) okPushed:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"DoneToSetup" sender:self];
+}
+
 @end

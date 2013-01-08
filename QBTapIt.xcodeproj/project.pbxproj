@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */; };
+		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AADDFB1A16448D68004955C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1916448D68004955C1 /* UIKit.framework */; };
 		AADDFB1C16448D68004955C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1B16448D68004955C1 /* Foundation.framework */; };
 		AADDFB1E16448D68004955C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1D16448D68004955C1 /* CoreGraphics.framework */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lyrics_short.csv; sourceTree = "<group>"; };
+		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
+		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
 		AADDFB1516448D68004955C1 /* QBTapIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QBTapIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADDFB1916448D68004955C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AADDFB1B16448D68004955C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,9 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA4B2FD9169B8B3E00030E29 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B2FDA169B8B5000030E29 /* CSVParser.h */,
+				AA4B2FDB169B8B5000030E29 /* CSVParser.m */,
+			);
+			name = Ext;
+			sourceTree = "<group>";
+		};
 		AADDFB0A16448D68004955C1 = {
 			isa = PBXGroup;
 			children = (
+				AA4B2FD9169B8B3E00030E29 /* Ext */,
 				AADDFB1F16448D68004955C1 /* QBTapIt */,
 				AADDFB3C16448D90004955C1 /* Resources */,
 				AADDFB2016448D68004955C1 /* Supporting Files */,
@@ -134,6 +149,7 @@
 		AADDFB3C16448D90004955C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */,
 				AADDFB3116448D68004955C1 /* MainStoryboard.storyboard */,
 			);
 			name = Resources;
@@ -224,6 +240,7 @@
 				AADDFB2E16448D68004955C1 /* Default@2x.png in Resources */,
 				AADDFB3016448D68004955C1 /* Default-568h@2x.png in Resources */,
 				AADDFB3316448D68004955C1 /* MainStoryboard.storyboard in Resources */,
+				AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +261,7 @@
 				AADDFB4D16449763004955C1 /* QBTTaskViewController.m in Sources */,
 				AADDFB5016449857004955C1 /* QBTTaskDoneViewController.m in Sources */,
 				AADDFB571644A623004955C1 /* QBTTaskAudioViewController.m in Sources */,
+				AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

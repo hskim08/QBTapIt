@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="2" customClass="QBTSetupViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVU-YX-tmV">
@@ -59,19 +59,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="-30"/>
+            <point key="canvasLocation" x="-488" y="562"/>
         </scene>
         <!--Task Text View Controller-->
         <scene sceneID="JXq-yA-MrE">
             <objects>
                 <viewController id="H7X-u4-UMW" customClass="QBTTaskTextViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="egL-Uv-LWL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzA-Ru-FBk">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzA-Ru-FBk">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Task: Tap Tap
+
+Explain Tap Tap</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -84,6 +86,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startClicked:" destination="H7X-u4-UMW" eventType="touchUpInside" id="cis-Yl-3Qq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -103,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wd-Hq-3yG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="758"/>
+            <point key="canvasLocation" x="63" y="922"/>
         </scene>
         <!--Task View Controller - Task-->
         <scene sceneID="6K2-9n-2WK">
@@ -112,22 +117,76 @@
                     <view key="view" contentMode="scaleToFill" id="iIw-a3-Wup">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypl-3K-9ur">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8n-P7-eum">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="lZ6-Ot-6ww"/>
+                                            <constraint firstAttribute="width" constant="117" id="xM8-4Y-UzG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="D8n-P7-eum" firstAttribute="centerX" secondItem="ypl-3K-9ur" secondAttribute="centerX" type="default" id="DCG-0P-33f"/>
+                                    <constraint firstItem="D8n-P7-eum" firstAttribute="centerY" secondItem="ypl-3K-9ur" secondAttribute="centerY" type="default" id="u3O-JS-hDd"/>
+                                    <constraint firstAttribute="width" constant="280" type="user" id="yiD-JS-FC7"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf5-ty-XAG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="266" id="JUw-Gy-iej"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sy-S1-eT5">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="Tcy-xI-xK3" eventType="touchUpInside" id="94G-2Q-jdm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ypl-3K-9ur" firstAttribute="leading" secondItem="iIw-a3-Wup" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="11C-Ux-lIN"/>
+                            <constraint firstItem="bf5-ty-XAG" firstAttribute="top" secondItem="iIw-a3-Wup" secondAttribute="top" type="default" id="CZC-B4-gLf"/>
+                            <constraint firstItem="5sy-S1-eT5" firstAttribute="top" secondItem="iIw-a3-Wup" secondAttribute="top" constant="20" symbolic="YES" type="default" id="CbH-pf-diL"/>
+                            <constraint firstItem="bf5-ty-XAG" firstAttribute="leading" secondItem="iIw-a3-Wup" secondAttribute="leading" type="default" id="Hjn-dh-Cjc"/>
+                            <constraint firstItem="5sy-S1-eT5" firstAttribute="leading" secondItem="bf5-ty-XAG" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Qpq-jt-r7B"/>
+                            <constraint firstAttribute="bottom" secondItem="ypl-3K-9ur" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="VJ0-me-jdc"/>
+                            <constraint firstItem="ypl-3K-9ur" firstAttribute="top" secondItem="bf5-ty-XAG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zja-jK-ksh"/>
+                            <constraint firstAttribute="trailing" secondItem="5sy-S1-eT5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fXL-aN-cqB"/>
+                            <constraint firstAttribute="trailing" secondItem="ypl-3K-9ur" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="vzy-xu-sHs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task" id="IVz-ar-NVn"/>
                     <connections>
+                        <outlet property="lyricsTextView" destination="bf5-ty-XAG" id="rl2-Bu-UWu"/>
                         <segue destination="E7j-Ke-dXr" kind="push" identifier="TaskToAudio" id="4fJ-Ix-orI"/>
                         <segue destination="uhK-4N-qVJ" kind="push" identifier="TaskToDone" id="bFU-UO-XeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8j-hh-cOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-40" y="758"/>
+            <point key="canvasLocation" x="506" y="922"/>
         </scene>
-        <!--Task Audio Viw Controller-->
+        <!--Task Audio View Controller-->
         <scene sceneID="AfM-y2-9el">
             <objects>
-                <viewController id="E7j-Ke-dXr" customClass="QBTTaskAudioViwController" sceneMemberID="viewController">
+                <viewController id="E7j-Ke-dXr" customClass="QBTTaskAudioViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sl3-TD-wHz">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,10 +200,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c76-Bc-9Jw">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c76-Bc-9Jw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5ru-sC-pKc"/>
                             <constraint firstItem="fC5-gr-IMR" firstAttribute="top" secondItem="Sl3-TD-wHz" secondAttribute="top" constant="242" id="Y3f-rM-eFT"/>
+                            <constraint firstAttribute="bottom" secondItem="c76-Bc-9Jw" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ZFk-XP-6qh"/>
                             <constraint firstItem="fC5-gr-IMR" firstAttribute="centerX" secondItem="Sl3-TD-wHz" secondAttribute="centerX" type="default" id="tdR-im-AlW"/>
                         </constraints>
                     </view>
@@ -155,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHc-lD-Pok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="758"/>
+            <point key="canvasLocation" x="959" y="922"/>
         </scene>
         <!--Task Done View Controller - Done!-->
         <scene sceneID="KWW-gg-iHd">
@@ -165,10 +236,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thank You!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-YO-sXZ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thank You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-YO-sXZ">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="4NM-Pu-zeq"/>
-                                    <constraint firstAttribute="width" constant="164" id="BDI-Z9-yai"/>
+                                    <constraint firstAttribute="width" constant="222" id="Umo-T4-CQG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -183,12 +254,15 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="okPushed:" destination="uhK-4N-qVJ" eventType="touchUpInside" id="a1P-1Q-gUC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YYS-YO-sXZ" firstAttribute="centerX" secondItem="SQU-7z-kNX" secondAttribute="centerX" type="default" id="Mko-dc-3mh"/>
                             <constraint firstItem="YYS-YO-sXZ" firstAttribute="centerY" secondItem="SQU-7z-kNX" secondAttribute="centerY" type="default" id="ciI-73-VTA"/>
+                            <constraint firstItem="YYS-YO-sXZ" firstAttribute="centerX" secondItem="SQU-7z-kNX" secondAttribute="centerX" type="default" id="hkV-nN-bZD"/>
                             <constraint firstAttribute="bottom" secondItem="QDu-8X-WYB" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="twX-p8-shQ"/>
                             <constraint firstAttribute="trailing" secondItem="QDu-8X-WYB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uTx-SS-QOY"/>
                         </constraints>
@@ -200,20 +274,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73c-Jr-pHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="758"/>
+            <point key="canvasLocation" x="1432" y="562"/>
         </scene>
         <!--Text View Controller - Consent Form-->
         <scene sceneID="wtb-FI-vY1">
             <objects>
                 <viewController id="wzd-gB-ePg" customClass="QBTTextViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n8n-4R-rZs">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-cp-byf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-cp-byf">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <mutableString key="text">School, Leisure, and Work Time Study Consent Form
+
+You are being asked to take part in a research study of how college students with jobs manage their school, leisure and work time. We are asking you to take part because you signed up at the SUSAN web site for this study. Please read this form carefully and ask any questions you may have before agreeing to take part in the study.
+
+What the study is about: The purpose of this study is to learn how students who have paid jobs manage their class work. You must be working at least 10 hours a week for pay to take part in this study.
+
+What we will ask you to do: If you agree to be in this study, we will conduct an interview with you. The interview will include questions about your job, the hours you work, how much you earn, the number of classes you take at Cornell, how much you study, social and leisure activities, your health and well-being, and how much you sleep. The interview will take about 30 minutes to complete. With your permission, we would also like to tape-record the interview.
+
+Risks and benefits:
+
+There is the risk that you may find some of the questions about your job conditions to be sensitive. [Note: For studies posing no specific risks, use the IRB standard minimal risk statement, "I do not anticipate any risks to you participating in this study other than those encountered in day-to-day life."]
+
+There are no benefits to you. Cornell is a very demanding place to be a student and we hope to learn more about students who work while earning degrees.
+
+Compensation: You may earn extra credit if you are taking a class that offers credit for research studies. The class instructor will assign credit according to class policy. If you wish, you may earn $3 instead of extra credit.
+
+Your answers will be confidential. The records of this study will be kept private. In any sort of report we make public we will not include any information that will make it possible to identify you. Research records will be kept in a locked file; only the researchers will have access to the records. If we tape-record the interview, we will destroy the tape after it has been transcribed, which we anticipate will be within two months of its taping.
+
+Taking part is voluntary: Taking part in this study is completely voluntary. You may skip any questionsthat you do not want to answer. If you decide not to take part or to skip some of the questions, it will not affect your current or future relationship with Cornell University. If you decide to take part, you are free to withdraw at any time.
+
+If you have questions: The researchers conducting this study are Randy Jackson and Prof. Simon Cowell. Please ask any questions you have now. If you have questions later, you may contact Randy Jackson at randy@blabmail.com or at 1-800-555-4365. You can reach Prof. Cowell at meanguy@abbey.uk or 1-800-555-4365, ext. 1000. If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Institutional Review Board (IRB) at 607-255-5138 or access their website at http://www.irb.cornell.edu. You may also report your concerns or complaints anonymously through Ethicspoint (www.hotline.cornell.edu) or by calling toll free at 1-866-293-3077. Ethicspoint is an independent organization that serves as a liaison between the University and the person bringing the complaint so that anonymity can be ensured.
+
+You will be given a copy of this form to keep for your records.</mutableString>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCP-5s-SyO">
@@ -233,6 +330,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfJ-MP-JHV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" type="user" id="Szp-Z4-N8W"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="I Don't Agree">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,14 +348,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6ZG-cp-byf" firstAttribute="top" secondItem="n8n-4R-rZs" secondAttribute="top" type="default" id="6Jc-9z-pij"/>
+                            <constraint firstItem="6ZG-cp-byf" firstAttribute="top" secondItem="n8n-4R-rZs" secondAttribute="top" type="user" id="6Jc-9z-pij"/>
                             <constraint firstAttribute="bottom" secondItem="bCP-5s-SyO" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="A4d-ah-7Tb"/>
                             <constraint firstItem="6ZG-cp-byf" firstAttribute="leading" secondItem="n8n-4R-rZs" secondAttribute="leading" type="default" id="Zim-N5-2Qf"/>
                             <constraint firstItem="6ZG-cp-byf" firstAttribute="trailing" secondItem="n8n-4R-rZs" secondAttribute="trailing" type="default" id="hDO-sW-oEq"/>
                             <constraint firstAttribute="trailing" secondItem="bCP-5s-SyO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jju-tR-0xj"/>
-                            <constraint firstItem="6ZG-cp-byf" firstAttribute="bottom" secondItem="n8n-4R-rZs" secondAttribute="bottom" type="default" id="qVO-Uv-QrS"/>
-                            <constraint firstAttribute="bottom" secondItem="rfJ-MP-JHV" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qpz-HS-SAJ"/>
+                            <constraint firstAttribute="bottom" secondItem="rfJ-MP-JHV" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="qpz-HS-SAJ"/>
                             <constraint firstItem="rfJ-MP-JHV" firstAttribute="leading" secondItem="n8n-4R-rZs" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rXH-Sn-ToB"/>
+                            <constraint firstAttribute="bottom" secondItem="6ZG-cp-byf" secondAttribute="bottom" constant="76" type="user" id="t65-Nl-YlV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Consent Form" id="Rkm-ZO-wwb"/>
@@ -266,14 +366,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceJ-9p-87A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="-30"/>
+            <point key="canvasLocation" x="63" y="126"/>
         </scene>
         <!--Question View Controller - Questionnaire-->
         <scene sceneID="p6o-qQ-0IW">
             <objects>
                 <viewController id="Qbx-kl-b06" customClass="QBTQuestionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F8G-lN-yzo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s32-fq-fca">
@@ -313,6 +413,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="continuePushed:" destination="Qbx-kl-b06" eventType="touchUpInside" id="jcO-IR-Z6o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -338,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xQ-qu-bLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-30"/>
+            <point key="canvasLocation" x="506" y="126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XVh-6B-0DN">
@@ -356,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pU-gu-cxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="-30"/>
+            <point key="canvasLocation" x="-998" y="562"/>
         </scene>
     </scenes>
     <classes>
@@ -365,6 +468,9 @@
         </class>
         <class className="QBTQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="continuePushed:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="QBTSetupViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTSetupViewController.h"/>
@@ -372,14 +478,26 @@
                 <relationship kind="action" name="startPushed:" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="QBTTaskAudioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskAudioViewController.h"/>
+        </class>
         <class className="QBTTaskDoneViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskDoneViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okPushed:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="QBTTaskTextViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startClicked:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="QBTTaskViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="QBTTextViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTextViewController.h"/>
@@ -395,7 +513,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Fq3-v0-nBu"/>
+        <segue reference="KLY-zZ-Lg9"/>
         <segue reference="bFU-UO-XeH"/>
         <segue reference="fEB-oq-QSO"/>
     </inferredMetricsTieBreakers>

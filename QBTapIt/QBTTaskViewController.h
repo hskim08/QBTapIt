@@ -10,4 +10,8 @@
 
 @interface QBTTaskViewController : UIViewController
 
+@property UITextView* IBOutlet lyricsTextView;
+
+- (IBAction) nextPushed:(UIButton*)sender;
+
 @end

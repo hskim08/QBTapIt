@@ -10,4 +10,6 @@
 
 @interface QBTTaskTextViewController : UIViewController
 
+- (IBAction) startClicked:(UIButton*)sender;
+
 @end

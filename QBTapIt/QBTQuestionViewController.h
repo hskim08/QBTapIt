@@ -10,4 +10,6 @@
 
 @interface QBTQuestionViewController : UIViewController
 
+- (IBAction) continuePushed:(UIButton*)sender;
+
 @end

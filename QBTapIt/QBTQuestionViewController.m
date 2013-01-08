@@ -35,4 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBAction Selectors
+- (IBAction) continuePushed:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"QuestionToStart" sender:self];
+}
+
 @end

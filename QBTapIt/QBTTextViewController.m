@@ -8,7 +8,7 @@
 
 #import "QBTTextViewController.h"
 
-@interface QBTTextViewController ()
+@interface QBTTextViewController ()<UITextViewDelegate>
 
 @end
 
@@ -20,6 +20,7 @@
 	// Do any additional setup after loading the view.
     
     // TODO: Load consent form from file
+    
 }
 
 - (void)didReceiveMemoryWarning

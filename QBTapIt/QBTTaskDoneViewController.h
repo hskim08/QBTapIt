@@ -10,4 +10,6 @@
 
 @interface QBTTaskDoneViewController : UIViewController
 
+- (IBAction) okPushed:(UIButton*)sender;
+
 @end

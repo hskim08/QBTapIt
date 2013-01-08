@@ -33,6 +33,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    // TODO: Load task explanation from file
+}
+
+#pragma mark - IBAction Selectors
+
+- (IBAction) startClicked:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"StartToTask" sender:self];
 }
 
 @end
