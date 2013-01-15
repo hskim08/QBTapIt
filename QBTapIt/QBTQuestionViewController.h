@@ -10,6 +10,27 @@
 
 @interface QBTQuestionViewController : UIViewController
 
+@property UITextField* IBOutlet ageText;
+@property UIButton* IBOutlet genderButton;
+
+@property UIButton* IBOutlet languageButton;
+
+@property UIButton* IBOutlet handedButton;
+@property UIButton* IBOutlet toneButton;
+@property UIButton* IBOutlet arrhythmicButton;
+
+@property UISlider* IBOutlet instSlider;
+@property UISlider* IBOutlet Slider;
+
+@property UIPickerView* IBOutlet pickerView;
+
 - (IBAction) continuePushed:(UIButton*)sender;
+
+- (IBAction) genderPushed:(UIButton*)sender;
+- (IBAction) languagePushed:(UIButton*)sender;
+- (IBAction) handPushed:(UIButton*)sender;
+- (IBAction) tonePushed:(UIButton*)sender;
+- (IBAction) arrhythmicPushed:(UIButton*)sender;
+
 
 @end

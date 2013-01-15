@@ -19,6 +19,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.navigationItem.hidesBackButton = YES;
+    
     // TODO: Load consent form from file
     
 }
@@ -31,14 +33,22 @@
 
 #pragma mark - IBAction Selectors
 
+- (IBAction)setupPushed:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"ConsentToSetup"
+                              sender:self];
+}
+
 - (IBAction)agreePushed:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"TextToQuestion" sender:self];
+    [self performSegueWithIdentifier:@"TextToQuestion"
+                              sender:self];
 }
 
 - (IBAction)disagreePushed:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"TextToDone" sender:self];
+    [self performSegueWithIdentifier:@"TextToDone"
+                              sender:self];
 }
 
 @end

@@ -1,18 +1,18 @@
 //
-//  QBTTaskDoneViewController.m
+//  QBTTaskQuestionViewController.m
 //  QBTapIt
 //
-//  Created by Ethan Kim on 11/2/12.
-//  Copyright (c) 2012 CCRMA, Stanford University. All rights reserved.
+//  Created by Ethan Kim on 1/14/13.
+//  Copyright (c) 2013 CCRMA, Stanford University. All rights reserved.
 //
 
-#import "QBTTaskDoneViewController.h"
+#import "QBTTaskQuestionViewController.h"
 
-@interface QBTTaskDoneViewController ()
+@interface QBTTaskQuestionViewController ()
 
 @end
 
-@implementation QBTTaskDoneViewController
+@implementation QBTTaskQuestionViewController
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
@@ -27,8 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,9 +36,14 @@
 }
 
 #pragma mark - IBAction Selectors
-- (IBAction) okPushed:(UIButton*)sender
+
+- (IBAction) doneClicked:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"DoneToConsent" sender:self];
+    [self.delegate handleAnswer:3];
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:^(void){
+                             }];
 }
 
 @end

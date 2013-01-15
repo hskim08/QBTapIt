@@ -10,6 +10,8 @@
 
 @interface QBTTextViewController : UIViewController
 
+- (IBAction)setupPushed:(UIButton*)sender;
+
 - (IBAction)agreePushed:(UIButton*)sender;
 - (IBAction)disagreePushed:(UIButton*)sender;
 

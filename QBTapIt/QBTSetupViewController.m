@@ -30,7 +30,8 @@
 
 - (IBAction)startPushed:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"SetupToText" sender:self];
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 @end
