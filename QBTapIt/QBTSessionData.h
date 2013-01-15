@@ -27,11 +27,10 @@
 
 @property NSString* userId;
 @property NSString* experimenterId;
-@property NSString* sessionDate;
 
 @property UInt32 taskOrder;
 
-@property NSMutableArray* taskDataArray;
+@property (nonatomic) NSMutableArray* taskDataArray;
 
 - (void) initData;
 

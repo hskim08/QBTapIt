@@ -21,6 +21,9 @@
 @property NSTimeInterval startTime;
 
 @property NSMutableString* tapOnData;
+@property NSMutableString* tapOffData;
+@property NSMutableString* tapXPosData;
+@property NSMutableString* tapYPosData;
 
 @property QBTTaskData* currentTask;
 
@@ -62,10 +65,22 @@
     NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"On: %f", tapOnTime);
     
-    // save taps
+    // save tap on
     [self.tapOnData appendFormat:@"%f, ", tapOnTime];
     
-    // TODO: save positions
+    // save positions
+    assert(touches.count == 1);
+    
+    for (UITouch* touch in touches) {
+        CGPoint point = [touch locationInView:self.view];
+        NSLog(@"x/y: %f/%f", point.x, point.y);
+        
+        [self.tapXPosData appendFormat:@"%f, ", point.x];
+        [self.tapYPosData appendFormat:@"%f, ", point.y];
+        break;
+    }
+    
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -75,7 +90,8 @@
     NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"Off: %f", tapOffTime);
     
-    // TODO: save taps
+    // save tap off
+    [self.tapOffData appendFormat:@"%f, ", tapOffTime];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -133,6 +149,9 @@
     // initialize data buffers
     self.currentTask = [[QBTTaskData alloc] init];
     self.tapOnData = [NSMutableString stringWithCapacity:3];
+    self.tapOffData = [NSMutableString stringWithCapacity:3];
+    self.tapXPosData = [NSMutableString stringWithCapacity:3];
+    self.tapYPosData = [NSMutableString stringWithCapacity:3];
 
     // reset start time
     self.startTime = [[NSDate date] timeIntervalSince1970];
@@ -141,13 +160,23 @@
 - (void) saveTaskData
 {
     // remove last comma
-    [self.tapOnData deleteCharactersInRange:NSMakeRange(self.tapOnData.length-2, 2)];
+    if (self.tapOnData.length > 2)
+        [self.tapOnData deleteCharactersInRange:NSMakeRange(self.tapOnData.length-2, 2)];
+    if (self.tapOffData.length > 2)
+        [self.tapOffData deleteCharactersInRange:NSMakeRange(self.tapOffData.length-2, 2)];
+    if (self.tapXPosData.length > 2)
+        [self.tapXPosData deleteCharactersInRange:NSMakeRange(self.tapXPosData.length-2, 2)];
+    if (self.tapYPosData.length > 2)
+        [self.tapYPosData deleteCharactersInRange:NSMakeRange(self.tapYPosData.length-2, 2)];
     
     // save task data
     self.currentTask.songId = [NSString stringWithFormat:@"%d", self.taskNumber]; // TODO: set song format properly
-    self.currentTask.tapOnTimeData = self.tapOnData;
-    self.currentTask.withMusic = NO; // TODO: set properly from questionnaire
     
+    self.currentTask.tapOnTimeData = self.tapOnData;
+    self.currentTask.tapOffTimeData = self.tapOffData;
+    self.currentTask.tapXPositionData = self.tapXPosData;
+    self.currentTask.tapYPositionData = self.tapYPosData;
+        
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];
 }
@@ -173,7 +202,7 @@
 - (void) handleAnswer:(UInt16)answer
 {
     self.currentTask.songFamiliarity = answer;
-    self.currentTask.musicAsExpected = NO; // TODO: handle this
+    self.currentTask.musicAsExpected = NO; // TODO: get answer from questionnaire
     
     [self saveTaskData];
 

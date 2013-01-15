@@ -17,7 +17,9 @@
 @synthesize serverIp = _serverIp;
 - (NSString*) serverIp
 {
-    return @"192.168.182.72:3000"; // change this when needed
+    // change IP as needed
+    return @"192.168.1.130:3000"; // home
+//    return @"192.168.182.72:3000"; // ccrma
 }
 
 # pragma  mark - Singleton

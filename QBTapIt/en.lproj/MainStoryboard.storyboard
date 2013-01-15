@@ -327,49 +327,31 @@ You will be given a copy of this form to keep for your records.</string>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCP-5s-SyO">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="ecz-DH-sSI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="I Agree">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="agreePushed:" destination="wzd-gB-ePg" eventType="touchUpInside" id="YRC-js-9Eo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfJ-MP-JHV">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="117" type="user" id="Szp-Z4-N8W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="I Don't Agree">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="disagreePushed:" destination="wzd-gB-ePg" eventType="touchUpInside" id="edH-Qu-8Iv"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFC-wH-ynn">
+                                <items>
+                                    <barButtonItem title="I Don't Agree" id="3Ka-zK-NQ4">
+                                        <connections>
+                                            <action selector="disagreePushed:" destination="wzd-gB-ePg" id="5Dw-vx-p8b"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5SR-yt-5sx"/>
+                                    <barButtonItem title="I Agree" id="mKR-8F-ciP">
+                                        <connections>
+                                            <action selector="agreePushed:" destination="wzd-gB-ePg" id="az6-RY-o0j"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6ZG-cp-byf" firstAttribute="top" secondItem="n8n-4R-rZs" secondAttribute="top" type="user" id="6Jc-9z-pij"/>
-                            <constraint firstAttribute="bottom" secondItem="bCP-5s-SyO" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="A4d-ah-7Tb"/>
+                            <constraint firstItem="cFC-wH-ynn" firstAttribute="bottom" secondItem="n8n-4R-rZs" secondAttribute="bottom" type="default" id="9Om-55-DF5"/>
+                            <constraint firstItem="cFC-wH-ynn" firstAttribute="leading" secondItem="n8n-4R-rZs" secondAttribute="leading" type="default" id="RyD-AY-cJT"/>
                             <constraint firstItem="6ZG-cp-byf" firstAttribute="leading" secondItem="n8n-4R-rZs" secondAttribute="leading" type="default" id="Zim-N5-2Qf"/>
+                            <constraint firstItem="cFC-wH-ynn" firstAttribute="trailing" secondItem="n8n-4R-rZs" secondAttribute="trailing" type="default" id="fdm-jt-awb"/>
                             <constraint firstItem="6ZG-cp-byf" firstAttribute="trailing" secondItem="n8n-4R-rZs" secondAttribute="trailing" type="default" id="hDO-sW-oEq"/>
-                            <constraint firstAttribute="trailing" secondItem="bCP-5s-SyO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jju-tR-0xj"/>
-                            <constraint firstAttribute="bottom" secondItem="rfJ-MP-JHV" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="qpz-HS-SAJ"/>
-                            <constraint firstItem="rfJ-MP-JHV" firstAttribute="leading" secondItem="n8n-4R-rZs" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rXH-Sn-ToB"/>
-                            <constraint firstAttribute="bottom" secondItem="6ZG-cp-byf" secondAttribute="bottom" constant="76" type="user" id="t65-Nl-YlV"/>
+                            <constraint firstItem="cFC-wH-ynn" firstAttribute="top" secondItem="6ZG-cp-byf" secondAttribute="bottom" type="default" id="vf7-Ip-aMp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Consent Form" id="Rkm-ZO-wwb">
@@ -417,19 +399,6 @@ You will be given a copy of this form to keep for your records.</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNb-gt-8G5">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="continuePushed:" destination="Qbx-kl-b06" eventType="touchUpInside" id="jcO-IR-Z6o"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBC-e7-aq7">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="JzV-GL-JtX"/>
@@ -583,6 +552,16 @@ You will be given a copy of this form to keep for your records.</string>
                                     <constraint firstAttribute="height" constant="216" type="user" id="8d5-a5-5fU"/>
                                 </constraints>
                             </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuL-9E-9Xs">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KjT-sS-s7P"/>
+                                    <barButtonItem title="Continue" style="done" id="tOe-MP-WfT">
+                                        <connections>
+                                            <action selector="continuePushed:" destination="Qbx-kl-b06" id="bIJ-1D-ayR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -594,6 +573,7 @@ You will be given a copy of this form to keep for your records.</string>
                             <constraint firstItem="q1P-m4-lKQ" firstAttribute="centerY" secondItem="8Hs-Yj-ugx" secondAttribute="centerY" type="default" id="42t-5z-eIv"/>
                             <constraint firstItem="iqb-Dn-5tM" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4mI-Ix-Vk3"/>
                             <constraint firstItem="17s-n9-Dvf" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5KI-hz-t3x"/>
+                            <constraint firstItem="tuL-9E-9Xs" firstAttribute="bottom" secondItem="F8G-lN-yzo" secondAttribute="bottom" type="default" id="7Fb-dD-czv"/>
                             <constraint firstItem="546-TP-WBF" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="19" id="7YM-uY-oQt"/>
                             <constraint firstItem="546-TP-WBF" firstAttribute="trailing" secondItem="oqM-Xy-Qlq" secondAttribute="trailing" type="default" id="7m2-iK-aNV"/>
                             <constraint firstAttribute="bottom" secondItem="3uv-PQ-OUy" secondAttribute="bottom" constant="-216" type="user" id="9fn-Pd-28w"/>
@@ -613,7 +593,9 @@ You will be given a copy of this form to keep for your records.</string>
                             <constraint firstItem="dPG-Ic-6ZT" firstAttribute="top" secondItem="OBC-e7-aq7" secondAttribute="bottom" constant="8" type="user" id="MwY-Y8-wvn"/>
                             <constraint firstItem="oqM-Xy-Qlq" firstAttribute="leading" secondItem="546-TP-WBF" secondAttribute="leading" type="default" id="NVw-W3-Hyp"/>
                             <constraint firstItem="Igz-Xu-efp" firstAttribute="trailing" secondItem="g1f-Xm-NgO" secondAttribute="trailing" type="default" id="OW2-pD-rvD"/>
+                            <constraint firstItem="tuL-9E-9Xs" firstAttribute="centerX" secondItem="njq-7Y-x40" secondAttribute="centerX" type="default" id="Phg-ka-PXY"/>
                             <constraint firstItem="Igz-Xu-efp" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qg8-gL-avR"/>
+                            <constraint firstItem="tuL-9E-9Xs" firstAttribute="trailing" secondItem="F8G-lN-yzo" secondAttribute="trailing" type="default" id="Rn3-so-vp8"/>
                             <constraint firstItem="oKN-J4-p7X" firstAttribute="top" secondItem="Jup-Tw-Kp3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Rx8-sS-b9G"/>
                             <constraint firstItem="iqb-Dn-5tM" firstAttribute="centerY" secondItem="dPG-Ic-6ZT" secondAttribute="centerY" type="default" id="TaS-OZ-2Pk"/>
                             <constraint firstItem="WTa-Pr-kqk" firstAttribute="trailing" secondItem="OBC-e7-aq7" secondAttribute="trailing" type="default" id="VIo-GE-H3N"/>
@@ -623,7 +605,6 @@ You will be given a copy of this form to keep for your records.</string>
                             <constraint firstItem="oqM-Xy-Qlq" firstAttribute="top" secondItem="17s-n9-Dvf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zpu-kA-Icn"/>
                             <constraint firstItem="WTa-Pr-kqk" firstAttribute="top" secondItem="dPG-Ic-6ZT" secondAttribute="bottom" constant="8" type="user" id="aH5-gF-4oX"/>
                             <constraint firstItem="WXi-9I-RMs" firstAttribute="top" secondItem="njq-7Y-x40" secondAttribute="top" type="default" id="aZ7-QN-Uwx"/>
-                            <constraint firstAttribute="bottom" secondItem="vNb-gt-8G5" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="bDo-mw-LIR"/>
                             <constraint firstItem="Igz-Xu-efp" firstAttribute="baseline" secondItem="WTa-Pr-kqk" secondAttribute="baseline" type="default" id="bGn-09-xe5"/>
                             <constraint firstItem="8Hs-Yj-ugx" firstAttribute="leading" secondItem="dPG-Ic-6ZT" secondAttribute="leading" type="default" id="c9K-gy-U8R"/>
                             <constraint firstItem="Dy9-dU-7W8" firstAttribute="trailing" secondItem="q1P-m4-lKQ" secondAttribute="trailing" type="default" id="ctx-CF-33n"/>
@@ -633,19 +614,18 @@ You will be given a copy of this form to keep for your records.</string>
                             <constraint firstAttribute="trailing" secondItem="dPG-Ic-6ZT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eMo-hj-FA1"/>
                             <constraint firstAttribute="trailing" secondItem="8Hs-Yj-ugx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ebt-af-wPH"/>
                             <constraint firstAttribute="trailing" secondItem="Jup-Tw-Kp3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fos-kN-x0c"/>
-                            <constraint firstAttribute="trailing" secondItem="vNb-gt-8G5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="h24-y2-bW0"/>
                             <constraint firstItem="q1P-m4-lKQ" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iO1-FI-W3Q"/>
                             <constraint firstItem="17s-n9-Dvf" firstAttribute="trailing" secondItem="WXi-9I-RMs" secondAttribute="trailing" type="default" id="iah-Db-5gg"/>
                             <constraint firstItem="17s-n9-Dvf" firstAttribute="top" secondItem="546-TP-WBF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jip-ok-gbG"/>
                             <constraint firstItem="g1f-Xm-NgO" firstAttribute="baseline" secondItem="OBC-e7-aq7" secondAttribute="baseline" type="default" id="k1l-Wt-sdo"/>
                             <constraint firstItem="8Hs-Yj-ugx" firstAttribute="leading" secondItem="Jup-Tw-Kp3" secondAttribute="leading" type="default" id="lHd-ak-f5B"/>
+                            <constraint firstItem="tuL-9E-9Xs" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" type="default" id="nk4-Yo-axJ"/>
                             <constraint firstItem="Dy9-dU-7W8" firstAttribute="leading" secondItem="F8G-lN-yzo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pBh-wV-acr"/>
                             <constraint firstItem="s32-fq-fca" firstAttribute="top" secondItem="F8G-lN-yzo" secondAttribute="top" constant="20" type="user" id="rOp-8S-5qn"/>
                             <constraint firstItem="q1P-m4-lKQ" firstAttribute="trailing" secondItem="Igz-Xu-efp" secondAttribute="trailing" type="default" id="rj0-d5-ewI"/>
                             <constraint firstItem="mLM-GG-XqW" firstAttribute="centerX" secondItem="546-TP-WBF" secondAttribute="centerX" type="default" id="sMD-CB-pQj"/>
                             <constraint firstItem="Lvh-Hc-DDc" firstAttribute="top" secondItem="546-TP-WBF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tXR-ny-qnP"/>
                             <constraint firstItem="Dy9-dU-7W8" firstAttribute="centerY" secondItem="Jup-Tw-Kp3" secondAttribute="centerY" type="default" id="vnU-b6-bUs"/>
-                            <constraint firstItem="njq-7Y-x40" firstAttribute="centerX" secondItem="3uv-PQ-OUy" secondAttribute="centerX" type="default" id="vzH-4C-fGI"/>
                             <constraint firstItem="g1f-Xm-NgO" firstAttribute="centerY" secondItem="OBC-e7-aq7" secondAttribute="centerY" type="default" id="y3O-iK-ucs"/>
                             <constraint firstItem="546-TP-WBF" firstAttribute="top" secondItem="WXi-9I-RMs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yfc-dN-QGd"/>
                             <constraint firstItem="546-TP-WBF" firstAttribute="trailing" secondItem="WTa-Pr-kqk" secondAttribute="trailing" type="default" id="zTi-8X-Tgy"/>
@@ -732,6 +712,7 @@ You will be given a copy of this form to keep for your records.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
             <relationships>
                 <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lyricsTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="QBTTextViewController" superclassName="UIViewController">
@@ -749,7 +730,7 @@ You will be given a copy of this form to keep for your records.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sH7-10-Hxp"/>
+        <segue reference="ySn-8w-9am"/>
         <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>

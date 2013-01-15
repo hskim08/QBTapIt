@@ -58,6 +58,9 @@ static QBTUserData* sharedInstance = nil;
     [params appendFormat:@"&handedness=%d", self.handedness];
     [params appendFormat:@"&tone_deaf=%d", self.toneDeaf];
     [params appendFormat:@"&arrythmic=%d", self.arrythmic];
+    [params appendFormat:@"&listening_habits=%d", 3];
+    [params appendFormat:@"&instrument_training=%d", 3];
+    [params appendFormat:@"&theory_training=%d", 3];
     
     [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

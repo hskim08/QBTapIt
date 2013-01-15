@@ -9,6 +9,7 @@
 #import "QBTSessionData.h"
 
 #import "QBTServerSettings.h"
+#import "QBTTaskData.h"
 
 @interface QBTSessionData()<NSURLConnectionDelegate>
 
@@ -30,6 +31,14 @@ static QBTSessionData* sharedInstance = nil;
 
 #pragma mark - Public implementation
 
+@synthesize taskDataArray = _taskDataArray;
+- (NSMutableArray*)taskDataArray {
+    if (_taskDataArray == nil) {
+        _taskDataArray = [[NSMutableArray alloc] initWithCapacity:1];
+    }
+    return _taskDataArray;
+}
+
 - (void) initData
 {
     [self.taskDataArray removeAllObjects];
@@ -38,32 +47,34 @@ static QBTSessionData* sharedInstance = nil;
 - (void) sendToServer
 {
     // For each task
-    
-    // Create a request with related data
-    
-//    NSMutableURLRequest *request = [NSMutableURLRequest
-//									requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/record/taskInfo",
-//                                                                         [QBTServerSettings sharedInstance].serverIp]]
-//                                    cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-//                                    timeoutInterval:1000];
-//    
-//    [request setTimeoutInterval:1000];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    NSMutableString* params = [NSMutableString string];
-//    [params appendFormat:@"user_id=%@", self.userId];
-//    [params appendFormat:@"experimenter_id=%@", self.experimenterId];
-//    
-//    [params appendFormat:@"session_date=%@", self.userId];
-//    [params appendFormat:@"task_order=%ld", self.taskOrder];
-//    [params appendFormat:@"with_music=%d", self.withMusic];
-//    
-//    [params appendFormat:@"music_was_as_expected=%d", self.musicAsExpected];
-//    [params appendFormat:@"song_familiarity=%d", self.songFamiliarity];
-//    [params appendFormat:@"tapDataArray=%@", [self.tapOnDataArray objectAtIndex:0]];
-    
-//    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-//    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    for (QBTTaskData* taskData in self.taskDataArray) {
+        // Create a request with related data
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/record/taskInfo",
+                                                                                                 [QBTServerSettings sharedInstance].serverIp]]
+                                                               cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                           timeoutInterval:1000];
+
+        [request setTimeoutInterval:1000];
+        [request setHTTPMethod:@"POST"];
+
+        NSMutableString* params = [NSMutableString string];
+        [params appendFormat:@"user_id=%@", self.userId];
+        [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
+
+//        [params appendFormat:@"&session_date=%@", self.userId];
+//        [params appendFormat:@"&task_order=%ld", self.taskOrder];
+        [params appendFormat:@"&with_music=%d", taskData.withMusic];
+        
+        [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
+        [params appendFormat:@"&position_data=%@", taskData.tapYPositionData];
+        
+        [params appendFormat:@"&music_was_as_expected=%d", taskData.musicAsExpected];
+        [params appendFormat:@"&song_familiarity=%d", taskData.songFamiliarity];
+
+        [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+        self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    }
 }
 
 - (void) saveToDisk
