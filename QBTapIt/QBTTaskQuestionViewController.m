@@ -39,7 +39,7 @@
 
 - (IBAction) doneClicked:(UIButton*)sender
 {
-    [self.delegate handleAnswer:3];
+    [self.delegate handleFamiliarity:ceil(self.familiaritySlider.value*5)];
     
     [self dismissViewControllerAnimated:YES
                              completion:^(void){

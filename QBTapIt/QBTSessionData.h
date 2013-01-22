@@ -10,7 +10,7 @@
 
 //t.column :version_number,     :integer    	CHANGE TO STRING
 //t.column :user_id,            :integer    	STR
-//t.column :session_date,       :datetime       STR (ex: yyyyMMDD:HH:mm:SS)
+//t.column :session_id,         :datetime       STR (format: yyyy/MM/DD-HH:mm:ss)
 //t.column :task_order_number,  :integer
 //t.column :experimenter_id,	:integer     	STR
 //t.column :song_id,            :integer    	STR
@@ -25,6 +25,8 @@
 
 + (QBTSessionData *) sharedInstance;
 
+@property (readonly) NSString* version;
+@property NSString* sessionId;
 @property NSString* userId;
 @property NSString* experimenterId;
 

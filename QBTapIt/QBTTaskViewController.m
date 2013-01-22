@@ -10,6 +10,7 @@
 
 #import "CSVParser.h"
 
+#import "QBTUserData.h"
 #import "QBTSessionData.h"
 #import "QBTTaskData.h"
 
@@ -46,6 +47,7 @@
     self.taskNumber = 0;
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData initData];
+    sessionData.userId = [QBTUserData sharedInstance].userId;
     
     [self startTask];
 }
@@ -61,6 +63,8 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+    
+    self.tapLabel.textColor = [UIColor greenColor];
     
     NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"On: %f", tapOnTime);
@@ -79,13 +83,13 @@
         [self.tapYPosData appendFormat:@"%f, ", point.y];
         break;
     }
-    
-    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
+    
+    self.tapLabel.textColor = [UIColor blackColor];
     
     NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     NSLog(@"Off: %f", tapOffTime);
@@ -186,7 +190,8 @@
     self.taskNumber++;
     if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
         
-        // send session data to server
+        // send data to server
+        [[QBTUserData sharedInstance] sendToServer];
         [[QBTSessionData sharedInstance] sendToServer];
         
         [self performSegueWithIdentifier:@"TaskToDone" sender:self];
@@ -199,9 +204,10 @@
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
 
-- (void) handleAnswer:(UInt16)answer
+- (void) handleFamiliarity:(UInt16)answer
 {
     self.currentTask.songFamiliarity = answer;
+    
     self.currentTask.musicAsExpected = NO; // TODO: get answer from questionnaire
     
     [self saveTaskData];

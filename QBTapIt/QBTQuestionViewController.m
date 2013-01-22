@@ -33,7 +33,6 @@ enum PickerType {
 - (NSArray*) currentArray;
 - (UIButton*) currentButton;
 
-
 - (void)showPickerView:(BOOL)show;
 
 @end
@@ -93,8 +92,11 @@ enum PickerType {
     val = [ynArray indexOfObject:self.arrhythmicButton.titleLabel.text];
     userData.arrythmic = val > 1 ? -1 : val; // see user data format in QBTUserData.h
     
+    userData.instrumentTraining = ceil(self.instrumentSlider.value*5);
+    userData.theoryTraining = ceil(self.theorySlider.value*5);
+    
     // send to server
-    [userData sendToServer];
+//    [userData sendToServer];
     
     // open next page
     [self performSegueWithIdentifier:@"QuestionToStart"
@@ -190,7 +192,7 @@ enum PickerType {
 {
     genderArray = @[@"Male", @"Female"];
     handArray = @[@"Left", @"Right", @"Both"];
-    ynArray = @[@"Yes", @"No", @"N/A"];
+    ynArray = @[@"Yes", @"No", @"Don't know"];
     langArray = @[@"Acholi", @"Afrikaans", @"Akan", @"Albanian", @"Amharic", @"Arabic", @"Armenian", @"Assyrian", @"Azerbaijani", @"Azeri",
     @"Bajuni", @"Bambara", @"Basque", @"Behdini", @"Belorussian", @"Bengali", @"Berber", @"Bosnian", @"Bravanese", @"Bulgarian", @"Burmese",
     @"Cantonese", @"Catalan", @"Chaldean", @"Chaochow", @"Chamorro", @"Chavacano", @"Cherokee", @"Chuukese", @"Croatian", @"Czech",

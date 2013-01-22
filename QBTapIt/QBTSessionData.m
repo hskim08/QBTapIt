@@ -15,6 +15,8 @@
 
 @property(nonatomic,strong) NSURLConnection* connection;
 
+- (NSString*) createSessionId;
+
 @end
 
 @implementation QBTSessionData
@@ -31,6 +33,12 @@ static QBTSessionData* sharedInstance = nil;
 
 #pragma mark - Public implementation
 
+@synthesize version = _version;
+-(NSString*) version
+{
+    return @"1.0.0"; // update version when necessary
+}
+
 @synthesize taskDataArray = _taskDataArray;
 - (NSMutableArray*)taskDataArray {
     if (_taskDataArray == nil) {
@@ -41,7 +49,12 @@ static QBTSessionData* sharedInstance = nil;
 
 - (void) initData
 {
+    self.sessionId = [self createSessionId];
+    NSLog(@"Session ID: %@", self.sessionId);
+    
     [self.taskDataArray removeAllObjects];
+
+    // TODO: do further initialization for other properties
 }
 
 - (void) sendToServer
@@ -60,10 +73,12 @@ static QBTSessionData* sharedInstance = nil;
 
         NSMutableString* params = [NSMutableString string];
         [params appendFormat:@"user_id=%@", self.userId];
+        [params appendFormat:@"&version_number=%@", self.version];
+        [params appendFormat:@"&session_id=%@", self.sessionId];
         [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
 
-//        [params appendFormat:@"&session_date=%@", self.userId];
 //        [params appendFormat:@"&task_order=%ld", self.taskOrder];
+        [params appendFormat:@"&song_id=%@", taskData.songId];
         [params appendFormat:@"&with_music=%d", taskData.withMusic];
         
         [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
@@ -90,6 +105,16 @@ static QBTSessionData* sharedInstance = nil;
 }
 
 #pragma mark - Private implementation
+
+- (NSString*) createSessionId
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyyMMdd-HH:mm:ss"];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    
+    return dateString;
+}
 
 @end
 

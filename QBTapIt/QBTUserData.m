@@ -32,6 +32,9 @@ static QBTUserData* sharedInstance = nil;
 
 - (void) initData
 {
+    self.userId = [QBTServerSettings createUUID];
+    NSLog(@"User ID: %@", self.userId);
+    
     self.age = 0;
     self.gender = nil;
     self.nativeLanguage = nil;
@@ -52,15 +55,16 @@ static QBTUserData* sharedInstance = nil;
     [request setHTTPMethod:@"POST"];
     
     NSMutableString* params = [NSMutableString string];
-    [params appendFormat:@"age=%d", self.age];
+    [params appendFormat:@"user_id=%@", self.userId];
+    [params appendFormat:@"&age=%d", self.age];
     [params appendFormat:@"&gender=%@", self.gender];
     [params appendFormat:@"&native_language=%@", self.nativeLanguage];
     [params appendFormat:@"&handedness=%d", self.handedness];
     [params appendFormat:@"&tone_deaf=%d", self.toneDeaf];
     [params appendFormat:@"&arrythmic=%d", self.arrythmic];
-    [params appendFormat:@"&listening_habits=%d", 3];
-    [params appendFormat:@"&instrument_training=%d", 3];
-    [params appendFormat:@"&theory_training=%d", 3];
+    [params appendFormat:@"&listening_habits=%d", 0];
+    [params appendFormat:@"&instrument_training=%d", self.instrumentTraining];
+    [params appendFormat:@"&theory_training=%d", self.theoryTraining];
     
     [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

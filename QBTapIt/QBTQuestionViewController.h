@@ -19,8 +19,8 @@
 @property UIButton* IBOutlet toneButton;
 @property UIButton* IBOutlet arrhythmicButton;
 
-@property UISlider* IBOutlet instSlider;
-@property UISlider* IBOutlet Slider;
+@property UISlider* IBOutlet instrumentSlider;
+@property UISlider* IBOutlet theorySlider;
 
 @property UIPickerView* IBOutlet pickerView;
 

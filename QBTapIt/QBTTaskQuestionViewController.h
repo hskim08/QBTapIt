@@ -10,13 +10,15 @@
 
 @protocol QBTTaskQuestionViewControllerDelegate <NSObject>
 
-- (void) handleAnswer:(UInt16)answer;
+- (void) handleFamiliarity:(UInt16)answer;
 
 @end
 
 @interface QBTTaskQuestionViewController : UIViewController
 
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
+
+@property UISlider* IBOutlet familiaritySlider;
 
 - (IBAction) doneClicked:(UIButton*)sender;
 

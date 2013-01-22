@@ -14,4 +14,6 @@
 
 @property (readonly) NSString* serverIp;
 
++ (NSString *)createUUID;
+
 @end
