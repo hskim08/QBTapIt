@@ -22,6 +22,7 @@
 @property UISlider* IBOutlet instrumentSlider;
 @property UISlider* IBOutlet theorySlider;
 
+@property UIView* IBOutlet pickerHolder;
 @property UIPickerView* IBOutlet pickerView;
 
 - (IBAction) continuePushed:(UIButton*)sender;
@@ -31,6 +32,8 @@
 - (IBAction) handPushed:(UIButton*)sender;
 - (IBAction) tonePushed:(UIButton*)sender;
 - (IBAction) arrhythmicPushed:(UIButton*)sender;
+
+- (IBAction) pickerDonePushed:(UIButton*)sender;
 
 
 @end

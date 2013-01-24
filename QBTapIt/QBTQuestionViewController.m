@@ -20,7 +20,7 @@ enum PickerType {
 
 @interface QBTQuestionViewController () <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    // Move these arrays into their own class
+    // Move these arrays into QBTUserData
     NSArray* genderArray;
     NSArray* handArray;
     NSArray* ynArray;
@@ -29,11 +29,13 @@ enum PickerType {
 
 @property int pickerType;
 
+- (void)showPickerView:(BOOL)show;
+
 - (void) initArrays;
 - (NSArray*) currentArray;
 - (UIButton*) currentButton;
 
-- (void)showPickerView:(BOOL)show;
+
 
 @end
 
@@ -60,10 +62,10 @@ enum PickerType {
     self.pickerType = PT_GENDER;
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
-//    self.pickerView.hidden = YES;
-    CGRect frame = self.pickerView.frame;
+
+    CGRect frame = self.pickerHolder.frame;
     frame.origin.y = self.view.frame.size.height;
-    self.pickerView.frame = frame;
+    self.pickerHolder.frame = frame;
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,9 +96,6 @@ enum PickerType {
     
     userData.instrumentTraining = ceil(self.instrumentSlider.value*5);
     userData.theoryTraining = ceil(self.theorySlider.value*5);
-    
-    // send to server
-//    [userData sendToServer];
     
     // open next page
     [self performSegueWithIdentifier:@"QuestionToStart"
@@ -146,6 +145,11 @@ enum PickerType {
     
     // show picker
     [self showPickerView:YES];
+}
+
+- (IBAction) pickerDonePushed:(UIButton*)sender
+{
+    [self showPickerView:NO];
 }
 
 
@@ -237,7 +241,7 @@ enum PickerType {
 
 - (void)showPickerView:(BOOL)show
 {
-    if (show) {
+    if (show) { // show
         
         [self.pickerView reloadAllComponents];
         [self.pickerView selectRow:[[self currentArray] indexOfObject:[self currentButton].titleLabel.text]
@@ -246,17 +250,18 @@ enum PickerType {
         
         [UIView animateWithDuration:.33
                          animations:^{
-                             CGRect frame = self.pickerView.frame;
+                             CGRect frame = self.pickerHolder.frame;
                              frame.origin.y = self.view.frame.size.height-frame.size.height;
-                             self.pickerView.frame = frame;
+                             self.pickerHolder.frame = frame;
                          }];
     }
     else {
+        
         [UIView animateWithDuration:.33
                          animations:^{
-                             CGRect frame = self.pickerView.frame;
+                             CGRect frame = self.pickerHolder.frame;
                              frame.origin.y = self.view.frame.size.height;
-                             self.pickerView.frame = frame;
+                             self.pickerHolder.frame = frame;
                          }
          ];
     }
