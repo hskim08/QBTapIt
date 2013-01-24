@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */; };
+		50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */; };
 		AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */; };
 		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
 		AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F916AF35AC00F9D64A /* icon57.png */; };
-		AA81605A16B11AD3005AE6F5 /* 04.wav in Resources */ = {isa = PBXBuildFile; fileRef = AA81605916B11AD3005AE6F5 /* 04.wav */; };
 		AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */; };
 		AAA8B440169CE76B00C30C09 /* QBTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */; };
 		AAA8B443169CE95E00C30C09 /* QBTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B442169CE95E00C30C09 /* QBTUserData.m */; };
@@ -38,12 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50EBEDBA16B1C987005516C4 /* QBTAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioPlayer.h; sourceTree = "<group>"; };
+		50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioPlayer.m; sourceTree = "<group>"; };
+		50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lyrics_short.csv; sourceTree = "<group>"; };
 		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
 		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
 		AA7324F616AF35A500F9D64A /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		AA7324F916AF35AC00F9D64A /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
-		AA81605916B11AD3005AE6F5 /* 04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 04.wav; sourceTree = "<group>"; };
 		AA9C4C88169F83D900CD76A0 /* QBTSessionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSessionData.h; sourceTree = "<group>"; };
 		AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSessionData.m; sourceTree = "<group>"; };
 		AAA8B43E169CE76B00C30C09 /* QBTServerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTServerSettings.h; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */,
 				AADDFB1A16448D68004955C1 /* UIKit.framework in Frameworks */,
 				AADDFB1C16448D68004955C1 /* Foundation.framework in Frameworks */,
 				AADDFB1E16448D68004955C1 /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50EBEDCD16B1D2A1005516C4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				50EBEDBA16B1C987005516C4 /* QBTAudioPlayer.h */,
+				50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		AA4B2FD9169B8B3E00030E29 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +171,7 @@
 		AADDFB1816448D68004955C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */,
 				AADDFB1916448D68004955C1 /* UIKit.framework */,
 				AADDFB1B16448D68004955C1 /* Foundation.framework */,
 				AADDFB1D16448D68004955C1 /* CoreGraphics.framework */,
@@ -168,6 +182,7 @@
 		AADDFB1F16448D68004955C1 /* QBTapIt */ = {
 			isa = PBXGroup;
 			children = (
+				50EBEDCD16B1D2A1005516C4 /* Audio */,
 				AAA8B43C169CE71100C30C09 /* Data */,
 				AAA8B444169CEAF000C30C09 /* UserInfo */,
 				AADDFB4716449652004955C1 /* Task */,
@@ -198,7 +213,6 @@
 		AADDFB3C16448D90004955C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA81605916B11AD3005AE6F5 /* 04.wav */,
 				AA7324F916AF35AC00F9D64A /* icon57.png */,
 				AA7324F616AF35A500F9D64A /* icon114.png */,
 				AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */,
@@ -293,7 +307,6 @@
 				AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */,
 				AA7324F716AF35A500F9D64A /* icon114.png in Resources */,
 				AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */,
-				AA81605A16B11AD3005AE6F5 /* 04.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +333,7 @@
 				AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */,
 				AAE86FF316A4D7E400B819DB /* QBTTaskData.m in Sources */,
 				AAE86FF716A4DC0D00B819DB /* QBTTaskQuestionViewController.m in Sources */,
+				50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

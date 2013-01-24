@@ -10,20 +10,22 @@
 
 @interface QBTQuestionViewController : UIViewController
 
-@property UITextField* IBOutlet ageText;
-@property UIButton* IBOutlet genderButton;
+@property IBOutlet UIScrollView* scrollView;
 
-@property UIButton* IBOutlet languageButton;
+@property IBOutlet UITextField* ageText;
+@property IBOutlet UIButton* genderButton;
 
-@property UIButton* IBOutlet handedButton;
-@property UIButton* IBOutlet toneButton;
-@property UIButton* IBOutlet arrhythmicButton;
+@property IBOutlet UIButton* languageButton;
 
-@property UISlider* IBOutlet instrumentSlider;
-@property UISlider* IBOutlet theorySlider;
+@property IBOutlet UIButton* handedButton;
+@property IBOutlet UIButton* toneButton;
+@property IBOutlet UIButton* arrhythmicButton;
 
-@property UIView* IBOutlet pickerHolder;
-@property UIPickerView* IBOutlet pickerView;
+@property IBOutlet UISlider* instrumentSlider;
+@property IBOutlet UISlider* theorySlider;
+
+@property IBOutlet UIView* pickerHolder;
+@property IBOutlet UIPickerView* pickerView;
 
 - (IBAction) continuePushed:(UIButton*)sender;
 

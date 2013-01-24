@@ -19,23 +19,18 @@ enum PickerType {
 };
 
 @interface QBTQuestionViewController () <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
-{
-    // Move these arrays into QBTUserData
-    NSArray* genderArray;
-    NSArray* handArray;
-    NSArray* ynArray;
-    NSArray* langArray;
-}
+
+@property (nonatomic) NSArray* genderArray;
+@property (nonatomic) NSArray* handArray;
+@property (nonatomic) NSArray* ynArray;
+@property (nonatomic) NSArray* langArray;
 
 @property int pickerType;
 
 - (void)showPickerView:(BOOL)show;
 
-- (void) initArrays;
 - (NSArray*) currentArray;
 - (UIButton*) currentButton;
-
-
 
 @end
 
@@ -55,7 +50,7 @@ enum PickerType {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self initArrays];
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 470);
     
     self.ageText.delegate = self;
     
@@ -64,7 +59,7 @@ enum PickerType {
     self.pickerView.dataSource = self;
 
     CGRect frame = self.pickerHolder.frame;
-    frame.origin.y = self.view.frame.size.height;
+    frame.origin.y = self.view.frame.size.height+40;
     self.pickerHolder.frame = frame;
 }
 
@@ -87,11 +82,11 @@ enum PickerType {
     userData.nativeLanguage = self.languageButton.titleLabel.text;
     
     SInt8 val;
-    val = [handArray indexOfObject:self.handedButton.titleLabel.text];
+    val = [self.handArray indexOfObject:self.handedButton.titleLabel.text];
     userData.handedness = val > 1 ? -1 : val; // see user data format in QBTUserData.h
-    val = [ynArray indexOfObject:self.toneButton.titleLabel.text];
+    val = [self.ynArray indexOfObject:self.toneButton.titleLabel.text];
     userData.toneDeaf = val > 1 ? -1 : val; // see user data format in QBTUserData.h
-    val = [ynArray indexOfObject:self.arrhythmicButton.titleLabel.text];
+    val = [self.ynArray indexOfObject:self.arrhythmicButton.titleLabel.text];
     userData.arrythmic = val > 1 ? -1 : val; // see user data format in QBTUserData.h
     
     userData.instrumentTraining = ceil(self.instrumentSlider.value*5);
@@ -190,43 +185,50 @@ enum PickerType {
     [self showPickerView:NO];
 }
 
-#pragma mark - Private Selectors
+#pragma mark - Private Implementation
 
-- (void) initArrays
+@synthesize genderArray = _genderArray;
+- (NSArray*) genderArray
 {
-    genderArray = @[@"Male", @"Female"];
-    handArray = @[@"Left", @"Right", @"Both"];
-    ynArray = @[@"Yes", @"No", @"Don't know"];
-    langArray = @[@"Acholi", @"Afrikaans", @"Akan", @"Albanian", @"Amharic", @"Arabic", @"Armenian", @"Assyrian", @"Azerbaijani", @"Azeri",
-    @"Bajuni", @"Bambara", @"Basque", @"Behdini", @"Belorussian", @"Bengali", @"Berber", @"Bosnian", @"Bravanese", @"Bulgarian", @"Burmese",
-    @"Cantonese", @"Catalan", @"Chaldean", @"Chaochow", @"Chamorro", @"Chavacano", @"Cherokee", @"Chuukese", @"Croatian", @"Czech",
-    @"Dakota", @"Danish", @"Dari", @"Dinka", @"Diula", @"Dutch",
-    @"English", @"Ewe",
-    @"Farsi", @"Fijian ", @"Hindi", @"Finnish", @"Flemish", @"French", @"Fukienese", @"Fula", @"Fulani", @"Fuzhou",
-    @"Gaddang", @"Georgian", @"German", @"Gorani", @"Greek", @"Gujarati",
-    @"Haitian Creole", @"Hakka", @"Hausa", @"Hebrew", @"Hindi", @"Hmong", @"Hunanese", @"Hungarian",
-    @"Ibanag", @"Ibo/Igbo", @"Icelandic", @"Ilocano", @"Indonesian", @"Italian",
-    @"Jakartanese", @"Japanese", @"Javanese",
-    @"Karen", @"Kashmiri", @"Kazakh", @"Khmer (Cambodian)", @"Kinyarwanda", @"Kirghiz", @"Kirundi", @"Korean", @"Kosovan", @"Krio", @"Kurdish", @"Kurmanji",
-    @"Lakota", @"Laotian", @"Latvian", @"Lingala", @"Lithuanian", @"Luganda", @"Luxembourgeois",
-    @"Maay", @"Macedonian", @"Malagasy", @"Malay", @"Malayalam", @"Maltese", @"Mandarin", @"Mandingo", @"Mandinka", @"Maninka", @"Mankon", @"Marathi", @"Marshallese", @"Mien", @"Mina", @"Mirpuri", @"Mixteco", @"Moldavan", @"Mongolian", @"Montenegrin",
-    @"Navajo", @"Neapolitan", @"Nepali", @"Norwegian", @"Nuer",
-    @"Oromo",
-    @"Pahari", @"Pampangan", @"Pamgasinan", @"Pashto", @"Patois", @"Polish", @"Portuguese", @"Portuguese", @"Punjabi",
-    @"Romanian", @"Russian", @"Samoan", @"Serbian", @"Shanghainese", @"Shona", @"Sicilian", @"Sinhalese", @"Sindhi", @"Slovak", @"Slovenian", @"Somali", @"Sorani", @"Spanish", @"Swahili", @"Swedish", @"Sylhetti",
-    @"Tagalog", @"Taiwanese", @"Tajik", @"Tamil", @"Telugu", @"Thai", @"Tibetan", @"Tigre", @"Tigrinya", @"Toishanese", @"Tongan", @"Tshiluba", @"Turkish", @"Twi",
-    @"Ukrainian", @"Urdu", @"Uzbek",
-    @"Vietnamese", @"Visayan",
-    @"Welsh", @"Wolof",
-    @"Yiddish", @"Yoruba", @"Yupik"];
+    if (!_genderArray) {
+        _genderArray = @[@"Male", @"Female"];
+    }
+    return _genderArray;
+}
+
+@synthesize handArray = _handArray;
+- (NSArray*) handArray
+{
+    if (!_handArray) {
+        _handArray = @[@"Left", @"Right", @"Both"];
+    }
+    return _handArray;
+}
+
+@synthesize ynArray = _ynArray;
+- (NSArray*) ynArray
+{
+    if (!_ynArray) {
+        _ynArray = @[@"Yes", @"No", @"Don't know"];
+    }
+    return _ynArray;
+}
+
+@synthesize langArray = _langArray;
+- (NSArray*) langArray
+{
+    if (!_langArray) {
+        _langArray = @[@"Acholi", @"Afrikaans", @"Akan", @"Albanian", @"Amharic", @"Arabic", @"Armenian", @"Assyrian", @"Azerbaijani", @"Azeri", @"Bajuni", @"Bambara", @"Basque", @"Behdini", @"Belorussian", @"Bengali", @"Berber", @"Bosnian", @"Bravanese", @"Bulgarian", @"Burmese", @"Cantonese", @"Catalan", @"Chaldean", @"Chaochow", @"Chamorro", @"Chavacano", @"Cherokee", @"Chuukese", @"Croatian", @"Czech", @"Dakota", @"Danish", @"Dari", @"Dinka", @"Diula", @"Dutch", @"English", @"Ewe", @"Farsi", @"Fijian ", @"Hindi", @"Finnish", @"Flemish", @"French", @"Fukienese", @"Fula", @"Fulani", @"Fuzhou", @"Gaddang", @"Georgian", @"German", @"Gorani", @"Greek", @"Gujarati", @"Haitian Creole", @"Hakka", @"Hausa", @"Hebrew", @"Hindi", @"Hmong", @"Hunanese", @"Hungarian", @"Ibanag", @"Ibo/Igbo", @"Icelandic", @"Ilocano", @"Indonesian", @"Italian", @"Jakartanese", @"Japanese", @"Javanese", @"Karen", @"Kashmiri", @"Kazakh", @"Khmer (Cambodian)", @"Kinyarwanda", @"Kirghiz", @"Kirundi", @"Korean", @"Kosovan", @"Krio", @"Kurdish", @"Kurmanji", @"Lakota", @"Laotian", @"Latvian", @"Lingala", @"Lithuanian", @"Luganda", @"Luxembourgeois", @"Maay", @"Macedonian", @"Malagasy", @"Malay", @"Malayalam", @"Maltese", @"Mandarin", @"Mandingo", @"Mandinka", @"Maninka", @"Mankon", @"Marathi", @"Marshallese", @"Mien", @"Mina", @"Mirpuri", @"Mixteco", @"Moldavan", @"Mongolian", @"Montenegrin", @"Navajo", @"Neapolitan", @"Nepali", @"Norwegian", @"Nuer", @"Oromo", @"Pahari", @"Pampangan", @"Pamgasinan", @"Pashto", @"Patois", @"Polish", @"Portuguese", @"Portuguese", @"Punjabi", @"Romanian", @"Russian", @"Samoan", @"Serbian", @"Shanghainese", @"Shona", @"Sicilian", @"Sinhalese", @"Sindhi", @"Slovak", @"Slovenian", @"Somali", @"Sorani", @"Spanish", @"Swahili", @"Swedish", @"Sylhetti", @"Tagalog", @"Taiwanese", @"Tajik", @"Tamil", @"Telugu", @"Thai", @"Tibetan", @"Tigre", @"Tigrinya", @"Toishanese", @"Tongan", @"Tshiluba", @"Turkish", @"Twi", @"Ukrainian", @"Urdu", @"Uzbek", @"Vietnamese", @"Visayan", @"Welsh", @"Wolof", @"Yiddish", @"Yoruba", @"Yupik"];
+    }
+    return _langArray;
 }
 
 - (NSArray*) currentArray
 {
-    if(self.pickerType == PT_GENDER) return genderArray;
-    else if(self.pickerType == PT_HANDEDNESS) return handArray;
-    else if(self.pickerType == PT_LANGUAGE) return langArray;
-    else return ynArray;
+    if(self.pickerType == PT_GENDER) return self.genderArray;
+    else if(self.pickerType == PT_HANDEDNESS) return self.handArray;
+    else if(self.pickerType == PT_LANGUAGE) return self.langArray;
+    else return self.ynArray;
 }
 
 - (UIButton*) currentButton

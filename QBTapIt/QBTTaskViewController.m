@@ -16,11 +16,15 @@
 
 #import "QBTTaskQuestionViewController.h"
 
+#import "QBTAudioPlayer.h"
+
 @interface QBTTaskViewController () <QBTTaskQuestionViewControllerDelegate>
 
 @property NSInteger taskNumber;
 @property NSTimeInterval startTime;
+@property BOOL withMusic;
 
+// Data Arrays
 @property NSMutableString* tapOnData;
 @property NSMutableString* tapOffData;
 @property NSMutableString* tapXPosData;
@@ -45,6 +49,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     self.taskNumber = 0;
+    self.withMusic = NO;
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData initData];
     sessionData.userId = [QBTUserData sharedInstance].userId;
@@ -114,6 +119,17 @@
     [self performSegueWithIdentifier:@"TaskToTaskQuestion" sender:self];
 }
 
+//- (IBAction) testButton:(UIButton*)sender
+//{
+//    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"04"
+//                                                              ofType:@"wav"];
+//    
+//	// Converts the sound's file path to an NSURL object
+//	NSURL *soundFileUrl = [[NSURL alloc] initFileURLWithPath:soundFilePath];
+//    
+//    [[QBTAudioPlayer sharedInstance] playAudioWithUrl:soundFileUrl];
+//}
+
 #pragma mark - Private Implementation
 
 @synthesize csvParser = _csvParser;
@@ -130,7 +146,7 @@
         
         if (csvString == nil) return _csvParser; // handle error
         
-        NSArray* keyArray = @[@"Song Title", @"Artist", @"Year", @"Lyrics"];
+        NSArray* keyArray = @[@"Song Title", @"Artist", @"Year", @"Filename", @"Lyrics"];
         
         _csvParser = [[CSVParser alloc] initWithString:csvString
                                              separator:@","

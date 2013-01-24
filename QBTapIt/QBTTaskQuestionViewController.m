@@ -10,6 +10,8 @@
 
 @interface QBTTaskQuestionViewController ()
 
+@property (nonatomic)  NSArray* withMusicArray;
+
 @end
 
 @implementation QBTTaskQuestionViewController
@@ -45,5 +47,28 @@
                              completion:^(void){
                              }];
 }
+
+#pragma mark - Private Implementation
+
+@synthesize withMusicArray = _withMusicArray;
+- (NSArray*) withMusicArray
+{
+    if (!_withMusicArray) {
+        _withMusicArray = @[@"Yes - it helped me remember more details of the song",
+        @"Yes - I thought the lyrics were from a different song, but now I know which song it is",
+        @"Yes - I had no idea of the song from just the lyrics, but listening made me recognize it",
+        @"No - I already knew the song really well",
+        @"No - this song is totally unfamiliar, so hearing it once didn’t help"];
+    }
+    return _withMusicArray;
+}
+
+/*
+ Yes - it helped me remember more details of the song
+ Yes - I thought the lyrics were from a different song, but now I know which song it is
+ Yes - I had no idea of the song from just the lyrics, but listening made me recognize it
+ No - I already knew the song really well
+ No - this song is totally unfamiliar, so hearing it once didn’t help
+*/
 
 @end
