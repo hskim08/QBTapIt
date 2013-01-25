@@ -244,9 +244,12 @@ enum PickerType {
 - (void)showPickerView:(BOOL)show
 {
     if (show) { // show
+        NSUInteger idx = [[self currentArray] indexOfObject:[self currentButton].titleLabel.text];
+        if (idx == NSNotFound)
+            idx = 0;
         
         [self.pickerView reloadAllComponents];
-        [self.pickerView selectRow:[[self currentArray] indexOfObject:[self currentButton].titleLabel.text]
+        [self.pickerView selectRow:idx
                        inComponent:0
                           animated:NO];
         

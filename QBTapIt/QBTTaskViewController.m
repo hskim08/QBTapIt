@@ -203,19 +203,31 @@
 
 - (void) prepareNextTask
 {
-    self.taskNumber++;
-    if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
+//    if (self.withMusic) { // after music
+        self.taskNumber++; // increment task number
+    
+        if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
+            
+            // send data to server
+            [[QBTUserData sharedInstance] sendToServer];
+            [[QBTSessionData sharedInstance] sendToServer];
+            
+            [self performSegueWithIdentifier:@"TaskToDone" sender:self];
+        }
+        else { // prepare next task
+            
+            [self startTask];
+        }
         
-        // send data to server
-        [[QBTUserData sharedInstance] sendToServer];
-        [[QBTSessionData sharedInstance] sendToServer];
-        
-        [self performSegueWithIdentifier:@"TaskToDone" sender:self];
-    }
-    else { // prepare next task
-        
-        [self startTask];
-    }
+//    }
+//    else { // before music
+//        // play music
+//        
+//        // start task
+//    }
+
+    // toggle
+//    self.withMusic = !self.withMusic;
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
@@ -227,7 +239,10 @@
     self.currentTask.musicAsExpected = NO; // TODO: get answer from questionnaire
     
     [self saveTaskData];
+}
 
+- (void) didFinishQuestionnaire
+{
     // prepare next task
     [self prepareNextTask];
 }

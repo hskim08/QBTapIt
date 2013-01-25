@@ -194,7 +194,7 @@ Thank you again for your participation.</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="How familiar was the song presented?" id="fNK-Ab-UT9">
-                                        <rect key="frame" x="1" y="0.0" width="280" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -221,54 +221,105 @@ Thank you again for your participation.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
-                                <rect key="frame" x="19" y="145" width="211" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
+                                <rect key="frame" x="19" y="132" width="281" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s3i-uG-GeC">
-                                <rect key="frame" x="20" y="174" width="280" height="44"/>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="a. Yes - it helped me remember more details of the song" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTV-ce-cFs">
+                                <rect key="frame" x="20" y="185" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Click to choose answer">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" id="hPu-Je-MWL">
-                                <rect key="frame" x="-1" y="288" width="321" height="260"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" id="DBE-2f-2X2">
-                                        <rect key="frame" x="0.0" y="44" width="321" height="216"/>
-                                    </pickerView>
-                                    <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="Vv9-7x-CBV">
-                                        <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
-                                        <items>
-                                            <navigationItem id="Ja3-K3-TLz">
-                                                <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="2LZ-XQ-9hY">
-                                                    <connections>
-                                                        <action selector="pickerDonePushed:" destination="Qbx-kl-b06" id="Cqj-5A-K00"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="QOY-Qp-mQ9" appends="YES" id="3ff-2x-Zwz"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="d. No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
+                                <rect key="frame" x="19" y="336" width="280" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mbb-bn-YsH" appends="YES" id="Zsp-gm-G44"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="e. No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
+                                <rect key="frame" x="19" y="366" width="280" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="U43-zT-M8m" appends="YES" id="5a3-uU-7tn"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="b. Yes - I thought the lyrics were from a different song, but now I know which song it is" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="spb-YY-3Zd">
+                                <rect key="frame" x="19" y="231" width="280" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="c8d-vI-ORd" appends="YES" id="YYc-IM-F90"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="c. Yes - I had no idea of the song from just the lyrics, but listening made me recognize it" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1R-JD-X8W">
+                                <rect key="frame" x="19" y="291" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="N4N-fK-80w" appends="YES" id="WNa-v0-U7j"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="answer1" destination="zTV-ce-cFs" id="3vh-eK-uMZ"/>
+                        <outlet property="answer2" destination="spb-YY-3Zd" id="5c9-8K-w5F"/>
+                        <outlet property="answer3" destination="a1R-JD-X8W" id="CUu-p1-adb"/>
+                        <outlet property="answer4" destination="6WQ-Bz-4el" id="X50-La-XWm"/>
+                        <outlet property="answer5" destination="mxI-Hh-vca" id="VgO-R8-eWW"/>
                         <outlet property="familiaritySlider" destination="b8S-ue-Pjg" id="q5L-Zv-0l1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0U-Tn-9HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QOY-Qp-mQ9">
+                    <connections>
+                        <action selector="labelTapped:" destination="eVE-9p-DZy" id="RJb-Qx-9xe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="c8d-vI-ORd">
+                    <connections>
+                        <action selector="labelTapped:" destination="eVE-9p-DZy" id="gle-ks-aIq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="N4N-fK-80w">
+                    <connections>
+                        <action selector="labelTapped:" destination="eVE-9p-DZy" id="HZt-CH-CjE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="mbb-bn-YsH">
+                    <connections>
+                        <action selector="labelTapped:" destination="eVE-9p-DZy" id="yHr-uD-KAE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="U43-zT-M8m">
+                    <connections>
+                        <action selector="labelTapped:" destination="eVE-9p-DZy" id="F7w-8n-bDj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1408" y="-596"/>
         </scene>
@@ -630,7 +681,8 @@ You will be given a copy of this form to keep for your records.</string>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="onO-Ka-REl">
-                                <rect key="frame" x="0.0" y="650" width="321" height="260"/>
+                                <rect key="frame" x="0.0" y="550" width="321" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="3uv-PQ-OUy">
                                         <rect key="frame" x="0.0" y="44" width="321" height="216"/>
@@ -736,6 +788,13 @@ You will be given a copy of this form to keep for your records.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskQuestionViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="labelTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="answer1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
             </relationships>
         </class>
         <class className="QBTTaskTextViewController" superclassName="UIViewController">

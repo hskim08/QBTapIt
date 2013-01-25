@@ -12,14 +12,24 @@
 
 - (void) handleFamiliarity:(UInt16)answer;
 
+- (void) didFinishQuestionnaire;
+
 @end
+
 
 @interface QBTTaskQuestionViewController : UIViewController
 
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
 
-@property UISlider* IBOutlet familiaritySlider;
+@property IBOutlet UISlider* familiaritySlider;
+
+@property IBOutlet UILabel* answer1;
+@property IBOutlet UILabel* answer2;
+@property IBOutlet UILabel* answer3;
+@property IBOutlet UILabel* answer4;
+@property IBOutlet UILabel* answer5;
 
 - (IBAction) doneClicked:(UIButton*)sender;
+- (IBAction) labelTapped:(UITapGestureRecognizer*)sender;
 
 @end
