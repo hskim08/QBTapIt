@@ -8,6 +8,8 @@
 
 #import "QBTTaskAudioViewController.h"
 
+#import "QBTAudioPlayer.h"
+
 @interface QBTTaskAudioViewController ()
 
 @end
@@ -24,6 +26,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - IBAction Selectors
+
+- (IBAction) continueClicked:(UIButton*)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                             }];
 }
 
 @end

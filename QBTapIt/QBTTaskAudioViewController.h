@@ -10,4 +10,6 @@
 
 @interface QBTTaskAudioViewController : UIViewController
 
+- (IBAction) continueClicked:(UIButton*)sender;
+
 @end

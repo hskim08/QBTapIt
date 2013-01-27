@@ -45,10 +45,10 @@
 {
     [self.delegate handleFamiliarity:ceil(self.familiaritySlider.value*5)];
     
-    [self.delegate didFinishQuestionnaire];
-    
     [self dismissViewControllerAnimated:YES
                              completion:^(void){
+                                 
+                                 [self.delegate didFinishQuestionnaire];
                              }];
 }
 

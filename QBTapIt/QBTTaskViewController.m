@@ -203,8 +203,11 @@
 
 - (void) prepareNextTask
 {
-//    if (self.withMusic) { // after music
+    if (self.withMusic) { // after music
         self.taskNumber++; // increment task number
+
+        // toggle
+        self.withMusic = !self.withMusic;
     
         if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
             
@@ -219,15 +222,21 @@
             [self startTask];
         }
         
-//    }
-//    else { // before music
-//        // play music
-//        
-//        // start task
-//    }
+    }
+    else { // after just tapping
+        
+        // toggle
+        self.withMusic = !self.withMusic;
+        
+        // load audio
+        
+        // play music
+        [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
+        
+        // start task on returning from audio playback
+    }
 
-    // toggle
-//    self.withMusic = !self.withMusic;
+    
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
