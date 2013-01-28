@@ -15,10 +15,11 @@
 #import "QBTTaskData.h"
 
 #import "QBTTaskQuestionViewController.h"
+#import "QBTTaskAudioViewController.h"
 
 #import "QBTAudioPlayer.h"
 
-@interface QBTTaskViewController () <QBTTaskQuestionViewControllerDelegate>
+@interface QBTTaskViewController () <QBTTaskQuestionViewControllerDelegate, QBTTaskAudioViewControllerDelegate>
 
 @property NSInteger taskNumber;
 @property NSTimeInterval startTime;
@@ -36,7 +37,6 @@
 
 - (void) startTask;
 - (void) saveTaskData;
-- (void) prepareNextTask;
 
 @end
 
@@ -108,6 +108,10 @@
     if([segue.identifier isEqualToString:@"TaskToTaskQuestion"]){
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
+    }
+    else if([segue.identifier isEqualToString:@"TaskToAudio"]){
+        QBTTaskAudioViewController* audioVC = [segue destinationViewController];
+        audioVC.delegate = self;
     }
 }
 
@@ -201,44 +205,6 @@
     [sessionData.taskDataArray addObject:self.currentTask];
 }
 
-- (void) prepareNextTask
-{
-    if (self.withMusic) { // after music
-        self.taskNumber++; // increment task number
-
-        // toggle
-        self.withMusic = !self.withMusic;
-    
-        if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
-            
-            // send data to server
-            [[QBTUserData sharedInstance] sendToServer];
-            [[QBTSessionData sharedInstance] sendToServer];
-            
-            [self performSegueWithIdentifier:@"TaskToDone" sender:self];
-        }
-        else { // prepare next task
-            
-            [self startTask];
-        }
-        
-    }
-    else { // after just tapping
-        
-        // toggle
-        self.withMusic = !self.withMusic;
-        
-        // load audio
-        
-        // play music
-        [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
-        
-        // start task on returning from audio playback
-    }
-
-    
-}
-
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
 
 - (void) handleFamiliarity:(UInt16)answer
@@ -250,10 +216,47 @@
     [self saveTaskData];
 }
 
-- (void) didFinishQuestionnaire
+- (void) willCloseQuestionnaire
+{
+    if(self.withMusic) {
+        
+        self.taskNumber++; // increment task number
+        
+        if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
+            
+            // send data to server
+            [[QBTUserData sharedInstance] sendToServer];
+            [[QBTSessionData sharedInstance] sendToServer];
+            
+            [self performSegueWithIdentifier:@"TaskToDone" sender:self];
+        }
+        else { // prepare next task
+            [self startTask];
+        }
+    }
+}
+
+- (void) didCloseQuestionnaire
+{
+    if(!self.withMusic) {
+        
+        // load music
+        
+        // play music
+        [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
+        // start task when audio view controller closes
+    }
+    
+    // toggle with music here.
+    self.withMusic = !self.withMusic;
+}
+
+#pragma mark - QBTTaskAudioViewControllerDelegate Selectors
+
+- (void) didCloseAudioViewController
 {
     // prepare next task
-    [self prepareNextTask];
+    [self startTask];
 }
 
 @end

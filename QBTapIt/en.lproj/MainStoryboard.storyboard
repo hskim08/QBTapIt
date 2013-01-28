@@ -816,6 +816,8 @@ You will be given a copy of this form to keep for your records.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
             <relationships>
                 <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lyricsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="QBTTextViewController" superclassName="UIViewController">
@@ -833,7 +835,7 @@ You will be given a copy of this form to keep for your records.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sH7-10-Hxp"/>
+        <segue reference="ySn-8w-9am"/>
         <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>
