@@ -26,4 +26,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBAction Selectors
+
+- (IBAction) doneClicked:(UIButton*)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 [self.delegate didCloseAudioViewController];
+                             }];
+}
+
 @end

@@ -339,6 +339,7 @@ Thank you again for your participation.</string>
                             </label>
                             <navigationBar contentMode="scaleToFill" id="q5a-FT-EuO">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Audio" id="twn-Z8-NFy"/>
                                 </items>
@@ -348,7 +349,11 @@ Thank you again for your participation.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EvU-ub-r6u"/>
-                                    <barButtonItem title="Continue" style="done" id="WQK-kn-tro"/>
+                                    <barButtonItem title="Continue" style="done" id="WQK-kn-tro">
+                                        <connections>
+                                            <action selector="doneClicked:" destination="E7j-Ke-dXr" id="VEN-M6-1Eb"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -382,6 +387,7 @@ Thank you again for your participation.</string>
                             </toolbar>
                             <view contentMode="scaleToFill" id="p1B-Z1-u0z">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thank You!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YYS-YO-sXZ">
                                         <rect key="frame" x="49" y="183" width="222" height="94"/>
@@ -777,6 +783,9 @@ You will be given a copy of this form to keep for your records.</string>
         </class>
         <class className="QBTTaskAudioViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskAudioViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="QBTTaskDoneViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskDoneViewController.h"/>
@@ -807,6 +816,8 @@ You will be given a copy of this form to keep for your records.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
             <relationships>
                 <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lyricsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="QBTTextViewController" superclassName="UIViewController">
@@ -824,7 +835,7 @@ You will be given a copy of this form to keep for your records.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sH7-10-Hxp"/>
+        <segue reference="ySn-8w-9am"/>
         <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>

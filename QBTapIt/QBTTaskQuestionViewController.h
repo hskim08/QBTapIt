@@ -12,7 +12,8 @@
 
 - (void) handleFamiliarity:(UInt16)answer;
 
-- (void) didFinishQuestionnaire;
+- (void) willCloseQuestionnaire;
+- (void) didCloseQuestionnaire;
 
 @end
 
