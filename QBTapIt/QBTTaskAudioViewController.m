@@ -10,7 +10,7 @@
 
 #import "QBTAudioPlayer.h"
 
-@interface QBTTaskAudioViewController ()
+@interface QBTTaskAudioViewController () <QBTAudioPlayerDelegate>
 
 @end
 
@@ -20,6 +20,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    [[QBTAudioPlayer sharedInstance] play];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,10 +41,17 @@
 
 - (IBAction) doneClicked:(UIButton*)sender
 {
+    [[QBTAudioPlayer sharedInstance] stop];
+    
     [self dismissViewControllerAnimated:YES
                              completion:^{
                                  [self.delegate didCloseAudioViewController];
                              }];
+}
+
+#pragma mark QBTAudioPlayerDelegate Selectors
+- (void)audioPlayerDidFinishPlaying
+{
 }
 
 @end

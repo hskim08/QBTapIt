@@ -123,17 +123,6 @@
     [self performSegueWithIdentifier:@"TaskToTaskQuestion" sender:self];
 }
 
-//- (IBAction) testButton:(UIButton*)sender
-//{
-//    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"04"
-//                                                              ofType:@"wav"];
-//    
-//	// Converts the sound's file path to an NSURL object
-//	NSURL *soundFileUrl = [[NSURL alloc] initFileURLWithPath:soundFilePath];
-//    
-//    [[QBTAudioPlayer sharedInstance] playAudioWithUrl:soundFileUrl];
-//}
-
 #pragma mark - Private Implementation
 
 @synthesize csvParser = _csvParser;
@@ -241,8 +230,17 @@
     if(!self.withMusic) {
         
         // load music
+        NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:self.taskNumber];
+        NSString* filename = [taskData objectForKey:@"Filename"];
         
-        // play music
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *basePath = [paths objectAtIndex:0];
+        
+        NSURL* fileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", basePath, filename]];
+        
+        [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
+        
+        // open audio view controller
         [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
         // start task when audio view controller closes
     }
