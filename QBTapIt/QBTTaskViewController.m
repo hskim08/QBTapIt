@@ -108,6 +108,7 @@
     if([segue.identifier isEqualToString:@"TaskToTaskQuestion"]){
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
+        questionVC.withMusic = self.withMusic;
     }
     else if([segue.identifier isEqualToString:@"TaskToAudio"]){
         QBTTaskAudioViewController* audioVC = [segue destinationViewController];
@@ -199,10 +200,11 @@
 - (void) handleFamiliarity:(UInt16)answer
 {
     self.currentTask.songFamiliarity = answer;
-    
-    self.currentTask.musicAsExpected = NO; // TODO: get answer from questionnaire
-    
-    [self saveTaskData];
+}
+
+- (void) handleHelpful:(UInt16)answer
+{
+    self.currentTask.withMusicHelpful = answer;
 }
 
 - (void) willCloseQuestionnaire
@@ -245,7 +247,10 @@
         // start task when audio view controller closes
     }
     
-    // toggle with music here.
+    // save data
+    [self saveTaskData];
+    
+    // toggle with music flag here.
     self.withMusic = !self.withMusic;
 }
 

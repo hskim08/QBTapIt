@@ -20,7 +20,7 @@
 @property (nonatomic, readwrite) SInt8 withMusic;
 
 @property (nonatomic, readwrite) SInt8 songFamiliarity;
-@property (nonatomic, readwrite) SInt8 musicAsExpected; // only for withMusic
+@property (nonatomic, readwrite) SInt8 withMusicHelpful; // only for withMusic
 
 
 @end

@@ -12,6 +12,8 @@
 
 @property (nonatomic) NSArray* withMusicArray;
 
+@property UInt8 labelSelected;
+
 - (NSUInteger) indexOfLabel:(UILabel*)label;
 
 @end
@@ -31,6 +33,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    NSLog(@"Task question view did load");
+    
+    self.familiarityView.hidden = self.withMusic;
+    self.helpfulView.hidden = !self.withMusic;
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +50,10 @@
 
 - (IBAction) doneClicked:(UIButton*)sender
 {
-    [self.delegate handleFamiliarity:ceil(self.familiaritySlider.value*5)];
+    if (self.withMusic)
+        [self.delegate handleHelpful:self.labelSelected];
+    else
+        [self.delegate handleFamiliarity:ceil(self.familiaritySlider.value*5)];
     
     [self.delegate willCloseQuestionnaire];
     
@@ -62,6 +72,8 @@
     self.answer5.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     
     sender.view.backgroundColor = [UIColor yellowColor];
+    
+    self.labelSelected = [self indexOfLabel:(UILabel*)sender.view];
 }
 
 #pragma mark - Private Implementation
@@ -81,12 +93,12 @@
 
 - (NSUInteger) indexOfLabel:(UILabel*)label
 {
-    if (label == self.answer1) return 0;
-    else if (label == self.answer2) return 1;
-    else if (label == self.answer3) return 2;
-    else if (label == self.answer4) return 3;
-    else if (label == self.answer5) return 4;
-    return NSNotFound;
+    if (label == self.answer1) return 1;
+    else if (label == self.answer2) return 2;
+    else if (label == self.answer3) return 3;
+    else if (label == self.answer4) return 4;
+    else if (label == self.answer5) return 5;
+    return 0;
 }
 
 @end

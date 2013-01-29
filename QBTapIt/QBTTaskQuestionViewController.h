@@ -11,6 +11,7 @@
 @protocol QBTTaskQuestionViewControllerDelegate <NSObject>
 
 - (void) handleFamiliarity:(UInt16)answer;
+- (void) handleHelpful:(UInt16)answer;
 
 - (void) willCloseQuestionnaire;
 - (void) didCloseQuestionnaire;
@@ -21,9 +22,12 @@
 @interface QBTTaskQuestionViewController : UIViewController
 
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
+@property BOOL withMusic;
 
+@property IBOutlet UIView* familiarityView;
 @property IBOutlet UISlider* familiaritySlider;
 
+@property IBOutlet UIView* helpfulView;
 @property IBOutlet UILabel* answer1;
 @property IBOutlet UILabel* answer2;
 @property IBOutlet UILabel* answer3;

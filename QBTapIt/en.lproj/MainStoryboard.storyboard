@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SYx-rb-f2K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SYx-rb-f2K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -189,99 +189,106 @@ Thank you again for your participation.</string>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view hidden="YES" contentMode="scaleToFill" id="rgK-x5-DEj">
+                                <rect key="frame" x="20" y="64" width="280" height="275"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="a. Yes - it helped me remember more details of the song" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTV-ce-cFs">
+                                        <rect key="frame" x="1" y="53" width="280" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QOY-Qp-mQ9" appends="YES" id="3ff-2x-Zwz"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="d. No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
+                                        <rect key="frame" x="0.0" y="204" width="280" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="mbb-bn-YsH" appends="YES" id="Zsp-gm-G44"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="e. No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
+                                        <rect key="frame" x="0.0" y="234" width="280" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="U43-zT-M8m" appends="YES" id="5a3-uU-7tn"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="b. Yes - I thought the lyrics were from a different song, but now I know which song it is" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="spb-YY-3Zd">
+                                        <rect key="frame" x="0.0" y="99" width="280" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="c8d-vI-ORd" appends="YES" id="YYc-IM-F90"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="c. Yes - I had no idea of the song from just the lyrics, but listening made me recognize it" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1R-JD-X8W">
+                                        <rect key="frame" x="0.0" y="159" width="280" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="N4N-fK-80w" appends="YES" id="WNa-v0-U7j"/>
+                                        </connections>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="IXi-T1-W7w">
-                                <rect key="frame" x="19" y="44" width="281" height="80"/>
+                                <rect key="frame" x="20" y="63.5" width="280" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="How familiar was the song presented?" id="fNK-Ab-UT9">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="b8S-ue-Pjg">
-                                        <rect key="frame" x="-1" y="42" width="284" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="50" width="280" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't know at all" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohy-Eu-VjP">
-                                        <rect key="frame" x="1" y="59" width="88" height="21"/>
+                                        <rect key="frame" x="0.0" y="65" width="88" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Know by heart" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H52-Lj-gfd">
-                                        <rect key="frame" x="173" y="59" width="108" height="21"/>
+                                        <rect key="frame" x="172" y="65" width="108" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How familiar was the song presented?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YqO-qd-vli">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
-                                <rect key="frame" x="19" y="132" width="281" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="a. Yes - it helped me remember more details of the song" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTV-ce-cFs">
-                                <rect key="frame" x="20" y="185" width="280" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="QOY-Qp-mQ9" appends="YES" id="3ff-2x-Zwz"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="d. No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
-                                <rect key="frame" x="19" y="336" width="280" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="mbb-bn-YsH" appends="YES" id="Zsp-gm-G44"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="e. No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
-                                <rect key="frame" x="19" y="366" width="280" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="U43-zT-M8m" appends="YES" id="5a3-uU-7tn"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="b. Yes - I thought the lyrics were from a different song, but now I know which song it is" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="spb-YY-3Zd">
-                                <rect key="frame" x="19" y="231" width="280" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="c8d-vI-ORd" appends="YES" id="YYc-IM-F90"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="c. Yes - I had no idea of the song from just the lyrics, but listening made me recognize it" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1R-JD-X8W">
-                                <rect key="frame" x="19" y="291" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="N4N-fK-80w" appends="YES" id="WNa-v0-U7j"/>
-                                </connections>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -292,6 +299,8 @@ Thank you again for your participation.</string>
                         <outlet property="answer4" destination="6WQ-Bz-4el" id="X50-La-XWm"/>
                         <outlet property="answer5" destination="mxI-Hh-vca" id="VgO-R8-eWW"/>
                         <outlet property="familiaritySlider" destination="b8S-ue-Pjg" id="q5L-Zv-0l1"/>
+                        <outlet property="familiarityView" destination="IXi-T1-W7w" id="h2L-OR-mdA"/>
+                        <outlet property="helpfulView" destination="rgK-x5-DEj" id="urf-A1-daO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0U-Tn-9HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -785,7 +794,6 @@ You will be given a copy of this form to keep for your records.</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskAudioViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="barButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="QBTTaskDoneViewController" superclassName="UIViewController">
@@ -805,6 +813,8 @@ You will be given a copy of this form to keep for your records.</string>
                 <relationship kind="outlet" name="answer4" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="answer5" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="familiarityView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="helpfulView" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="QBTTaskTextViewController" superclassName="UIViewController">
@@ -834,7 +844,7 @@ You will be given a copy of this form to keep for your records.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ySn-8w-9am"/>
+        <segue reference="sH7-10-Hxp"/>
         <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>

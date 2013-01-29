@@ -84,7 +84,7 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
         [params appendFormat:@"&position_data=%@", taskData.tapYPositionData];
         
-        [params appendFormat:@"&music_was_as_expected=%d", taskData.musicAsExpected];
+        [params appendFormat:@"&music_was_helpful=%d", taskData.withMusicHelpful];
         [params appendFormat:@"&song_familiarity=%d", taskData.songFamiliarity];
 
         [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
