@@ -182,7 +182,8 @@ enum PickerType {
                           forState:UIControlStateNormal] ;
     
     // hide picker
-    [self showPickerView:NO];
+    if (self.pickerType != PT_LANGUAGE)
+        [self showPickerView:NO];
 }
 
 #pragma mark - Private Implementation
