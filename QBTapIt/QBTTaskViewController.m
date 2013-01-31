@@ -8,7 +8,7 @@
 
 #import "QBTTaskViewController.h"
 
-#import "CSVParser.h"
+#import "QBTLyricsData.h"
 
 #import "QBTUserData.h"
 #import "QBTSessionData.h"
@@ -32,8 +32,6 @@
 @property NSMutableString* tapYPosData;
 
 @property QBTTaskData* currentTask;
-
-@property (nonatomic) CSVParser* csvParser;
 
 - (void) startTask;
 - (void) saveTaskData;
@@ -126,39 +124,13 @@
 
 #pragma mark - Private Implementation
 
-@synthesize csvParser = _csvParser;
-- (CSVParser*) csvParser
-{
-    if (_csvParser == nil) {
-        NSURL* csvUrl = [[NSBundle mainBundle] URLForResource: @"lyrics_short"
-                                withExtension: @"csv"];
-        
-        NSError* error;
-        NSString* csvString = [NSString stringWithContentsOfURL:csvUrl
-                                                       encoding:NSASCIIStringEncoding
-                                                          error:&error];
-        
-        if (csvString == nil) return _csvParser; // handle error
-        
-        NSArray* keyArray = @[@"Song Title", @"Artist", @"Year", @"Filename", @"Lyrics"];
-        
-        _csvParser = [[CSVParser alloc] initWithString:csvString
-                                             separator:@","
-                                             hasHeader:YES
-                                            fieldNames:keyArray
-                      ];
-    }
-    return _csvParser;
-}
-
 - (void) startTask
 {
     // update title text
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %d", @"Task", (self.taskNumber+1)];
     
     // load new lyrics
-    NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:self.taskNumber];
-    self.lyricsTextView.text = [taskData objectForKey:@"Lyrics"];
+    self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskNumber];
     
     // initialize data buffers
     self.currentTask = [[QBTTaskData alloc] init];
@@ -213,7 +185,7 @@
         
         self.taskNumber++; // increment task number
         
-        if (self.taskNumber >= [self.csvParser arrayOfParsedRows].count) { // end session
+        if (self.taskNumber >= [[QBTLyricsData sharedInstance] taskCount]) { // end session
             
             // send data to server
             [[QBTUserData sharedInstance] sendToServer];
@@ -232,8 +204,7 @@
     if(!self.withMusic) {
         
         // load music
-        NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:self.taskNumber];
-        NSString* filename = [taskData objectForKey:@"Filename"];
+        NSString* filename = [[QBTLyricsData sharedInstance] filenameForTask:self.taskNumber];
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *basePath = [paths objectAtIndex:0];

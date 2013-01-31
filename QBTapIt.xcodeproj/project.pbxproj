@@ -36,6 +36,7 @@
 		AADDFB571644A623004955C1 /* QBTTaskAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADDFB561644A623004955C1 /* QBTTaskAudioViewController.m */; };
 		AAE86FF316A4D7E400B819DB /* QBTTaskData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE86FF216A4D7E400B819DB /* QBTTaskData.m */; };
 		AAE86FF716A4DC0D00B819DB /* QBTTaskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE86FF616A4DC0D00B819DB /* QBTTaskQuestionViewController.m */; };
+		AAF1E09F16BA32B0003523CD /* QBTLyricsData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1E09E16BA32B0003523CD /* QBTLyricsData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,8 @@
 		AAE86FF216A4D7E400B819DB /* QBTTaskData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTTaskData.m; sourceTree = "<group>"; };
 		AAE86FF516A4DC0D00B819DB /* QBTTaskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTTaskQuestionViewController.h; sourceTree = "<group>"; };
 		AAE86FF616A4DC0D00B819DB /* QBTTaskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTTaskQuestionViewController.m; sourceTree = "<group>"; };
+		AAF1E09D16BA32B0003523CD /* QBTLyricsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTLyricsData.h; sourceTree = "<group>"; };
+		AAF1E09E16BA32B0003523CD /* QBTLyricsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTLyricsData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */,
 				AAE86FF116A4D7E300B819DB /* QBTTaskData.h */,
 				AAE86FF216A4D7E400B819DB /* QBTTaskData.m */,
+				AAF1E09D16BA32B0003523CD /* QBTLyricsData.h */,
+				AAF1E09E16BA32B0003523CD /* QBTLyricsData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				AAE86FF316A4D7E400B819DB /* QBTTaskData.m in Sources */,
 				AAE86FF716A4DC0D00B819DB /* QBTTaskQuestionViewController.m in Sources */,
 				50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */,
+				AAF1E09F16BA32B0003523CD /* QBTLyricsData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
