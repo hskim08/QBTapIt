@@ -6,17 +6,19 @@ class RecordController < ApplicationController
     @task = Task.new
     
     @task.version_number = params[:version_number]
+    @task.session_id = params[:session_id]
     @task.song_id = params[:song_id]
     @task.user_id = params[:user_id]
-    @task.session_id = params[:session_id]
-#     @task.session_date = params[:session_date]
     @task.experimenter_id = params[:experimenter_id]
     
     @task.tap_data = params[:tap_data]
-    @task.position_data = params[:position_data]
+    @task.tap_off_data = params[:tap_off_data]
+    @task.tap_y_data = params[:tap_y_data]
+    @task.tap_x_data = params[:tap_x_data]
+    
     @task.with_music = params[:with_music]
-    @task.feedback = params[:feedback]
     @task.song_familiarity = params[:song_familiarity]
+    @task.audio_helpful = params[:audio_helpful]
 
     if @task.save then
       render :text => "success!"
@@ -37,6 +39,7 @@ class RecordController < ApplicationController
     @user.handedness = params[:handedness]
     @user.tone_deaf = params[:tone_deaf]
     @user.arrythmic = params[:arrythmic]
+    @user.native_language = params[:native_language]
 
     if @user.save then
       render :text => "success!"

@@ -8,3 +8,5 @@ QBTapIt.xcodeproj/project.xcworkspace/xcuserdata/killarazzi.xcuserdatad/UserInte
 QBTapIt.xcodeproj/xcuserdata/killarazzi.xcuserdatad/xcschemes/xcschememanagement.plist
 
 *.xcuserstate
+
+*.xcsettings

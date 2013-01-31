@@ -137,7 +137,7 @@ Thank you again for your participation.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -189,8 +189,8 @@ Thank you again for your participation.</string>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view hidden="YES" contentMode="scaleToFill" id="rgK-x5-DEj">
-                                <rect key="frame" x="20" y="64" width="280" height="275"/>
+                            <view contentMode="scaleToFill" id="rgK-x5-DEj">
+                                <rect key="frame" x="20" y="64" width="280" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
@@ -200,55 +200,111 @@ Thank you again for your participation.</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="a. Yes - it helped me remember more details of the song" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTV-ce-cFs">
-                                        <rect key="frame" x="1" y="53" width="280" height="38"/>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="▣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yoj-AD-2VW">
+                                        <rect key="frame" x="0.0" y="53" width="22" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="8fc-pd-6QZ" appends="YES" id="Wvj-XO-vFa"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NqJ-Cz-ib0">
+                                        <rect key="frame" x="0.0" y="99" width="22" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="4qc-DF-YHu" appends="YES" id="C7e-iT-JuM"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TA3-Sp-DUm">
+                                        <rect key="frame" x="0.0" y="159" width="22" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="vRD-ok-VVo" appends="YES" id="e7Z-bw-mh1"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wla-zc-rvq">
+                                        <rect key="frame" x="0.0" y="219" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="OvX-6T-tex" appends="YES" id="PfE-F9-s08"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H2m-Pg-IRl">
+                                        <rect key="frame" x="0.0" y="249" width="22" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="FIs-UR-sAJ" appends="YES" id="hXD-HL-hjZ"/>
+                                        </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Yes - it helped me remember more details of the song" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTV-ce-cFs">
+                                        <rect key="frame" x="20" y="53" width="260" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="QOY-Qp-mQ9" appends="YES" id="3ff-2x-Zwz"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="d. No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
-                                        <rect key="frame" x="0.0" y="204" width="280" height="22"/>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
+                                        <rect key="frame" x="20" y="219" width="260" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="mbb-bn-YsH" appends="YES" id="Zsp-gm-G44"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="e. No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
-                                        <rect key="frame" x="0.0" y="234" width="280" height="41"/>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
+                                        <rect key="frame" x="20" y="249" width="260" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="U43-zT-M8m" appends="YES" id="5a3-uU-7tn"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="b. Yes - I thought the lyrics were from a different song, but now I know which song it is" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="spb-YY-3Zd">
-                                        <rect key="frame" x="0.0" y="99" width="280" height="52"/>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Yes - I thought the lyrics were from a different song, but now I know which song it is" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="spb-YY-3Zd">
+                                        <rect key="frame" x="20" y="99" width="260" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="c8d-vI-ORd" appends="YES" id="YYc-IM-F90"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="c. Yes - I had no idea of the song from just the lyrics, but listening made me recognize it" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1R-JD-X8W">
-                                        <rect key="frame" x="0.0" y="159" width="280" height="37"/>
+                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Yes - I had no idea of the song from just the lyrics, but listening made me recognize it" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1R-JD-X8W">
+                                        <rect key="frame" x="20" y="159" width="260" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="N4N-fK-80w" appends="YES" id="WNa-v0-U7j"/>
@@ -298,6 +354,11 @@ Thank you again for your participation.</string>
                         <outlet property="answer3" destination="a1R-JD-X8W" id="CUu-p1-adb"/>
                         <outlet property="answer4" destination="6WQ-Bz-4el" id="X50-La-XWm"/>
                         <outlet property="answer5" destination="mxI-Hh-vca" id="VgO-R8-eWW"/>
+                        <outlet property="checkBox1" destination="yoj-AD-2VW" id="ZqW-dI-7PI"/>
+                        <outlet property="checkBox2" destination="NqJ-Cz-ib0" id="oPU-tp-cC0"/>
+                        <outlet property="checkBox3" destination="TA3-Sp-DUm" id="sKn-ro-zXT"/>
+                        <outlet property="checkBox4" destination="Wla-zc-rvq" id="OJi-Vg-eoh"/>
+                        <outlet property="checkBox5" destination="H2m-Pg-IRl" id="V6P-1V-I36"/>
                         <outlet property="familiaritySlider" destination="b8S-ue-Pjg" id="q5L-Zv-0l1"/>
                         <outlet property="familiarityView" destination="IXi-T1-W7w" id="h2L-OR-mdA"/>
                         <outlet property="helpfulView" destination="rgK-x5-DEj" id="urf-A1-daO"/>
@@ -327,6 +388,31 @@ Thank you again for your participation.</string>
                 <tapGestureRecognizer id="U43-zT-M8m">
                     <connections>
                         <action selector="labelTapped:" destination="eVE-9p-DZy" id="F7w-8n-bDj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8fc-pd-6QZ">
+                    <connections>
+                        <action selector="checkBoxTapped:" destination="eVE-9p-DZy" id="Dpo-fc-dvV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4qc-DF-YHu">
+                    <connections>
+                        <action selector="checkBoxTapped:" destination="eVE-9p-DZy" id="4XL-Ce-0iN"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vRD-ok-VVo">
+                    <connections>
+                        <action selector="checkBoxTapped:" destination="eVE-9p-DZy" id="1Js-vJ-ReV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="OvX-6T-tex">
+                    <connections>
+                        <action selector="checkBoxTapped:" destination="eVE-9p-DZy" id="K9N-cu-pix"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="FIs-UR-sAJ">
+                    <connections>
+                        <action selector="checkBoxTapped:" destination="eVE-9p-DZy" id="1G2-Hi-x8K"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -427,35 +513,255 @@ Thank you again for your participation.</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="6ZG-cp-byf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" id="6ZG-cp-byf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <string key="text">School, Leisure, and Work Time Study Consent Form
+                                <attributedString key="attributedText">
+                                    <fragment content="Collection and Analysis of Tapped Representations of Music">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Description">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: You are invited to participate in a research study on tapped representations of music, including melodies, rhythms, and beats. This includes the way we recall and perform music from long-term memory, as well as the way we perform music we have just heard. This research has two purposes. The first is to create a publicly available dataset of anonymous tapped queries. The second is to analyze tapped queries to learn more about how they relate back to the musical excerpts they represent.
 
-You are being asked to take part in a research study of how college students with jobs manage their school, leisure and work time. We are asking you to take part because you signed up at the SUSAN web site for this study. Please read this form carefully and ask any questions you may have before agreeing to take part in the study.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Eligibility">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: By participating, you confirm that you meet the eligibility requirements for this study:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">	•	18 years of age or older
+	•	Normal hearing
+	•	No decisional or cognitive impairments
+	•	Fluency in English
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="36" defaultTabInterval="36">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="18"/>
+                                                    <textTab alignment="natural" location="36"/>
+                                                    <textTab alignment="left" location="56"/>
+                                                    <textTab alignment="left" location="84"/>
+                                                    <textTab alignment="left" location="112"/>
+                                                    <textTab alignment="left" location="140"/>
+                                                    <textTab alignment="left" location="168"/>
+                                                    <textTab alignment="left" location="196"/>
+                                                    <textTab alignment="left" location="224"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="280"/>
+                                                    <textTab alignment="left" location="308"/>
+                                                    <textTab alignment="left" location="336"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">If you do not meet these requirements, please let the experimenter know at this time.
 
-What the study is about: The purpose of this study is to learn how students who have paid jobs manage their class work. You must be working at least 10 hours a week for pay to take part in this study.
+At the discretion of the Protocol Director, subjects may be removed from the study due to unanticipated circumstances. Possible reasons for removing a subject from the study:
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">	•	Failure to follow directions
+	•	The experimental design is changed
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="36" defaultTabInterval="36">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="18"/>
+                                                    <textTab alignment="natural" location="36"/>
+                                                    <textTab alignment="left" location="56"/>
+                                                    <textTab alignment="left" location="84"/>
+                                                    <textTab alignment="left" location="112"/>
+                                                    <textTab alignment="left" location="140"/>
+                                                    <textTab alignment="left" location="168"/>
+                                                    <textTab alignment="left" location="196"/>
+                                                    <textTab alignment="left" location="224"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="280"/>
+                                                    <textTab alignment="left" location="308"/>
+                                                    <textTab alignment="left" location="336"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Time involvement">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: Your participation will take approximately 30 minutes.
 
-What we will ask you to do: If you agree to be in this study, we will conduct an interview with you. The interview will include questions about your job, the hours you work, how much you earn, the number of classes you take at Cornell, how much you study, social and leisure activities, your health and well-being, and how much you sleep. The interview will take about 30 minutes to complete. With your permission, we would also like to tape-record the interview.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Risks and benefits">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: There are no foreseeable risks to participating in this study. There are no direct benefits to participants from this study. This research may contribute to basic scientific knowledge in the field of auditory perception. Your decision whether or not to participate in this study will not affect your employment with Stanford, nor will it affect your grade in any Stanford course.
 
-Risks and benefits:
+While we will be collecting information on your age, gender, handedness, and musical training and listening habits, all of your data will be anonymous.
 
-There is the risk that you may find some of the questions about your job conditions to be sensitive. [Note: For studies posing no specific risks, use the IRB standard minimal risk statement, "I do not anticipate any risks to you participating in this study other than those encountered in day-to-day life."]
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Payment">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: You will receive a gift card valued at $10 for your participation in this study.
 
-There are no benefits to you. Cornell is a very demanding place to be a student and we hope to learn more about students who work while earning degrees.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Subject’s rights">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: If you have read this form and have decided to participate in this project, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled.  The alternative is not to participate.  You have the right to refuse to answer particular questions.  Your individual privacy will be maintained in all published and written data resulting from the study.
 
-Compensation: You may earn extra credit if you are taking a class that offers credit for research studies. The class instructor will assign credit according to class policy. If you wish, you may earn $3 instead of extra credit.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Contact information">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: If you have any questions, concerns, or complaints about this research, its procedures, risks, and benefits, contact the Protocol Director, Blair Kaneshiro at </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="blairbo@ccrma.stanford.edu">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.16078431372549021" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <url key="NSLink" string="mailto:blairbo@ccrma.stanford.edu"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                            <color key="NSUnderlineColor" red="0.0" green="0.16078431372549021" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">.
 
-Your answers will be confidential. The records of this study will be kept private. In any sort of report we make public we will not include any information that will make it possible to identify you. Research records will be kept in a locked file; only the researchers will have access to the records. If we tape-record the interview, we will destroy the tape after it has been transcribed, which we anticipate will be within two months of its taping.
+Independent contact: If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650) 725-2480 or toll free at 1-866-680-2906.
 
-Taking part is voluntary: Taking part in this study is completely voluntary. You may skip any questionsthat you do not want to answer. If you decide not to take part or to skip some of the questions, it will not affect your current or future relationship with Cornell University. If you decide to take part, you are free to withdraw at any time.
+Copies of this information sheet are available by request. If you would like a copy, please ask the experimenter.
 
-If you have questions: The researchers conducting this study are Randy Jackson and Prof. Simon Cowell. Please ask any questions you have now. If you have questions later, you may contact Randy Jackson at randy@blabmail.com or at 1-800-555-4365. You can reach Prof. Cowell at meanguy@abbey.uk or 1-800-555-4365, ext. 1000. If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Institutional Review Board (IRB) at 607-255-5138 or access their website at http://www.irb.cornell.edu. You may also report your concerns or complaints anonymously through Ethicspoint (www.hotline.cornell.edu) or by calling toll free at 1-866-293-3077. Ethicspoint is an independent organization that serves as a liaison between the University and the person bringing the complaint so that anonymity can be ensured.
-
-You will be given a copy of this form to keep for your records.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="If you agree to participate in this research, please click the “I Agree” button to continue.">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="cFC-wH-ynn">
@@ -726,6 +1032,7 @@ You will be given a copy of this form to keep for your records.</string>
                         <outlet property="ageText" destination="s32-fq-fca" id="TSP-bU-x8s"/>
                         <outlet property="arrhythmicButton" destination="Jup-Tw-Kp3" id="YRV-sy-Rvs"/>
                         <outlet property="genderButton" destination="OBC-e7-aq7" id="5xN-Vb-e5F"/>
+                        <outlet property="habitSlider" destination="s7T-di-YRi" id="VRp-ue-0J2"/>
                         <outlet property="handedButton" destination="WTa-Pr-kqk" id="Ihj-0p-WRh"/>
                         <outlet property="instrumentSlider" destination="546-TP-WBF" id="6zJ-sc-uiR"/>
                         <outlet property="languageButton" destination="dPG-Ic-6ZT" id="Sl6-cn-MAV"/>
@@ -774,6 +1081,7 @@ You will be given a copy of this form to keep for your records.</string>
                 <relationship kind="outlet" name="ageText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="arrhythmicButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="genderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="habitSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="handedButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="instrumentSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="languageButton" candidateClass="UIButton"/>
@@ -805,6 +1113,7 @@ You will be given a copy of this form to keep for your records.</string>
         <class className="QBTTaskQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskQuestionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="checkBoxTapped:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
                 <relationship kind="action" name="labelTapped:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="answer1" candidateClass="UILabel"/>
@@ -812,6 +1121,11 @@ You will be given a copy of this form to keep for your records.</string>
                 <relationship kind="outlet" name="answer3" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="answer4" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="answer5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox5" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="familiarityView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="helpfulView" candidateClass="UIView"/>
@@ -844,7 +1158,7 @@ You will be given a copy of this form to keep for your records.</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sH7-10-Hxp"/>
+        <segue reference="ySn-8w-9am"/>
         <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>

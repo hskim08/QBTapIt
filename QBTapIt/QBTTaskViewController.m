@@ -197,7 +197,7 @@
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
 
-- (void) handleFamiliarity:(UInt16)answer
+- (void) handleFamiliarity:(Float32)answer
 {
     self.currentTask.songFamiliarity = answer;
 }

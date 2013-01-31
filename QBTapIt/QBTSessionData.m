@@ -77,15 +77,16 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&session_id=%@", self.sessionId];
         [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
 
-//        [params appendFormat:@"&task_order=%ld", self.taskOrder];
         [params appendFormat:@"&song_id=%@", taskData.songId];
-        [params appendFormat:@"&with_music=%d", taskData.withMusic];
         
         [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
-        [params appendFormat:@"&position_data=%@", taskData.tapYPositionData];
+        [params appendFormat:@"&tap_off_data=%@", taskData.tapOffTimeData];
+        [params appendFormat:@"&tap_y_data=%@", taskData.tapYPositionData];
+        [params appendFormat:@"&tap_x_data=%@", taskData.tapXPositionData];
         
-        [params appendFormat:@"&music_was_helpful=%d", taskData.withMusicHelpful];
-        [params appendFormat:@"&song_familiarity=%d", taskData.songFamiliarity];
+        [params appendFormat:@"&with_music=%d", taskData.withMusic];
+        [params appendFormat:@"&song_familiarity=%f", taskData.songFamiliarity];
+        [params appendFormat:@"&audio_helpful=%d", taskData.withMusicHelpful];
 
         [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
         self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

@@ -23,6 +23,7 @@
 
 @property IBOutlet UISlider* instrumentSlider;
 @property IBOutlet UISlider* theorySlider;
+@property IBOutlet UISlider* habitSlider;
 
 @property IBOutlet UIView* pickerHolder;
 @property IBOutlet UIPickerView* pickerView;

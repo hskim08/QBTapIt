@@ -15,6 +15,9 @@
 @property UInt8 labelSelected;
 
 - (NSUInteger) indexOfLabel:(UILabel*)label;
+- (NSUInteger) indexOfCheckBox:(UILabel*)label;
+
+- (void) updateSelection;
 
 @end
 
@@ -38,6 +41,9 @@
     
     self.familiarityView.hidden = self.withMusic;
     self.helpfulView.hidden = !self.withMusic;
+    
+    if (self.withMusic)
+        [self updateSelection];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +59,7 @@
     if (self.withMusic)
         [self.delegate handleHelpful:self.labelSelected];
     else
-        [self.delegate handleFamiliarity:ceil(self.familiaritySlider.value*5)];
+        [self.delegate handleFamiliarity:self.familiaritySlider.value*5];
     
     [self.delegate willCloseQuestionnaire];
     
@@ -65,15 +71,16 @@
 
 - (IBAction) labelTapped:(UITapGestureRecognizer*)sender
 {
-    self.answer1.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    self.answer2.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    self.answer3.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    self.answer4.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    self.answer5.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
-    
-    sender.view.backgroundColor = [UIColor yellowColor];
-    
     self.labelSelected = [self indexOfLabel:(UILabel*)sender.view];
+    
+    [self updateSelection];
+}
+
+- (IBAction) checkBoxTapped:(UITapGestureRecognizer*)sender
+{
+    self.labelSelected = [self indexOfCheckBox:(UILabel*)sender.view];
+    
+    [self updateSelection];
 }
 
 #pragma mark - Private Implementation
@@ -99,6 +106,40 @@
     else if (label == self.answer4) return 4;
     else if (label == self.answer5) return 5;
     return 0;
+}
+
+- (NSUInteger) indexOfCheckBox:(UILabel*)label
+{
+    if (label == self.checkBox1) return 1;
+    else if (label == self.checkBox2) return 2;
+    else if (label == self.checkBox3) return 3;
+    else if (label == self.checkBox4) return 4;
+    else if (label == self.checkBox5) return 5;
+    return 0;
+}
+
+- (void) updateSelection
+{
+    UIColor* unselected = [UIColor whiteColor];
+    UIColor* selected = [UIColor yellowColor];
+    
+    self.answer1.backgroundColor = self.labelSelected == 1 ? selected : unselected;
+    self.answer2.backgroundColor = self.labelSelected == 2 ? selected : unselected;
+    self.answer3.backgroundColor = self.labelSelected == 3 ? selected : unselected;
+    self.answer4.backgroundColor = self.labelSelected == 4 ? selected : unselected;
+    self.answer5.backgroundColor = self.labelSelected == 5 ? selected : unselected;
+    
+    self.checkBox1.text = self.labelSelected == 1 ? @"▣" : @"□";
+    self.checkBox2.text = self.labelSelected == 2 ? @"▣" : @"□";
+    self.checkBox3.text = self.labelSelected == 3 ? @"▣" : @"□";
+    self.checkBox4.text = self.labelSelected == 4 ? @"▣" : @"□";
+    self.checkBox5.text = self.labelSelected == 5 ? @"▣" : @"□";
+    
+    self.checkBox1.backgroundColor = self.labelSelected == 1 ? selected : unselected;
+    self.checkBox2.backgroundColor = self.labelSelected == 2 ? selected : unselected;
+    self.checkBox3.backgroundColor = self.labelSelected == 3 ? selected : unselected;
+    self.checkBox4.backgroundColor = self.labelSelected == 4 ? selected : unselected;
+    self.checkBox5.backgroundColor = self.labelSelected == 5 ? selected : unselected;
 }
 
 @end

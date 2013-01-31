@@ -34,9 +34,9 @@
 @property SInt8 toneDeaf;
 @property SInt8 arrythmic;
 
-@property UInt8 listeningHabits;
-@property UInt8 instrumentTraining;
-@property UInt8 theoryTraining;
+@property Float32 listeningHabits;
+@property Float32 instrumentTraining;
+@property Float32 theoryTraining;
 
 - (void) initData;
 

@@ -89,8 +89,9 @@ enum PickerType {
     val = [self.ynArray indexOfObject:self.arrhythmicButton.titleLabel.text];
     userData.arrythmic = val > 1 ? -1 : val; // see user data format in QBTUserData.h
     
-    userData.instrumentTraining = ceil(self.instrumentSlider.value*5);
-    userData.theoryTraining = ceil(self.theorySlider.value*5);
+    userData.instrumentTraining = self.instrumentSlider.value*5;
+    userData.theoryTraining = self.theorySlider.value*5;
+    userData.listeningHabits = self.habitSlider.value*5;
     
     // open next page
     [self performSegueWithIdentifier:@"QuestionToStart"

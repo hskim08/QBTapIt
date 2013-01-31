@@ -8,17 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-//t.column :version_number,     :integer    	CHANGE TO STRING
-//t.column :user_id,            :integer    	STR
-//t.column :session_id,         :datetime       STR (format: yyyy/MM/DD-HH:mm:ss)
-//t.column :task_order_number,  :integer
-//t.column :experimenter_id,	:integer     	STR
-//t.column :song_id,            :integer    	STR
-//t.column :tap_data,           :string
-//t.column :position_data,      :string
-//t.column :with_music,         :integer
-//t.column :music_was_as_expected,	:integer, true(1)/false(0)/na(-1)
-//t.column :song_familiarity,	:integer, don’t know(0)/not well(1)/well(2)/by heart(3)
+//t.string   "version_number"
+//t.string   "session_id"           (format: yyyy/MM/DD-HH:mm:ss)
+//t.string   "song_id"
+//t.string   "user_id"
+//t.string   "experimenter_id"
+//t.string   "tap_data"
+//t.string   "tap_off_data"
+//t.string   "tap_x_data"
+//t.string   "tap_y_data"
+//t.integer  "with_music"           0/1
+//t.float    "song_familiarity"     0~5
+//t.integer  "audio_helpful"        no answer(0)/Yes - it helped me remember more details of the song(1)/Yes - I thought the lyrics were from a different song, but now I know which song it is(2)/Yes - I had no idea of the song from just the lyrics, but listening made me recognize it(3)/No - I already knew the song really well(4)/No - this song is totally unfamiliar, so hearing it once didn’t help(5)
 
 
 @interface QBTSessionData : NSObject
