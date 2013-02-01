@@ -20,8 +20,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -29,13 +27,14 @@
     [super viewWillAppear:animated];
 
     self.continueButton.enabled = NO;
-    [[QBTAudioPlayer sharedInstance] play];
-    [QBTAudioPlayer sharedInstance].delegate = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [QBTAudioPlayer sharedInstance].delegate = self;
+    [[QBTAudioPlayer sharedInstance] play];
 }
 
 - (void)didReceiveMemoryWarning

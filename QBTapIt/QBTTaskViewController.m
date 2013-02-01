@@ -33,6 +33,7 @@
 
 @property QBTTaskData* currentTask;
 
+- (void) updateTaskUI;
 - (void) startTask;
 - (void) saveTaskData;
 
@@ -52,6 +53,7 @@
     [sessionData initData];
     sessionData.userId = [QBTUserData sharedInstance].userId;
     
+    [self updateTaskUI];
     [self startTask];
 }
 
@@ -69,21 +71,21 @@
     
     self.tapLabel.textColor = [UIColor greenColor];
     
-    NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
-    NSLog(@"On: %f", tapOnTime);
-    
     // save tap on
+    NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
+    
     [self.tapOnData appendFormat:@"%f, ", tapOnTime];
+//    NSLog(@"On: %f", tapOnTime);
     
     // save positions
     assert(touches.count == 1);
     
     for (UITouch* touch in touches) {
         CGPoint point = [touch locationInView:self.view];
-        NSLog(@"x/y: %f/%f", point.x, point.y);
         
         [self.tapXPosData appendFormat:@"%f, ", point.x];
         [self.tapYPosData appendFormat:@"%f, ", point.y];
+//        NSLog(@"x/y: %f/%f", point.x, point.y);
         break;
     }
 }
@@ -94,11 +96,10 @@
     
     self.tapLabel.textColor = [UIColor blackColor];
     
-    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
-    NSLog(@"Off: %f", tapOffTime);
-    
     // save tap off
+    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     [self.tapOffData appendFormat:@"%f, ", tapOffTime];
+//    NSLog(@"Off: %f", tapOffTime);
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -124,17 +125,20 @@
 
 #pragma mark - Private Implementation
 
-- (void) startTask
+- (void) updateTaskUI
 {
     // update navigation title
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %d", @"Task", (self.taskNumber+1)];
-
+    
     // update title text
     self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", [[QBTLyricsData sharedInstance] titleForTask:self.taskNumber], [[QBTLyricsData sharedInstance] artistForTask:self.taskNumber]];
     
     // load new lyrics
     self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskNumber];
-    
+}
+
+- (void) startTask
+{
     // initialize data buffers
     self.currentTask = [[QBTTaskData alloc] init];
     self.tapOnData = [NSMutableString stringWithCapacity:3];
@@ -144,9 +148,6 @@
 
     // reset start time
     self.startTime = [[NSDate date] timeIntervalSince1970];
-    
-    NSLog(@"Starting Task");
-    self.withMusic ? NSLog(@"with music") : NSLog(@"without music");
 }
 
 - (void) saveTaskData
@@ -173,6 +174,8 @@
         
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];
+    
+    NSLog(@"Saved task: %d", sessionData.taskDataArray.count);
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
@@ -184,16 +187,26 @@
 
 - (void) handleHelpful:(UInt16)answer
 {
-    NSLog(@"Audio Helpful: %d", answer);
-    
     self.currentTask.withMusicHelpful = answer;
 }
 
 - (void) willCloseQuestionnaire
 {
-    if(self.withMusic) {
+    if(self.withMusic) { // prepare lyrics before questionnaire closes
         
         self.taskNumber++; // increment task number
+        
+        if (self.taskNumber < [[QBTLyricsData sharedInstance] taskCount])
+            [self updateTaskUI];
+    }
+}
+
+- (void) didCloseQuestionnaire
+{
+    // save data
+    [self saveTaskData];
+    
+    if(self.withMusic) { // prepare for without music task
         
         if (self.taskNumber >= [[QBTLyricsData sharedInstance] taskCount]) { // end session
             
@@ -204,15 +217,13 @@
             [self performSegueWithIdentifier:@"TaskToDone" sender:self];
         }
         else { // prepare next task
+            self.withMusic = NO;
+            
             [self startTask];
         }
     }
-}
-
-- (void) didCloseQuestionnaire
-{
-    if(!self.withMusic) {
-        
+    else { // prepare for with music task
+    
         // load music
         NSString* filename = [[QBTLyricsData sharedInstance] filenameForTask:self.taskNumber];
         
@@ -227,18 +238,14 @@
         [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
         // start task when audio view controller closes
     }
-    
-    // save data
-    [self saveTaskData];
-    
-    // toggle with music flag here.
-    self.withMusic = !self.withMusic;
 }
 
 #pragma mark - QBTTaskAudioViewControllerDelegate Selectors
 
 - (void) didCloseAudioViewController
 {
+    self.withMusic = YES;
+    
     // prepare next task
     [self startTask];
 }
