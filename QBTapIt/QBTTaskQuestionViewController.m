@@ -37,8 +37,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSLog(@"Task question view did load");
-    
     self.familiarityView.hidden = self.withMusic;
     self.helpfulView.hidden = !self.withMusic;
     
@@ -46,9 +44,9 @@
         [self updateSelection];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     if (self.withMusic)
         self.doneButton.enabled = NO;

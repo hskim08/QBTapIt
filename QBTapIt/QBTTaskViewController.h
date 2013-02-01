@@ -10,8 +10,9 @@
 
 @interface QBTTaskViewController : UIViewController
 
-@property UITextView* IBOutlet lyricsTextView;
-@property UILabel* IBOutlet tapLabel;
+@property IBOutlet UILabel* titleLabel;
+@property IBOutlet UITextView* lyricsTextView;
+@property IBOutlet UILabel* tapLabel;
 
 - (IBAction) nextPushed:(UIButton*)sender;
 

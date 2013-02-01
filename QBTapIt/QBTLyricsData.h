@@ -16,6 +16,8 @@
 
 - (UInt16) taskCount;
 
+- (NSString*) titleForTask:(UInt16)task;
+- (NSString*) artistForTask:(UInt16)task;
 - (NSString*) lyricsForTask:(UInt16)task;
 - (NSString*) filenameForTask:(UInt16)task;
 

@@ -62,7 +62,7 @@ static QBTUserData* sharedInstance = nil;
     [params appendFormat:@"&handedness=%d", self.handedness];
     [params appendFormat:@"&tone_deaf=%d", self.toneDeaf];
     [params appendFormat:@"&arrythmic=%d", self.arrythmic];
-    [params appendFormat:@"&listening_habits=%d", 0];
+    [params appendFormat:@"&listening_habits=%f", self.listeningHabits];
     [params appendFormat:@"&instrument_training=%f", self.instrumentTraining];
     [params appendFormat:@"&theory_training=%f", self.theoryTraining];
     

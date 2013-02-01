@@ -24,13 +24,18 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
 
     self.continueButton.enabled = NO;
     [[QBTAudioPlayer sharedInstance] play];
     [QBTAudioPlayer sharedInstance].delegate = self;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +60,13 @@
 - (void)audioPlayerDidFinishPlaying
 {
     self.continueButton.enabled = YES;
+
+    [[QBTAudioPlayer sharedInstance] stop];
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 [self.delegate didCloseAudioViewController];
+                             }];
 }
 
 @end

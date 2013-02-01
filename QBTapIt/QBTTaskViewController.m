@@ -126,8 +126,11 @@
 
 - (void) startTask
 {
-    // update title text
+    // update navigation title
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %d", @"Task", (self.taskNumber+1)];
+
+    // update title text
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", [[QBTLyricsData sharedInstance] titleForTask:self.taskNumber], [[QBTLyricsData sharedInstance] artistForTask:self.taskNumber]];
     
     // load new lyrics
     self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskNumber];
@@ -141,6 +144,9 @@
 
     // reset start time
     self.startTime = [[NSDate date] timeIntervalSince1970];
+    
+    NSLog(@"Starting Task");
+    self.withMusic ? NSLog(@"with music") : NSLog(@"without music");
 }
 
 - (void) saveTaskData
@@ -162,6 +168,8 @@
     self.currentTask.tapOffTimeData = self.tapOffData;
     self.currentTask.tapXPositionData = self.tapXPosData;
     self.currentTask.tapYPositionData = self.tapYPosData;
+    
+    self.currentTask.withMusic = self.withMusic;
         
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];
@@ -176,6 +184,8 @@
 
 - (void) handleHelpful:(UInt16)answer
 {
+    NSLog(@"Audio Helpful: %d", answer);
+    
     self.currentTask.withMusicHelpful = answer;
 }
 
