@@ -8,7 +8,11 @@
 
 #import "QBTSetupViewController.h"
 
-@interface QBTSetupViewController ()
+#import "QBTLyricsData.h"
+
+@interface QBTSetupViewController () <UITextFieldDelegate>
+
+@property (nonatomic) NSString* experimenterId;
 
 @end
 
@@ -18,6 +22,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    if (!self.experimenterId)
+        self.experimenterId = @"Experimenter";
+    
+    self.experimenterIdText.text = self.experimenterId;
+    self.experimenterIdText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,6 +42,45 @@
 {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
+}
+
+- (IBAction)reloadPushed:(UIButton*)sender
+{
+    // TODO: read from NSUserDefaults
+    NSURL* downloadUrl = [NSURL URLWithString:@"http://ccrma.stanford.edu/~hskim08/qbt/lyrics.csv"];
+    
+    [[QBTLyricsData sharedInstance] reloadFromUrl:downloadUrl];
+}
+
+#pragma mark - UITextFieldDelegate Selectors
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    // save to defaults
+    NSLog(@"Experimenter ID: %@", textField.text);
+
+    self.experimenterId = textField.text;
+    
+    return NO;
+}
+
+#pragma mark - Private Implementation
+
+@synthesize experimenterId = _experimenterId;
+- (void) setExperimenterId:(NSString *)experimenterId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:experimenterId forKey:@"ExperimenterId"];
+    [defaults synchronize];
+}
+
+- (NSString*) experimenterId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    return [defaults objectForKey:@"ExperimenterId"];
 }
 
 @end

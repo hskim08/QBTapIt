@@ -10,6 +10,9 @@
 
 @interface QBTSetupViewController : UIViewController
 
+@property IBOutlet UITextField* experimenterIdText;
+
 - (IBAction)startPushed:(UIButton*)sender;
+- (IBAction)reloadPushed:(UIButton*)sender;
 
 @end

@@ -52,6 +52,8 @@ static QBTSessionData* sharedInstance = nil;
     self.sessionId = [self createSessionId];
     NSLog(@"Session ID: %@", self.sessionId);
     
+    self.experimenterId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ExperimenterId"];
+    
     [self.taskDataArray removeAllObjects];
 
     // TODO: do further initialization for other properties

@@ -46,6 +46,14 @@
         [self updateSelection];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (self.withMusic)
+        self.doneButton.enabled = NO;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -120,6 +128,8 @@
 
 - (void) updateSelection
 {
+    self.doneButton.enabled = YES;
+    
     UIColor* unselected = [UIColor whiteColor];
     UIColor* selected = [UIColor yellowColor];
     

@@ -24,6 +24,8 @@
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
 @property BOOL withMusic;
 
+@property IBOutlet UIBarButtonItem* doneButton;
+
 @property IBOutlet UIView* familiarityView;
 @property IBOutlet UISlider* familiaritySlider;
 

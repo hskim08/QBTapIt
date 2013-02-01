@@ -28,7 +28,9 @@
 {
     [super viewDidAppear:animated];
 
+    self.continueButton.enabled = NO;
     [[QBTAudioPlayer sharedInstance] play];
+    [QBTAudioPlayer sharedInstance].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +54,7 @@
 #pragma mark QBTAudioPlayerDelegate Selectors
 - (void)audioPlayerDidFinishPlaying
 {
+    self.continueButton.enabled = YES;
 }
 
 @end
