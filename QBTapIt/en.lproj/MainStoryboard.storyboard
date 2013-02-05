@@ -109,7 +109,7 @@
             <objects>
                 <tableViewController id="pR8-kk-fcA" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6Rt-CZ-S4N">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1364,6 +1364,104 @@ Copies of this information sheet are available by request. If you would like a c
             <point key="canvasLocation" x="-337" y="-1819"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="QBTQuestionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="arrhythmicPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="continuePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="genderPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="handPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="languagePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="pickerDonePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="tonePushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ageText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="arrhythmicButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="genderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="habitSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="handedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="instrumentSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="languageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="theorySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="toneButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTSetupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reloadPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="startPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="experimenterIdText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskAudioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskAudioViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskDoneViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskDoneViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okPushed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskQuestionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkBoxTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="labelTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="answer1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="familiarityView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="helpfulView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskReadyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskReadyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="continueClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lyricsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QBTTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="agreePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="disagreePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="setupPushed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
