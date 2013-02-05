@@ -90,6 +90,7 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&device_type=%@", self.deviceType];
 
         [params appendFormat:@"&song_id=%@", taskData.songId];
+        [params appendFormat:@"&track_order=%d", taskData.trackOrder];
         
         [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
         [params appendFormat:@"&tap_off_data=%@", taskData.tapOffTimeData];

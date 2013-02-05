@@ -11,6 +11,7 @@
 @interface QBTTaskData : NSObject
 
 @property (nonatomic, strong) NSString* songId;
+@property (nonatomic, readwrite) UInt16 trackOrder;
 
 @property (nonatomic, strong) NSString* tapOnTimeData;
 @property (nonatomic, strong) NSString* tapOffTimeData;
