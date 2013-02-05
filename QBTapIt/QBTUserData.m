@@ -30,9 +30,24 @@ static QBTUserData* sharedInstance = nil;
 
 # pragma mark - Public Implementation
 
++ (NSString *)createUUID
+{
+    // Create universally unique identifier (object)
+    CFUUIDRef uuidObject = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // Get the string representation of CFUUID object.
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    NSString *uuidStr = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
+    
+    CFRelease(uuidObject);
+    
+    return uuidStr;
+}
+
 - (void) initData
 {
-    self.userId = [QBTServerSettings createUUID];
+    self.userId = [QBTUserData createUUID];
     NSLog(@"User ID: %@", self.userId);
     
     self.age = 0;
@@ -72,7 +87,6 @@ static QBTUserData* sharedInstance = nil;
 
 - (void) saveToDisk
 {
-    
 }
 
 #pragma mark - NSURLConnectionDelegate selectors

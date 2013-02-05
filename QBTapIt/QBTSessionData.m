@@ -8,6 +8,9 @@
 
 #import "QBTSessionData.h"
 
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
 #import "QBTServerSettings.h"
 #import "QBTTaskData.h"
 
@@ -16,6 +19,8 @@
 @property(nonatomic,strong) NSURLConnection* connection;
 
 - (NSString*) createSessionId;
+
+- (NSString*) platform;
 
 @end
 
@@ -39,6 +44,12 @@ static QBTSessionData* sharedInstance = nil;
     return @"1.0.0"; // update version when necessary
 }
 
+@synthesize deviceType = _deviceType;
+- (NSString*) deviceType
+{
+    return [self platform];
+}
+
 @synthesize taskDataArray = _taskDataArray;
 - (NSMutableArray*)taskDataArray {
     if (_taskDataArray == nil) {
@@ -51,12 +62,10 @@ static QBTSessionData* sharedInstance = nil;
 {
     self.sessionId = [self createSessionId];
     NSLog(@"Session ID: %@", self.sessionId);
-    
+
     self.experimenterId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ExperimenterId"];
     
     [self.taskDataArray removeAllObjects];
-
-    // TODO: do further initialization for other properties
 }
 
 - (void) sendToServer
@@ -78,6 +87,7 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&version_number=%@", self.version];
         [params appendFormat:@"&session_id=%@", self.sessionId];
         [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
+        [params appendFormat:@"&device_type=%@", self.deviceType];
 
         [params appendFormat:@"&song_id=%@", taskData.songId];
         
@@ -97,7 +107,6 @@ static QBTSessionData* sharedInstance = nil;
 
 - (void) saveToDisk
 {
-    
 }
 
 #pragma mark - NSURLConnectionDelegate selectors
@@ -117,6 +126,18 @@ static QBTSessionData* sharedInstance = nil;
     NSString *dateString = [dateFormat stringFromDate:date];
     
     return dateString;
+}
+
+// Code from https://github.com/ars/uidevice-extension
+- (NSString *) platform
+{
+	size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+	sysctlbyname("hw.machine", machine, &size, NULL, 0);
+	NSString *platform = [NSString stringWithCString:machine encoding: NSUTF8StringEncoding];
+	free(machine);
+	return platform;
 }
 
 @end

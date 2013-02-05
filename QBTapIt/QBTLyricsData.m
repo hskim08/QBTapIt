@@ -39,6 +39,24 @@ static QBTLyricsData* sharedInstance = nil;
     return sharedInstance;
 }
 
+@synthesize isTrialRun = _isTrialRun;
+- (void) setIsTrialRun:(BOOL)isTrialRun
+{
+    _isTrialRun = isTrialRun;
+    
+    if (_isTrialRun) {
+        NSURL* defaultUrl = [[NSBundle mainBundle] URLForResource: @"lyrics_trial"
+                                                    withExtension: @"csv"];
+        
+        self.csvParser = [self parserWithUrl:defaultUrl];
+    }
+    else {
+        NSString* localString = [self checkForLocalFile];
+        
+        self.csvParser = [self parserWithString:localString];
+    }
+}
+
 - (id)init
 {
     self = [super init];
@@ -52,7 +70,7 @@ static QBTLyricsData* sharedInstance = nil;
         }
         else { // load default lyrics
             
-            NSURL* defaultUrl = [[NSBundle mainBundle] URLForResource: @"lyrics_short"
+            NSURL* defaultUrl = [[NSBundle mainBundle] URLForResource: @"lyrics_trial"
                                                        withExtension: @"csv"];
             
             self.csvParser = [self parserWithUrl:defaultUrl];
@@ -66,8 +84,6 @@ static QBTLyricsData* sharedInstance = nil;
 
 - (void) reloadFromUrl:(NSURL*)url
 {
-    // TODO: show download progress
-    
     // download csv string
     NSString* csvString = [self downloadCsvStringFromUrl:url];
     
@@ -100,10 +116,25 @@ static QBTLyricsData* sharedInstance = nil;
     return [taskData objectForKey:@"Lyrics"];
 }
 
-- (NSString*) filenameForTask:(UInt16)task
+- (NSURL*) fileUrlForTask:(UInt16)task
 {
     NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:task];
-    return [taskData objectForKey:@"Filename"];
+    NSString* filename = [taskData objectForKey:@"Filename"];
+    
+    if (self.isTrialRun) {
+        NSLog(@"file: %@", [filename stringByDeletingPathExtension]);
+        NSLog(@"ext: %@", [filename pathExtension]);
+        
+        return [[NSBundle mainBundle] URLForResource:[filename stringByDeletingPathExtension]
+                                       withExtension:[filename pathExtension]];
+    }
+    else {
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *basePath = [paths objectAtIndex:0];
+        
+        return [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", basePath, filename]];
+    }
 }
 
 #pragma mark - Private Implementation
@@ -146,6 +177,7 @@ static QBTLyricsData* sharedInstance = nil;
             ];
 }
 
+// TODO: move to downloader class
 - (NSString*) downloadCsvStringFromUrl:(NSURL*)url
 {
     NSError* error;
@@ -163,6 +195,7 @@ static QBTLyricsData* sharedInstance = nil;
     return csvString;
 }
 
+// TODO: move to downloader class
 - (void) saveStringToDocuments:(NSString*)string
 {
     // write csv file to documents directory

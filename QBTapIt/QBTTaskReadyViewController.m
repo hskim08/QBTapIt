@@ -1,18 +1,20 @@
 //
-//  QBTTaskDoneViewController.m
+//  QBTTaskReadyViewController.m
 //  QBTapIt
 //
-//  Created by Ethan Kim on 11/2/12.
-//  Copyright (c) 2012 CCRMA, Stanford University. All rights reserved.
+//  Created by Ethan Kim on 2/4/13.
+//  Copyright (c) 2013 CCRMA, Stanford University. All rights reserved.
 //
 
-#import "QBTTaskDoneViewController.h"
+#import "QBTTaskReadyViewController.h"
 
-@interface QBTTaskDoneViewController ()
+#import "QBTLyricsData.h"
+
+@interface QBTTaskReadyViewController ()
 
 @end
 
-@implementation QBTTaskDoneViewController
+@implementation QBTTaskReadyViewController
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
@@ -28,8 +30,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.navigationItem.hidesBackButton = YES;
-    
     [self.navigationController setToolbarHidden:NO
                                        animated:YES];
 }
@@ -40,10 +40,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - IBAction Selectors
-- (IBAction) okPushed:(UIButton*)sender
+- (IBAction)continueClicked:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"DoneToConsent" sender:self];
+    [QBTLyricsData sharedInstance].isTrialRun = NO;
+    
+    [self performSegueWithIdentifier:@"ReadyToTask" sender:self];
 }
 
 @end

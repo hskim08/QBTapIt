@@ -26,7 +26,7 @@
 {
     [super viewWillAppear:animated];
 
-    self.continueButton.enabled = NO;
+    self.continueButton.enabled = YES; // TODO: this should be NO for release version
 }
 
 - (void) viewDidAppear:(BOOL)animated

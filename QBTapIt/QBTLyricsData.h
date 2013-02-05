@@ -12,6 +12,8 @@
 
 + (QBTLyricsData *) sharedInstance; // singleton
 
+@property (nonatomic) BOOL isTrialRun;
+
 - (void) reloadFromUrl:(NSURL*)url;
 
 - (UInt16) taskCount;
@@ -19,6 +21,6 @@
 - (NSString*) titleForTask:(UInt16)task;
 - (NSString*) artistForTask:(UInt16)task;
 - (NSString*) lyricsForTask:(UInt16)task;
-- (NSString*) filenameForTask:(UInt16)task;
+- (NSURL*) fileUrlForTask:(UInt16)task;
 
 @end

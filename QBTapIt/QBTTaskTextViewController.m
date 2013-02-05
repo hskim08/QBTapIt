@@ -8,6 +8,8 @@
 
 #import "QBTTaskTextViewController.h"
 
+#import "QBTLyricsData.h"
+
 @interface QBTTaskTextViewController ()
 
 @end
@@ -41,6 +43,8 @@
 
 - (IBAction) startClicked:(UIButton*)sender
 {
+    [QBTLyricsData sharedInstance].isTrialRun = YES;
+    
     [self performSegueWithIdentifier:@"StartToTask" sender:self];
 }
 

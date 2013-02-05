@@ -36,7 +36,7 @@ static QBTAudioPlayer* sharedInstance = nil;
         // Registers this class as the delegate of the audio session.
         [[AVAudioSession sharedInstance] setDelegate:self];
         
-        NSLog(@"Audio Session Setup!");
+//        NSLog(@"Audio Session Setup!");
     }
     
     return sharedInstance;

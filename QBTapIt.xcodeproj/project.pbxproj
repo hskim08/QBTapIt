@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */; };
 		50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */; };
-		AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */; };
+		AA4B2FD4169B8A9E00030E29 /* lyrics_trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4B2FD3169B8A9E00030E29 /* lyrics_trial.csv */; };
 		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */; };
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
@@ -17,6 +17,11 @@
 		AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */; };
 		AAA8B440169CE76B00C30C09 /* QBTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */; };
 		AAA8B443169CE95E00C30C09 /* QBTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B442169CE95E00C30C09 /* QBTUserData.m */; };
+		AACE7A7616C08DE100B7C0C7 /* on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AACE7A7216C08DE100B7C0C7 /* on.mp3 */; };
+		AACE7A7716C08DE100B7C0C7 /* dreams.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AACE7A7316C08DE100B7C0C7 /* dreams.mp3 */; };
+		AACE7A7816C08DE100B7C0C7 /* al.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AACE7A7416C08DE100B7C0C7 /* al.mp3 */; };
+		AACE7A7916C08DE100B7C0C7 /* somebody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AACE7A7516C08DE100B7C0C7 /* somebody.mp3 */; };
+		AACE7A7C16C0923500B7C0C7 /* QBTTaskReadyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACE7A7B16C0923500B7C0C7 /* QBTTaskReadyViewController.m */; };
 		AADDFB1A16448D68004955C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1916448D68004955C1 /* UIKit.framework */; };
 		AADDFB1C16448D68004955C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1B16448D68004955C1 /* Foundation.framework */; };
 		AADDFB1E16448D68004955C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1D16448D68004955C1 /* CoreGraphics.framework */; };
@@ -44,7 +49,7 @@
 		50EBEDBA16B1C987005516C4 /* QBTAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioPlayer.h; sourceTree = "<group>"; };
 		50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioPlayer.m; sourceTree = "<group>"; };
 		50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lyrics_short.csv; sourceTree = "<group>"; };
+		AA4B2FD3169B8A9E00030E29 /* lyrics_trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lyrics_trial.csv; sourceTree = "<group>"; };
 		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
 		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
 		AA687E5116BC46050019DA5F /* QBTAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioDownloader.h; sourceTree = "<group>"; };
@@ -57,6 +62,12 @@
 		AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTServerSettings.m; sourceTree = "<group>"; };
 		AAA8B441169CE95E00C30C09 /* QBTUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTUserData.h; sourceTree = "<group>"; };
 		AAA8B442169CE95E00C30C09 /* QBTUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTUserData.m; sourceTree = "<group>"; };
+		AACE7A7216C08DE100B7C0C7 /* on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = on.mp3; sourceTree = "<group>"; };
+		AACE7A7316C08DE100B7C0C7 /* dreams.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dreams.mp3; sourceTree = "<group>"; };
+		AACE7A7416C08DE100B7C0C7 /* al.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = al.mp3; sourceTree = "<group>"; };
+		AACE7A7516C08DE100B7C0C7 /* somebody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = somebody.mp3; sourceTree = "<group>"; };
+		AACE7A7A16C0923500B7C0C7 /* QBTTaskReadyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTTaskReadyViewController.h; sourceTree = "<group>"; };
+		AACE7A7B16C0923500B7C0C7 /* QBTTaskReadyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTTaskReadyViewController.m; sourceTree = "<group>"; };
 		AADDFB1516448D68004955C1 /* QBTapIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QBTapIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADDFB1916448D68004955C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AADDFB1B16448D68004955C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,7 +142,11 @@
 		AA687E4F16BC41DC0019DA5F /* Trial */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B2FD3169B8A9E00030E29 /* lyrics_short.csv */,
+				AA4B2FD3169B8A9E00030E29 /* lyrics_trial.csv */,
+				AACE7A7216C08DE100B7C0C7 /* on.mp3 */,
+				AACE7A7316C08DE100B7C0C7 /* dreams.mp3 */,
+				AACE7A7416C08DE100B7C0C7 /* al.mp3 */,
+				AACE7A7516C08DE100B7C0C7 /* somebody.mp3 */,
 			);
 			name = Trial;
 			sourceTree = "<group>";
@@ -269,6 +284,8 @@
 				AADDFB561644A623004955C1 /* QBTTaskAudioViewController.m */,
 				AAE86FF516A4DC0D00B819DB /* QBTTaskQuestionViewController.h */,
 				AAE86FF616A4DC0D00B819DB /* QBTTaskQuestionViewController.m */,
+				AACE7A7A16C0923500B7C0C7 /* QBTTaskReadyViewController.h */,
+				AACE7A7B16C0923500B7C0C7 /* QBTTaskReadyViewController.m */,
 			);
 			name = Task;
 			sourceTree = "<group>";
@@ -330,9 +347,13 @@
 				AADDFB2E16448D68004955C1 /* Default@2x.png in Resources */,
 				AADDFB3016448D68004955C1 /* Default-568h@2x.png in Resources */,
 				AADDFB3316448D68004955C1 /* MainStoryboard.storyboard in Resources */,
-				AA4B2FD4169B8A9E00030E29 /* lyrics_short.csv in Resources */,
+				AA4B2FD4169B8A9E00030E29 /* lyrics_trial.csv in Resources */,
 				AA7324F716AF35A500F9D64A /* icon114.png in Resources */,
 				AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */,
+				AACE7A7616C08DE100B7C0C7 /* on.mp3 in Resources */,
+				AACE7A7716C08DE100B7C0C7 /* dreams.mp3 in Resources */,
+				AACE7A7816C08DE100B7C0C7 /* al.mp3 in Resources */,
+				AACE7A7916C08DE100B7C0C7 /* somebody.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +383,7 @@
 				50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */,
 				AAF1E09F16BA32B0003523CD /* QBTLyricsData.m in Sources */,
 				AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */,
+				AACE7A7C16C0923500B7C0C7 /* QBTTaskReadyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

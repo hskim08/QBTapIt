@@ -27,6 +27,8 @@
 + (QBTSessionData *) sharedInstance;
 
 @property (readonly) NSString* version;
+@property (readonly) NSString* deviceType;
+
 @property NSString* sessionId;
 @property NSString* userId;
 @property NSString* experimenterId;

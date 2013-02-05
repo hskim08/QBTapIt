@@ -47,6 +47,9 @@
 	// Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = YES;
     
+    [self.navigationController setToolbarHidden:YES
+                                       animated:YES];
+    
     self.taskNumber = 0;
     self.withMusic = NO;
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
@@ -131,7 +134,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %d", @"Task", (self.taskNumber+1)];
     
     // update title text
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", [[QBTLyricsData sharedInstance] titleForTask:self.taskNumber], [[QBTLyricsData sharedInstance] artistForTask:self.taskNumber]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@", [[QBTLyricsData sharedInstance] titleForTask:self.taskNumber]];
     
     // load new lyrics
     self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskNumber];
@@ -204,34 +207,36 @@
 - (void) didCloseQuestionnaire
 {
     // save data
-    [self saveTaskData];
+    if (![QBTLyricsData sharedInstance].isTrialRun)
+        [self saveTaskData];
     
     if(self.withMusic) { // prepare for without music task
         
         if (self.taskNumber >= [[QBTLyricsData sharedInstance] taskCount]) { // end session
-            
-            // send data to server
-            [[QBTUserData sharedInstance] sendToServer];
-            [[QBTSessionData sharedInstance] sendToServer];
-            
-            [self performSegueWithIdentifier:@"TaskToDone" sender:self];
+    
+            if ([QBTLyricsData sharedInstance].isTrialRun) {
+                
+                [self performSegueWithIdentifier:@"TaskToReady" sender:self];
+            }
+            else {
+                // send data to server
+                [[QBTUserData sharedInstance] sendToServer];
+                [[QBTSessionData sharedInstance] sendToServer];
+                
+                [self performSegueWithIdentifier:@"TaskToDone" sender:self];
+            }
         }
         else { // prepare next task
             self.withMusic = NO;
-            
-            [self startTask];
+
+            if (![QBTLyricsData sharedInstance].isTrialRun)
+                [self startTask];
         }
     }
     else { // prepare for with music task
     
         // load music
-        NSString* filename = [[QBTLyricsData sharedInstance] filenameForTask:self.taskNumber];
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *basePath = [paths objectAtIndex:0];
-        
-        NSURL* fileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", basePath, filename]];
-        
+        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:self.taskNumber];
         [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
         
         // open audio view controller
@@ -247,7 +252,8 @@
     self.withMusic = YES;
     
     // prepare next task
-    [self startTask];
+    if (![QBTLyricsData sharedInstance].isTrialRun)
+        [self startTask];
 }
 
 @end
