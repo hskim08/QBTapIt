@@ -394,7 +394,7 @@ Thank you again for your participation.</string>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="dGx-Sp-1o8"/>
-                        <barButtonItem title="Item" id="P2P-9r-CgX">
+                        <barButtonItem title="Continue" style="done" id="P2P-9r-CgX">
                             <connections>
                                 <action selector="continueClicked:" destination="BUc-Cv-hFq" id="FRB-9g-WL3"/>
                             </connections>
