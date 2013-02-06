@@ -23,6 +23,7 @@
 
 @property NSInteger taskNumber;
 @property NSTimeInterval startTime;
+@property NSArray* taskOrder;
 @property BOOL withMusic;
 
 // Data Arrays
@@ -33,6 +34,7 @@
 
 @property QBTTaskData* currentTask;
 
+- (void) createRandomOrder;
 - (void) updateTaskUI;
 - (void) startTask;
 - (void) saveTaskData;
@@ -55,6 +57,9 @@
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData initData];
     sessionData.userId = [QBTUserData sharedInstance].userId;
+    
+    // create random order
+    [self createRandomOrder];
     
     [self updateTaskUI];
     [self startTask];
@@ -128,22 +133,67 @@
 
 #pragma mark - Private Implementation
 
+- (void) createRandomOrder
+{
+    UInt16 count = [[QBTLyricsData sharedInstance] taskCount];
+    NSMutableArray* array = [[NSMutableArray alloc] initWithCapacity:count];
+
+    for (UInt16 i = 0; i < count; i++ ) {
+        
+        [array setObject:[NSNumber numberWithInt:i]
+      atIndexedSubscript:i];
+    }
+    
+    if ([QBTLyricsData sharedInstance].isTrialRun) { // don't randomize for trial
+        self.taskOrder = array;
+    }
+    else {
+        
+        NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:0];
+        
+        while (array.count > 0) {
+            int removeIdx = rand() % array.count;
+            
+            [result addObject:[array objectAtIndex:removeIdx]];
+            [array removeObjectAtIndex:removeIdx];
+        }
+        
+        self.taskOrder = result;
+        
+//        int i = 0;
+//        NSLog(@"Printing randomized result");
+//        for (NSNumber* n in result) {
+//            i++;
+//            NSLog(@"%d: %d", i, n.intValue);
+//        }
+    }
+}
+
 - (void) updateTaskUI
 {
     // update navigation title
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %d", @"Task", (self.taskNumber+1)];
     
+    // get actual task index after randomization
+    NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
+    int taskIdx = n.intValue;
+    
     // update title text
-    self.titleLabel.text = [NSString stringWithFormat:@"%@", [[QBTLyricsData sharedInstance] titleForTask:self.taskNumber]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@", [[QBTLyricsData sharedInstance] titleForTask:taskIdx]];
     
     // load new lyrics
-    self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskNumber];
+    self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:taskIdx];
 }
 
 - (void) startTask
 {
-    // initialize data buffers
+    // initialize task data object
     self.currentTask = [[QBTTaskData alloc] init];
+    self.currentTask.trackOrder = self.taskNumber+1;
+    self.currentTask.songId = [NSString stringWithFormat:@"%d", self.taskNumber]; // TODO: set song format properly
+    self.currentTask.withMusic = self.withMusic;
+    
+    // initialize data buffers
     self.tapOnData = [NSMutableString stringWithCapacity:3];
     self.tapOffData = [NSMutableString stringWithCapacity:3];
     self.tapXPosData = [NSMutableString stringWithCapacity:3];
@@ -166,14 +216,10 @@
         [self.tapYPosData deleteCharactersInRange:NSMakeRange(self.tapYPosData.length-2, 2)];
     
     // save task data
-    self.currentTask.songId = [NSString stringWithFormat:@"%d", self.taskNumber]; // TODO: set song format properly
-    
     self.currentTask.tapOnTimeData = self.tapOnData;
     self.currentTask.tapOffTimeData = self.tapOffData;
     self.currentTask.tapXPositionData = self.tapXPosData;
     self.currentTask.tapYPositionData = self.tapYPosData;
-    
-    self.currentTask.withMusic = self.withMusic;
         
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];
@@ -235,8 +281,11 @@
     }
     else { // prepare for with music task
     
+        NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
+        int taskIdx = n.intValue;
+        
         // load music
-        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:self.taskNumber];
+        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:taskIdx];
         [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
         
         // open audio view controller

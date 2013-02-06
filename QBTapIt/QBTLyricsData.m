@@ -122,8 +122,6 @@ static QBTLyricsData* sharedInstance = nil;
     NSString* filename = [taskData objectForKey:@"Filename"];
     
     if (self.isTrialRun) {
-        NSLog(@"file: %@", [filename stringByDeletingPathExtension]);
-        NSLog(@"ext: %@", [filename pathExtension]);
         
         return [[NSBundle mainBundle] URLForResource:[filename stringByDeletingPathExtension]
                                        withExtension:[filename pathExtension]];

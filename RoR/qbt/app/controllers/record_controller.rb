@@ -7,9 +7,12 @@ class RecordController < ApplicationController
     
     @task.version_number = params[:version_number]
     @task.session_id = params[:session_id]
-    @task.song_id = params[:song_id]
     @task.user_id = params[:user_id]
     @task.experimenter_id = params[:experimenter_id]
+    @task.device_type = params[:device_type]
+
+    @task.song_id = params[:song_id]
+    @task.task_order = params[:task_order]
     
     @task.tap_data = params[:tap_data]
     @task.tap_off_data = params[:tap_off_data]
