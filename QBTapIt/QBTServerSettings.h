@@ -12,6 +12,7 @@
 
 + (QBTServerSettings*) sharedInstance;
 
-@property (readonly) NSString* serverIp;
+@property (nonatomic) NSString* uploadServer;
+@property (nonatomic) NSString* songListServer;
 
 @end

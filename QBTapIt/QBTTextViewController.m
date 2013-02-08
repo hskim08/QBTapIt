@@ -33,9 +33,9 @@
 
 #pragma mark - IBAction Selectors
 
-- (IBAction)setupPushed:(UIButton*)sender
+- (IBAction)settingsPushed:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"ConsentToSetup"
+    [self performSegueWithIdentifier:@"ConsentToSettings"
                               sender:self];
 }
 

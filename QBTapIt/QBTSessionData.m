@@ -75,7 +75,7 @@ static QBTSessionData* sharedInstance = nil;
         // Create a request with related data
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/record/taskInfo",
-                                                                                                 [QBTServerSettings sharedInstance].serverIp]]
+                                                                                                 [QBTServerSettings sharedInstance].uploadServer]]
                                                                cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                                            timeoutInterval:1000];
 

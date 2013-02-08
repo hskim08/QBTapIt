@@ -4,72 +4,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Setup View Controller - Settings-->
-        <scene sceneID="5">
-            <objects>
-                <viewController id="2" customClass="QBTSetupViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Me" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="7H0-r1-EWT">
-                                <rect key="frame" x="172" y="20" width="128" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Experimenter :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="auC-tI-6C6">
-                                <rect key="frame" x="20" y="24" width="111" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="coX-Wb-4Lp">
-                                <rect key="frame" x="20" y="88" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Reload files from server">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="reloadPushed:" destination="2" eventType="touchUpInside" id="925-Iz-MxK"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="BuK-bu-qD0">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="iri-mZ-0ku">
-                            <connections>
-                                <action selector="startPushed:" destination="2" id="sQ4-C1-ewH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="experimenterIdText" destination="7H0-r1-EWT" id="s9Y-XY-oXs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="496" y="1508"/>
-        </scene>
-        <!--Table View Controller - Downloading-->
+        <!--Download View Controller - Downloading-->
         <scene sceneID="9M3-2G-oy8">
             <objects>
-                <tableViewController id="s07-SZ-QPw" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="58" sectionHeaderHeight="22" sectionFooterHeight="22" id="sDG-lf-83l">
+                <tableViewController id="s07-SZ-QPw" customClass="QBTDownloadViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sDG-lf-83l">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t9c-Cm-vHS">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                            <state key="normal" title="Download From Server">
+                                <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="downloadClicked:" destination="s07-SZ-QPw" eventType="touchUpInside" id="Nxn-EO-Fav"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DownloadCell" rowHeight="58" id="tMk-xN-g9j">
-                                <rect key="frame" x="0.0" y="22" width="320" height="58"/>
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DownloadCell" rowHeight="58" id="tMk-xN-g9j" customClass="QBTDownloadCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
@@ -89,6 +49,10 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="progress" destination="Zr0-C2-Ikg" id="Zz5-ej-hkm"/>
+                                    <outlet property="titleLabel" destination="8th-dQ-nqd" id="nQ4-yh-Ofr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -98,88 +62,88 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Downloading" id="KNg-Vy-b1x">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="XOF-se-DGB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="cancel" id="XOF-se-DGB"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2G-0o-k8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="-1087"/>
+            <point key="canvasLocation" x="955" y="-999"/>
         </scene>
-        <!--Table View Controller - Server Settings-->
+        <!--Server View Controller - Server-->
         <scene sceneID="Wat-JY-UwM">
             <objects>
-                <tableViewController id="pJ2-6e-vrO" sceneMemberID="viewController">
+                <tableViewController id="pJ2-6e-vrO" customClass="QBTServerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FUZ-18-xGR">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="sVg-lt-wxH">
+                            <tableViewSection headerTitle="Server IP settings" id="sVg-lt-wxH">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Dqf-Gb-ZGH" detailTextLabel="ofC-lS-pfW" style="IBUITableViewCellStyleValue1" id="fx1-s4-eSu">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fx1-s4-eSu">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dqf-Gb-ZGH">
-                                                    <rect key="frame" x="10" y="11" width="58" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnd-mJ-xUG">
+                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="ding.stanford.edu" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ofC-lS-pfW">
-                                                    <rect key="frame" x="138" y="11" width="132" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu" minimumFontSize="17" clearButtonMode="whileEditing" id="B82-84-n68">
+                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pT9-to-ppt" detailTextLabel="LLh-yf-7A0" style="IBUITableViewCellStyleValue1" id="JdU-J3-XyA">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JdU-J3-XyA">
+                                        <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pT9-to-ppt">
-                                                    <rect key="frame" x="10" y="11" width="82" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lZu-zm-85V">
+                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="ding.stanford.edu" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LLh-yf-7A0">
-                                                    <rect key="frame" x="138" y="11" width="132" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu" minimumFontSize="17" clearButtonMode="whileEditing" id="Mdr-HW-U0B">
+                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="c42-Be-LAe">
+                            <tableViewSection footerTitle="Update songlist and download audio excerpt files from server." id="c42-Be-LAe">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DS6-Oz-zFn" style="IBUITableViewCellStyleDefault" id="iew-9S-XLY">
-                                        <rect key="frame" x="0.0" y="120" width="320" height="46"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DS6-Oz-zFn" style="IBUITableViewCellStyleDefault" id="iew-9S-XLY">
+                                        <rect key="frame" x="0.0" y="156" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download from Server" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DS6-Oz-zFn">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -188,6 +152,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="s07-SZ-QPw" kind="push" id="VFs-yv-k9Q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -197,20 +164,21 @@
                             <outlet property="delegate" destination="pJ2-6e-vrO" id="cfO-LC-mAk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Server Settings" id="jru-jr-tT3"/>
+                    <navigationItem key="navigationItem" title="Server" id="jru-jr-tT3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="s07-SZ-QPw" kind="push" identifier="ServerToDownload" id="v2e-SE-7H1"/>
+                        <outlet property="downloadText" destination="B82-84-n68" id="RzZ-Uc-Tl3"/>
+                        <outlet property="uploadText" destination="Mdr-HW-U0B" id="8Jt-Dh-Q1c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1f-OR-Ph5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="-1087"/>
+            <point key="canvasLocation" x="501" y="-999"/>
         </scene>
-        <!--Table View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="GC6-QL-msC">
             <objects>
-                <tableViewController id="pR8-kk-fcA" sceneMemberID="viewController">
+                <tableViewController id="pR8-kk-fcA" customClass="QBTSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6Rt-CZ-S4N">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,55 +186,62 @@
                         <sections>
                             <tableViewSection id="WKd-h3-lVj">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VhZ-6P-p1n" detailTextLabel="YdR-Fe-NYL" style="IBUITableViewCellStyleValue1" id="sne-iC-oML">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sne-iC-oML">
                                         <rect key="frame" x="0.0" y="10" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Experimenter ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VhZ-6P-p1n">
-                                                    <rect key="frame" x="10" y="11" width="131" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Experimenter ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0uu-Pu-Og9">
+                                                    <rect key="frame" x="10" y="11" width="135" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Experimenter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YdR-Fe-NYL">
-                                                    <rect key="frame" x="168" y="11" width="102" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Experimenter" minimumFontSize="17" clearButtonMode="whileEditing" id="QET-pZ-rGQ">
+                                                    <rect key="frame" x="150" y="11" width="140" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="IM7-6A-20j">
+                            <tableViewSection footerTitle="Choose between 1 to 4 songs for the trial run" id="IM7-6A-20j">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="CVq-hF-NIR" detailTextLabel="yOi-Ht-xLZ" style="IBUITableViewCellStyleValue1" id="RO6-7p-cvI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RO6-7p-cvI">
                                         <rect key="frame" x="0.0" y="76" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Trial Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CVq-hF-NIR">
-                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Trial Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CsN-IO-ZmK">
+                                                    <rect key="frame" x="10" y="11" width="135" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOi-Ht-xLZ">
-                                                    <rect key="frame" x="260" y="11" width="10" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" value="1" minimumValue="1" maximumValue="4" id="ZfD-OR-pEN">
+                                                    <rect key="frame" x="196" y="8" width="94" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <connections>
+                                                        <action selector="trialStepperPushed:" destination="pR8-kk-fcA" eventType="touchUpInside" id="zo5-eu-kU4"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z9J-vf-fWR">
+                                                    <rect key="frame" x="150" y="11" width="36" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -277,7 +252,7 @@
                             <tableViewSection id="Cb6-JX-4hK">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4uZ-2U-Spa" style="IBUITableViewCellStyleDefault" id="dYA-MQ-rZr">
-                                        <rect key="frame" x="0.0" y="142" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="192" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
@@ -293,6 +268,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="pJ2-6e-vrO" kind="push" id="IUu-NU-XOC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -303,60 +281,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="TMu-Sk-3SN">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="ZYY-3c-gJK"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="ZYY-3c-gJK">
+                            <connections>
+                                <action selector="donePushed:" destination="pR8-kk-fcA" id="Kr0-ye-YFz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="aTL-iH-Fnb" kind="push" identifier="SettingsToXpId" id="ljH-Pr-xl6"/>
-                        <segue destination="pJ2-6e-vrO" kind="push" identifier="SettingsToServer" id="7FS-9A-vCh"/>
+                        <outlet property="experimenterIdText" destination="QET-pZ-rGQ" id="Jnv-Jr-7xo"/>
+                        <outlet property="trialLabel" destination="Z9J-vf-fWR" id="hvr-yv-1Yu"/>
+                        <outlet property="trialStepper" destination="ZfD-OR-pEN" id="Hog-v1-MJJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJb-lZ-idB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="-1819"/>
-        </scene>
-        <!--Table View Controller - Experimenter ID-->
-        <scene sceneID="Nud-4c-dVw">
-            <objects>
-                <tableViewController id="aTL-iH-Fnb" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="DF5-vg-HDs">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection id="D1f-y8-Nui">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9t5-pU-VoH">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Experimenter" minimumFontSize="17" id="CLO-iT-nC4">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="aTL-iH-Fnb" id="ar5-CZ-pVm"/>
-                            <outlet property="delegate" destination="aTL-iH-Fnb" id="viZ-wD-XhD"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Experimenter ID" id="gfN-Ev-hGw"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gSs-oB-Zdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="565" y="-1819"/>
+            <point key="canvasLocation" x="46" y="-999"/>
         </scene>
         <!--Task Text View Controller - Instructions-->
         <scene sceneID="JXq-yA-MrE">
@@ -370,28 +310,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">This study is concerned with the control of unwanted thoughts.  Previous studies have found that under some conditions people experience the return of the very thoughts they try not to think about.  Although you may be able to control your thoughts for a brief time, thoughts that are intentionally suppressed often return by “popping” into mind or by influencing later perception and judgment.
-
-How was this tested?
-In this study, you were asked to perform two tasks--thinking about a red snake, and trying not to think about a red snake.  All participants performed these same tasks for 5 minutes each, and they each talked into a tape recorder during both tasks, reporting their ongoing stream of thoughts.  One group performed the suppression task first, followed by the thinking task, whereas the other group performed the thinking task first, followed by suppression.
-
-Hypotheses and main questions:
-We expect to find that suppression prompts lower rates of mentioning of the red snake than does directed thinking--but that suppression still does not eradicate such mentioning completely.  When we examine the frequency and duration of mentions of red snakes that appear in the tape-recorded protocols, we expect to find indications of thought return even during suppression.
-
-We are also interested in the influence of the suppression task on the thinking task.  We suspect that when people suppress a thought, an automatic mental process is introduced that searches for that thought--and this process increases the likelihood that the thought will come to mind later when it is being summoned intentionally.  So, we expected more time would be spent talking about the thought during the “think period” for those participants whose think period followed suppression than for those whose think period preceded suppression.  We are predicting a post-suppression “rebound” of unwanted thoughts.
-
-Why is this important to study?
-The rebound of thoughts following suppression may be relevant to everyday difficulties in mental control.  People who try to diet by suppressing thoughts of food, for example, might find their minds far too actively interested in food when they later let down their guard.  Other thoughts we suppress--secrets, embarrassments, could paradoxically become more prominent in mind as a result of our attempts at mental control.  The questions of how and when mental control might have these unwanted effects are still very much open to psychological research.
-
-What if I want to know more?
-If you are interested in learning more about the problems people encounter in trying to control their thoughts, you may want to consult:
-
-Smith, John.  Red snakes and other thoughts:  Suppression and the psychology of mental control.  FSU Seminole Report.  If you would like to receive a report of this research when it is completed (or a summary of the findings), please contact (Researcher Name) at (Researcher phone number and Researcher email).
-
-If you have concerns about your rights as a participant in this experiment, please contact the FSU IRB Secretary at (850) 644-8633.
-
-Thank you again for your participation.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
+                                <mutableString key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.For each song, you will first see just the lyrics. Even if you are only slightly familiar with the melody that goes with the lyrics, try your best to tap it out. Press “next” when you are finished. If the lyrics are totally unfamiliar to you, just press “next”. You will now hear the music that goes along with the lyrics. Listen closely, and when the music is done, tap out the melody again, doing your best to match performance you just heard.You will also be asked to answer questions about your familiarity with the lyrics, and whether the excerpts helped you with the tapping.Use the “next” button to get started on some training tasks to help you get familiarized with the app.</mutableString>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -442,13 +362,13 @@ Thank you again for your participation.</string>
                                 <rect key="frame" x="10" y="40" width="300" height="220"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gR2-i6-Rq2">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -493,8 +413,8 @@ Thank you again for your participation.</string>
                                 <string key="text">You've survived the trials. 
 (You're awesome!!)
 
-Now prepare for the most awesome tapping of your life!</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+Now prepare for the most amazing tapping performance of your life!</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -546,38 +466,6 @@ Now prepare for the most awesome tapping of your life!</string>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" id="IXi-T1-W7w">
-                                <rect key="frame" x="20" y="64" width="280" height="90"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="b8S-ue-Pjg">
-                                        <rect key="frame" x="0.0" y="50" width="280" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't know at all" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohy-Eu-VjP">
-                                        <rect key="frame" x="0.0" y="65" width="88" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Know by heart" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H52-Lj-gfd">
-                                        <rect key="frame" x="172" y="65" width="108" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How familiar was the song presented?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YqO-qd-vli">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="rgK-x5-DEj">
                                 <rect key="frame" x="20" y="64" width="280" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -585,7 +473,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -648,7 +536,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                         <rect key="frame" x="20" y="53" width="260" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
@@ -659,7 +547,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                         <rect key="frame" x="20" y="219" width="260" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
@@ -670,7 +558,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                         <rect key="frame" x="20" y="247" width="260" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
@@ -681,7 +569,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                         <rect key="frame" x="20" y="99" width="260" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
@@ -692,7 +580,7 @@ Now prepare for the most awesome tapping of your life!</string>
                                         <rect key="frame" x="20" y="159" width="260" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
@@ -701,6 +589,38 @@ Now prepare for the most awesome tapping of your life!</string>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="IXi-T1-W7w">
+                                <rect key="frame" x="20" y="64" width="280" height="90"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="b8S-ue-Pjg">
+                                        <rect key="frame" x="0.0" y="50" width="280" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Don't know at all" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohy-Eu-VjP">
+                                        <rect key="frame" x="0.0" y="65" width="88" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Know by heart" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H52-Lj-gfd">
+                                        <rect key="frame" x="172" y="65" width="108" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How familiar was the song presented?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YqO-qd-vli">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -876,14 +796,14 @@ Now prepare for the most awesome tapping of your life!</string>
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="16" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="LucidaGrande"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Collection and Analysis of Tapped Representations of Music">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="18" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -900,7 +820,7 @@ Cgo
                                     </fragment>
                                     <fragment content="Description">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -910,14 +830,14 @@ Cgo
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Eligibility">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -926,7 +846,7 @@ Cgo
                                         <string key="content">: By participating, you confirm that you meet the eligibility requirements for this study:
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -938,7 +858,7 @@ Cgo
 	•	Fluency in English
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="36" defaultTabInterval="36">
                                                 <tabStops>
@@ -965,7 +885,7 @@ Cgo
 At the discretion of the Protocol Director, subjects may be removed from the study due to unanticipated circumstances. Possible reasons for removing a subject from the study:
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -975,7 +895,7 @@ At the discretion of the Protocol Director, subjects may be removed from the stu
 	•	The experimental design is changed
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="36" defaultTabInterval="36">
                                                 <tabStops>
@@ -1001,14 +921,14 @@ At the discretion of the Protocol Director, subjects may be removed from the stu
 Cg
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Time involvement">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1018,14 +938,14 @@ Cg
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Risks and benefits">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1037,14 +957,14 @@ While we will be collecting information on your age, gender, handedness, and mus
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Payment">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1054,14 +974,14 @@ While we will be collecting information on your age, gender, handedness, and mus
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Subject’s rights">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1071,14 +991,14 @@ While we will be collecting information on your age, gender, handedness, and mus
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Contact information">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1086,7 +1006,7 @@ While we will be collecting information on your age, gender, handedness, and mus
                                     <fragment>
                                         <string key="content">: If you have any questions, concerns, or complaints about this research, its procedures, risks, and benefits, contact the Protocol Director, Blair Kaneshiro at </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1094,7 +1014,7 @@ While we will be collecting information on your age, gender, handedness, and mus
                                     <fragment content="blairbo@ccrma.stanford.edu">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.16078431372549021" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <url key="NSLink" string="mailto:blairbo@ccrma.stanford.edu"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
@@ -1105,20 +1025,35 @@ While we will be collecting information on your age, gender, handedness, and mus
                                     <fragment>
                                         <string key="content">.
 
-Independent contact: If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650) 725-2480 or toll free at 1-866-680-2906.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Independent contact">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650) 725-2480 or toll free at 1-866-680-2906.
 
 Copies of this information sheet are available by request. If you would like a copy, please ask the experimenter.
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPSMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPSMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="If you agree to participate in this research, please click the “I Agree” button to continue.">
                                         <attributes>
-                                            <font key="NSFont" size="14" name="TimesNewRomanPS-BoldMT"/>
+                                            <font key="NSFont" size="15" name="TimesNewRomanPS-BoldMT"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="36"/>
                                         </attributes>
@@ -1143,9 +1078,9 @@ Copies of this information sheet are available by request. If you would like a c
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Information" id="Rkm-ZO-wwb">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ecH-AJ-qX4">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="eq2-nW-AVp">
                             <connections>
-                                <action selector="setupPushed:" destination="wzd-gB-ePg" id="Awf-IX-uK3"/>
+                                <action selector="settingsPushed:" destination="wzd-gB-ePg" id="mDA-uA-gyl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1154,7 +1089,6 @@ Copies of this information sheet are available by request. If you would like a c
                     <connections>
                         <segue destination="Qbx-kl-b06" kind="push" identifier="TextToQuestion" id="nBE-vA-3Hr"/>
                         <segue destination="uhK-4N-qVJ" kind="push" identifier="TextToDone" id="fBF-bT-fqL"/>
-                        <segue destination="RNL-Ly-yDj" kind="modal" identifier="ConsentToSetup" modalTransitionStyle="coverVertical" id="f6Z-bI-bhd"/>
                         <segue destination="3aV-pa-nv2" kind="modal" identifier="ConsentToSettings" id="5qi-Sa-oSg"/>
                     </connections>
                 </viewController>
@@ -1431,29 +1365,6 @@ Copies of this information sheet are available by request. If you would like a c
             <point key="canvasLocation" x="-412" y="126"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="mAd-ls-LMd">
-            <objects>
-                <navigationController id="RNL-Ly-yDj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zQh-BT-aUM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bGy-Gh-lKG">
-                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="PSh-5L-nk8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="osu-zs-GH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="53" y="1508"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="dzT-Ix-E0M">
             <objects>
                 <navigationController id="3aV-pa-nv2" sceneMemberID="viewController">
@@ -1470,10 +1381,23 @@ Copies of this information sheet are available by request. If you would like a c
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtP-0N-jlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-337" y="-1819"/>
+            <point key="canvasLocation" x="-397" y="-999"/>
         </scene>
     </scenes>
     <classes>
+        <class className="QBTDownloadCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTDownloadCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QBTDownloadViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTDownloadViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="downloadClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="QBTQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTQuestionViewController.h"/>
             <relationships>
@@ -1498,12 +1422,21 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="outlet" name="toneButton" candidateClass="UIButton"/>
             </relationships>
         </class>
-        <class className="QBTSetupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTSetupViewController.h"/>
+        <class className="QBTServerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTServerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="reloadPushed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="startPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="downloadText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uploadText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="QBTSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="donePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="trialStepperPushed:" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="experimenterIdText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="trialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="trialStepper" candidateClass="UIStepper"/>
             </relationships>
         </class>
         <class className="QBTTaskAudioViewController" superclassName="UIViewController">
@@ -1567,7 +1500,7 @@ Copies of this information sheet are available by request. If you would like a c
             <relationships>
                 <relationship kind="action" name="agreePushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="disagreePushed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="setupPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="settingsPushed:" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
@@ -1577,8 +1510,8 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3ic-5O-9sf"/>
-        <segue reference="bFU-UO-XeH"/>
         <segue reference="sH7-10-Hxp"/>
+        <segue reference="fBF-bT-fqL"/>
+        <segue reference="OTg-lf-E03"/>
     </inferredMetricsTieBreakers>
 </document>

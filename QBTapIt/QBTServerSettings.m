@@ -10,13 +10,46 @@
 
 @implementation QBTServerSettings
 
-@synthesize serverIp = _serverIp;
-- (NSString*) serverIp
+- (id) init
 {
-    // change IP as needed
-//    return @"192.168.1.130:3000"; // home
-//    return @"192.168.183.218:3000"; // ccrma
-    return @"10.32.225.226:3000";
+    self = [super init];
+    if (self) {
+        if (!self.uploadServer) {
+            self.uploadServer = @"ding.stanford.edu";
+            self.songListServer = @"ding.stanford.edu";
+        }
+    }
+    return self;
+}
+
+@synthesize uploadServer = _serverIp;
+- (void) setUploadServer:(NSString *)serverIp
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:serverIp forKey:@"UploadServer"];
+    [defaults synchronize];
+}
+
+- (NSString*) uploadServer
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    return [defaults objectForKey:@"UploadServer"];
+}
+
+@synthesize songListServer = _songListServer;
+- (void) setSongListServer:(NSString *)songListServer
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:songListServer forKey:@"SongListServer"];
+    [defaults synchronize];
+}
+
+- (NSString*) songListServer
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    return [defaults objectForKey:@"SongListServer"];
 }
 
 # pragma  mark - Singleton

@@ -14,7 +14,8 @@
 
 @property (nonatomic) BOOL isTrialRun;
 
-- (void) reloadFromUrl:(NSURL*)url;
+//- (void) reloadFromUrl:(NSURL*)url;
+- (void) reloadSongListFromServer;
 
 - (UInt16) taskCount;
 

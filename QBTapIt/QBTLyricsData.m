@@ -10,6 +10,7 @@
 
 #import "CSVParser.h"
 
+#import "QBTServerSettings.h"
 #import "QBTAudioDownloader.h"
 
 @interface QBTLyricsData()
@@ -82,10 +83,14 @@ static QBTLyricsData* sharedInstance = nil;
 
 #pragma mark - Public Implementation
 
-- (void) reloadFromUrl:(NSURL*)url
+- (void) reloadSongListFromServer
 {
+    NSURL* downloadUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@",
+                                               [QBTServerSettings sharedInstance].songListServer, @"lyrics.csv"]
+                          ];
+    
     // download csv string
-    NSString* csvString = [self downloadCsvStringFromUrl:url];
+    NSString* csvString = [self downloadCsvStringFromUrl:downloadUrl];
     
     // download lyrics file
     self.csvParser = [self parserWithString:csvString];
@@ -95,6 +100,10 @@ static QBTLyricsData* sharedInstance = nil;
 
 - (UInt16) taskCount
 {
+    if (self.isTrialRun) {
+        return [[NSUserDefaults standardUserDefaults] integerForKey:@"TrialCount"];
+    }
+    
     return [self.csvParser arrayOfParsedRows].count;
 }
 
@@ -157,6 +166,7 @@ static QBTLyricsData* sharedInstance = nil;
                                                       error:&error];
     
     if (error) {
+        
         NSLog(@"%@", [error description]);
         return nil;
     }
@@ -184,6 +194,7 @@ static QBTLyricsData* sharedInstance = nil;
                                                       error:&error];
     
     if (error) { // failed to load file
+        
         NSLog(@"Failed to load file from: %@", url.absoluteString);
         NSLog(@"%@", [error description]);
     }
@@ -209,6 +220,7 @@ static QBTLyricsData* sharedInstance = nil;
                      error:&error];
     
     if (error) { // failed to write file
+        
         NSLog(@"Failed to write string to: %@", fileString);
         NSLog(@"%@", [error description]);
     }
@@ -217,10 +229,12 @@ static QBTLyricsData* sharedInstance = nil;
 - (void) downloadAudioFiles
 {
     for (NSDictionary* taskData in [self.csvParser arrayOfParsedRows]) {
+        
         NSString* filename = [taskData objectForKey:@"Filename"];
         
-        // TODO: change to modifiable url
-        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ccrma.stanford.edu/~hskim08/qbt/files/%@", filename]];
+        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/files/%@",
+                                           [QBTServerSettings sharedInstance].songListServer, filename]
+                      ];
         QBTAudioDownloader* downloader = [[QBTAudioDownloader alloc] init];
         [downloader downloadAudioWithUrl:url];
     }

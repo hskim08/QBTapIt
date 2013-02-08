@@ -62,7 +62,7 @@ static QBTUserData* sharedInstance = nil;
 {
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/record/userInfo",
-                                                                         [QBTServerSettings sharedInstance].serverIp]]
+                                                                         [QBTServerSettings sharedInstance].uploadServer]]
                                     cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                     timeoutInterval:1000];
     
