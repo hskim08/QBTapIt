@@ -411,7 +411,7 @@ Use the “next” button to get started on some training tasks to help you get 
 
 If you have any questions, please ask the experimenter at this time.
 
-Hit “Continue” to begin the test section, or “More Trials” to try out the training trials again.</string>
+Hit “Continue” to begin the test section, or “Practice” to try out the training trials again.</string>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1514,8 +1514,8 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sH7-10-Hxp"/>
-        <segue reference="fBF-bT-fqL"/>
         <segue reference="3ic-5O-9sf"/>
+        <segue reference="fBF-bT-fqL"/>
+        <segue reference="sH7-10-Hxp"/>
     </inferredMetricsTieBreakers>
 </document>

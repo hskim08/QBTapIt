@@ -40,6 +40,11 @@ static QBTLyricsData* sharedInstance = nil;
     return sharedInstance;
 }
 
++ (NSString*) songListFilename
+{
+    return @"lyrics.csv";
+}
+
 @synthesize isTrialRun = _isTrialRun;
 - (void) setIsTrialRun:(BOOL)isTrialRun
 {
@@ -129,10 +134,7 @@ static QBTLyricsData* sharedInstance = nil;
     }
     else {
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *basePath = [paths objectAtIndex:0];
-        
-        return [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", basePath, filename]];
+        return [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", [QBTServerSettings documentsDirectory], filename]];
     }
 }
 
@@ -140,10 +142,7 @@ static QBTLyricsData* sharedInstance = nil;
 
 - (NSString*) getLocalSonglist
 {
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDir = [paths objectAtIndex:0];
-    NSString* filename = @"lyrics.csv";
-    NSString* fileString = [NSString stringWithFormat:@"%@/%@", documentsDir, filename];
+    NSString* fileString = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings documentsDirectory], [QBTLyricsData songListFilename]];
     
     return [NSString stringWithContentsOfFile:fileString
                                      encoding:NSASCIIStringEncoding

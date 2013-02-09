@@ -61,11 +61,13 @@
     self.continueButton.enabled = YES;
 
     [[QBTAudioPlayer sharedInstance] stop];
-    
-    [self dismissViewControllerAnimated:YES
-                             completion:^{
-                                 [self.delegate didCloseAudioViewController];
-                             }];
+
+    // uncomment the following coe to close view controller
+    // immediately after audio stops
+//    [self dismissViewControllerAnimated:YES
+//                             completion:^{
+//                                 [self.delegate didCloseAudioViewController];
+//                             }];
 }
 
 @end

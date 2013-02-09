@@ -36,6 +36,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [QBTSongListDownloader sharedInstance].delegate = self;
+    
     [self.tableView reloadData];
     
     self.navigationItem.rightBarButtonItem.title = [QBTSongListDownloader sharedInstance].isDownloading ? @"Cancel" : @"Download";
@@ -82,11 +84,11 @@
 {
     if ([QBTSongListDownloader sharedInstance].isDownloading) { // cancel
         
+        [[QBTSongListDownloader sharedInstance] cancelDownload];
     }
     else { // download
     
         [[QBTSongListDownloader sharedInstance] downloadSongListFromServer];
-        [QBTSongListDownloader sharedInstance].delegate = self;
         
         [self.tableView reloadData];
         

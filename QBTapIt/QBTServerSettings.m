@@ -13,12 +13,16 @@
 - (id) init
 {
     self = [super init];
+    
     if (self) {
+        
         if (!self.uploadServer) {
+            
             self.uploadServer = @"ding.stanford.edu";
             self.songListServer = @"ding.stanford.edu";
         }
     }
+    
     return self;
 }
 
@@ -60,6 +64,31 @@ static QBTServerSettings* sharedInstance = nil;
         sharedInstance = [[QBTServerSettings alloc] init];
 
     return sharedInstance;
+}
+
++ (NSString*) documentsDirectory
+{
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}
+
++ (NSString*) tempDirectory
+{
+    NSString* pathString = [NSString stringWithFormat:@"%@/temp", [QBTServerSettings documentsDirectory]];
+    
+    // check if temp dir exists
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if ( ![fileManager fileExistsAtPath:pathString] ) {
+        NSError* error;
+        [fileManager createDirectoryAtPath:pathString
+               withIntermediateDirectories:NO
+                                attributes:nil
+                                     error:&error];
+        if (error)
+            NSLog(@"Failed to create temp directory:: %@", error.description);
+    }
+    
+    return pathString;
 }
 
 @end

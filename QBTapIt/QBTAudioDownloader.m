@@ -8,6 +8,8 @@
 
 #import "QBTAudioDownloader.h"
 
+#import "QBTServerSettings.h"
+
 @interface QBTAudioDownloader()<NSURLConnectionDataDelegate>
 
 @property NSURLConnection* connection;
@@ -44,6 +46,11 @@
                                                     delegate:self];
 }
 
+- (void) cancelDownload
+{
+    [self.connection cancel];
+}
+
 #pragma mark - NSURLConnectionDataDelegate Selectors
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -53,9 +60,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-//    NSLog(@"Suggested Filename: %@", response.suggestedFilename);
-//    NSLog(@"Expected content: %lld", response.expectedContentLength);
-    
     self.filename = response.suggestedFilename;
     self.expectedLength = response.expectedContentLength;
     
@@ -75,11 +79,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    // save to file
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDir = [paths objectAtIndex:0];
-    
-    NSString* filePath = [NSString stringWithFormat:@"%@/%@", documentsDir, self.filename];
+    // save to file in temp directory
+    NSString* filePath = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings tempDirectory], self.filename];
     [self.downloadData writeToFile:filePath
                         atomically:YES];
     
@@ -90,7 +91,6 @@
     
     [self.manager downloader:self
         finishedDownloadingTo:filePath];
-
 }
 
 

@@ -12,6 +12,8 @@
 
 + (QBTLyricsData *) sharedInstance; // singleton
 
++ (NSString*) songListFilename;
+
 @property (nonatomic) BOOL isTrialRun;
 
 - (void) reloadSongList;

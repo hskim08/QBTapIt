@@ -27,4 +27,6 @@
 
 - (void) downloadSongListFromServer;
 
+- (void) cancelDownload;
+
 @end

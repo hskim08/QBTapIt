@@ -12,6 +12,9 @@
 
 + (QBTServerSettings*) sharedInstance;
 
++ (NSString*) documentsDirectory;
++ (NSString*) tempDirectory;
+
 @property (nonatomic) NSString* uploadServer;
 @property (nonatomic) NSString* songListServer;
 

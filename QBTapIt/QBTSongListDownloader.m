@@ -18,7 +18,12 @@
 
 - (NSString*) downloadCsvStringFromUrl:(NSURL*)url;
 
-- (CSVParser*) getLocalSonglist;
+- (CSVParser*) getTempSonglist;
+
+// TODO: move to file manager class
+- (void) cleanDirectory:(NSString*)dirPath;
+- (void) cleanDirectory:(NSString*)dirPath except:(NSString*)file;
+- (void) moveContentsOfDirectory:(NSString*)fromDir toDirectory:(NSString*)toDir;
 
 @end
 
@@ -50,17 +55,19 @@ static QBTSongListDownloader* sharedInstance = nil;
 
 - (void) downloadSongListFromServer
 {
+    // clear temp directory
+    [self cleanDirectory:[QBTServerSettings tempDirectory]];
+    
     // get songlist from server
-    NSURL* downloadUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/%@",
-                                               [QBTServerSettings sharedInstance].songListServer, @"lyrics.csv"]
-                          ];
+    NSString* urlString = [NSString stringWithFormat:@"http://%@/%@",
+                           [QBTServerSettings sharedInstance].songListServer,
+                           [QBTLyricsData songListFilename]];
+    NSURL* downloadUrl = [NSURL URLWithString:urlString];
+    
     NSString* csvString = [self downloadCsvStringFromUrl:downloadUrl];
     
     // save to file
     [self saveStringToDocuments:csvString];
-
-    // reload lyrics data
-    [[QBTLyricsData sharedInstance] reloadSongList];
 
     // start downloading audio files
     [self downloadAudioFiles];
@@ -84,11 +91,10 @@ static QBTSongListDownloader* sharedInstance = nil;
 
 - (void) saveStringToDocuments:(NSString*)string
 {
-    // write csv file to documents directory
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDir = [paths objectAtIndex:0];
-    NSString* filename = @"lyrics.csv";
-    NSString* fileString = [NSString stringWithFormat:@"%@/%@", documentsDir, filename];
+    // write csv file to temp directory
+    NSString* fileString = [NSString stringWithFormat:@"%@/%@",
+                            [QBTServerSettings tempDirectory],
+                            [QBTLyricsData songListFilename]];
     
     NSError* error;
     [string writeToFile:fileString
@@ -105,7 +111,7 @@ static QBTSongListDownloader* sharedInstance = nil;
 
 - (void) downloadAudioFiles
 {
-    CSVParser* csvParser = [self getLocalSonglist];
+    CSVParser* csvParser = [self getTempSonglist];
     
     for (NSDictionary* taskData in [csvParser arrayOfParsedRows]) {
 
@@ -122,12 +128,26 @@ static QBTSongListDownloader* sharedInstance = nil;
     }
 }
 
-- (CSVParser*) getLocalSonglist
+- (void) cancelDownload
 {
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDir = [paths objectAtIndex:0];
-    NSString* filename = @"lyrics.csv";
-    NSString* fileString = [NSString stringWithFormat:@"%@/%@", documentsDir, filename];
+    for (QBTAudioDownloader* downloader in self.audioDownloaderArray) {
+        
+        [downloader cancelDownload];
+    }
+    
+    // clear downloader array
+    [self.audioDownloaderArray removeAllObjects];
+    
+    // clear temp directory
+    [self cleanDirectory:[QBTServerSettings tempDirectory]];
+    
+    // signal for update
+    [self.delegate downloadListChanged];
+}
+
+- (CSVParser*) getTempSonglist
+{
+    NSString* fileString = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings tempDirectory], [QBTLyricsData songListFilename]];
     
     NSString* csvString = [NSString stringWithContentsOfFile:fileString
                                      encoding:NSASCIIStringEncoding
@@ -137,8 +157,7 @@ static QBTSongListDownloader* sharedInstance = nil;
     return [[CSVParser alloc] initWithString:csvString
                                    separator:@","
                                    hasHeader:YES
-                                  fieldNames:keyArray
-            ];
+                                  fieldNames:keyArray];
 }
 
 #pragma mark - QBTAudioDownloaderManagerDelegate Selector
@@ -147,8 +166,93 @@ static QBTSongListDownloader* sharedInstance = nil;
 {
     [self.audioDownloaderArray removeObject:downloader];
     
+    if (self.audioDownloaderArray.count == 0) { // finished downloading
+        
+        // Clear old files in document directory
+        [self cleanDirectory:[QBTServerSettings documentsDirectory]
+                      except:[QBTServerSettings tempDirectory].lastPathComponent];
+        
+        // Move new files to docoment directory
+        [self moveContentsOfDirectory:[QBTServerSettings tempDirectory]
+                          toDirectory:[QBTServerSettings documentsDirectory]];
+        
+        // Update QBTLyricsData
+        [[QBTLyricsData sharedInstance] reloadSongList];
+    }
+    
     // signal for update
     [self.delegate downloadListChanged];
+}
+
+// TODO: move to file manager class
+- (void) cleanDirectory:(NSString*)dirPath
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    
+    NSError* error;
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:dirPath
+                                                      error:&error];
+    
+    for (NSString* file in files) {
+        
+        [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [QBTServerSettings tempDirectory], file]
+                                error:&error];
+        
+        if (error) {
+            
+            NSLog(@"Failed to remove file in documents directory: %@", file);
+            NSLog(@"%@", error.description);
+        }
+    }
+}
+
+// TODO: move to file manager class
+- (void) cleanDirectory:(NSString*)dirPath except:(NSString*)exFile
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+    
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:dirPath
+                                                      error:&error];
+    
+    for (NSString* file in files) {
+        
+        if (![file isEqualToString:exFile]) {
+            
+            [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [QBTServerSettings documentsDirectory], file]
+                                    error:&error];
+            
+            if (error) {
+                
+                NSLog(@"Failed to remove file in documents directory: %@", file);
+                NSLog(@"%@", error.description);
+            }
+        }
+    }
+
+}
+
+// TODO: move to file manager class
+- (void) moveContentsOfDirectory:(NSString*)fromDir toDirectory:(NSString*)toDir
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+    
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:fromDir
+                                                          error:&error];
+    
+    for (NSString* file in files) {
+        
+        [fileManager moveItemAtPath:[NSString stringWithFormat:@"%@/%@", fromDir, file]
+                             toPath:[NSString stringWithFormat:@"%@/%@", toDir, file]
+                              error:&error];
+        
+        if (error) {
+            
+            NSLog(@"Failed to move file to documents directory: %@", file);
+            NSLog(@"%@", error.description);
+        }
+    }
 }
 
 @end

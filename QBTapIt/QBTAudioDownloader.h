@@ -34,4 +34,6 @@
 
 - (void) downloadAudioWithUrl:(NSURL*)url;
 
+- (void) cancelDownload;
+
 @end
