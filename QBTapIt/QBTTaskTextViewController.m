@@ -45,7 +45,8 @@
 {
     [QBTLyricsData sharedInstance].isTrialRun = YES;
     
-    [self performSegueWithIdentifier:@"StartToTask" sender:self];
+    [self performSegueWithIdentifier:@"StartToTask"
+                              sender:self];
 }
 
 @end

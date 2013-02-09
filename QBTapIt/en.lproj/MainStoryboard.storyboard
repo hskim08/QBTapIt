@@ -4,35 +4,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Download View Controller - Downloading-->
+        <!--Download View Controller - Download-->
         <scene sceneID="9M3-2G-oy8">
             <objects>
                 <tableViewController id="s07-SZ-QPw" customClass="QBTDownloadViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sDG-lf-83l">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="sDG-lf-83l">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t9c-Cm-vHS">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                            <state key="normal" title="Download From Server">
-                                <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="downloadClicked:" destination="s07-SZ-QPw" eventType="touchUpInside" id="Nxn-EO-Fav"/>
-                            </connections>
-                        </button>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DownloadCell" rowHeight="58" id="tMk-xN-g9j" customClass="QBTDownloadCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="58"/>
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DownloadCell" id="tMk-xN-g9j" customClass="QBTDownloadCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Song Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8th-dQ-nqd">
@@ -42,8 +27,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="Zr0-C2-Ikg">
-                                            <rect key="frame" x="20" y="40" width="280" height="9"/>
+                                        <progressView opaque="NO" contentMode="scaleToFill" id="Zr0-C2-Ikg">
+                                            <rect key="frame" x="20" y="36" width="280" height="9"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </progressView>
                                     </subviews>
@@ -61,8 +46,12 @@
                             <outlet property="delegate" destination="s07-SZ-QPw" id="oM5-E4-3dZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Downloading" id="KNg-Vy-b1x">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="cancel" id="XOF-se-DGB"/>
+                    <navigationItem key="navigationItem" title="Download" id="KNg-Vy-b1x">
+                        <barButtonItem key="rightBarButtonItem" title="Download" id="XOF-se-DGB">
+                            <connections>
+                                <action selector="downloadClicked:" destination="s07-SZ-QPw" id="ks8-MI-nRR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
@@ -310,7 +299,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.For each song, you will first see just the lyrics. Even if you are only slightly familiar with the melody that goes with the lyrics, try your best to tap it out. Press “next” when you are finished. If the lyrics are totally unfamiliar to you, just press “next”. You will now hear the music that goes along with the lyrics. Listen closely, and when the music is done, tap out the melody again, doing your best to match performance you just heard.You will also be asked to answer questions about your familiarity with the lyrics, and whether the excerpts helped you with the tapping.Use the “next” button to get started on some training tasks to help you get familiarized with the app.</mutableString>
+                                <string key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.
+
+For each song, you will first see just the lyrics. Even if you are only slightly familiar with the melody that goes with the lyrics, try your best to tap it out. Press “next” when you are finished. If the lyrics are totally unfamiliar to you, just press “next”. 
+
+You will now hear the music that goes along with the lyrics. Listen closely, and when the music is done, tap out the melody again, doing your best to match performance you just heard.
+
+You will also be asked to answer questions about your familiarity with the lyrics, and whether the excerpts helped you with the tapping.
+
+Use the “next” button to get started on some training tasks to help you get familiarized with the app.</string>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -410,10 +407,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">You've survived the trials. 
-(You're awesome!!)
+                                <string key="text">You have now completed the training trials and are ready to begin the test.
 
-Now prepare for the most amazing tapping performance of your life!</string>
+If you have any questions, please ask the experimenter at this time.
+
+Hit “Continue” to begin the test section, or “More Trials” to try out the training trials again.</string>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -421,6 +419,11 @@ Now prepare for the most amazing tapping performance of your life!</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem title="Practice" id="CXZ-2b-z7f">
+                            <connections>
+                                <action selector="practiceClicked:" destination="BUc-Cv-hFq" id="c22-SG-Z0Q"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="dGx-Sp-1o8"/>
                         <barButtonItem title="Continue" style="done" id="P2P-9r-CgX">
                             <connections>
@@ -1478,6 +1481,7 @@ Copies of this information sheet are available by request. If you would like a c
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskReadyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="continueClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="practiceClicked:" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="QBTTaskTextViewController" superclassName="UIViewController">
@@ -1512,6 +1516,6 @@ Copies of this information sheet are available by request. If you would like a c
     <inferredMetricsTieBreakers>
         <segue reference="sH7-10-Hxp"/>
         <segue reference="fBF-bT-fqL"/>
-        <segue reference="OTg-lf-E03"/>
+        <segue reference="3ic-5O-9sf"/>
     </inferredMetricsTieBreakers>
 </document>

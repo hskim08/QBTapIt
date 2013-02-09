@@ -11,6 +11,7 @@
 		50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */; };
 		AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */; };
 		AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */; };
+		AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */; };
 		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4F4BD316C09D9B0037E613 /* al.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BCE16C09D9B0037E613 /* al.mp3 */; };
 		AA4F4BD416C09D9B0037E613 /* dreams.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BCF16C09D9B0037E613 /* dreams.mp3 */; };
@@ -56,6 +57,8 @@
 		AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTDownloadViewController.m; sourceTree = "<group>"; };
 		AA1E4A0D16C58EA100238C54 /* QBTDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTDownloadCell.h; sourceTree = "<group>"; };
 		AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTDownloadCell.m; sourceTree = "<group>"; };
+		AA1E4A1016C5A13500238C54 /* QBTSongListDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSongListDownloader.h; sourceTree = "<group>"; };
+		AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSongListDownloader.m; sourceTree = "<group>"; };
 		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
 		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
 		AA4F4BCE16C09D9B0037E613 /* al.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = al.mp3; path = Trial/al.mp3; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 		AA687E5016BC45DF0019DA5F /* Download */ = {
 			isa = PBXGroup;
 			children = (
+				AA1E4A1016C5A13500238C54 /* QBTSongListDownloader.h */,
+				AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */,
 				AA687E5116BC46050019DA5F /* QBTAudioDownloader.h */,
 				AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */,
 			);
@@ -402,6 +407,7 @@
 				AAF98B6216C49D8C002AD8DF /* QBTServerViewController.m in Sources */,
 				AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */,
 				AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */,
+				AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

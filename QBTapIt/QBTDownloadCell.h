@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "QBTAudioDownloader.h"
+
 @interface QBTDownloadCell : UITableViewCell
 
 @property IBOutlet UIProgressView* progress;
 @property IBOutlet UILabel* titleLabel;
+
+@property (nonatomic) QBTAudioDownloader* downloader;
 
 @end

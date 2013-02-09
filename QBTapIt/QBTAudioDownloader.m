@@ -13,6 +13,8 @@
 @property NSURLConnection* connection;
 
 @property (readwrite) NSString* filename;
+@property (readwrite) Float32 progress;
+
 @property UInt64 expectedLength;
 @property NSMutableData* downloadData;
 
@@ -32,7 +34,10 @@
 
 - (void) downloadAudioWithUrl:(NSURL*)url
 {
-    NSLog(@"Downloading from : %@", [url absoluteString]);
+//    NSLog(@"Downloading from : %@", [url absoluteString]);
+    
+    self.filename = [[url absoluteString] lastPathComponent];
+    self.progress = 0;
     
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     self.connection = [NSURLConnection connectionWithRequest:request
@@ -48,16 +53,24 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"Suggested Filename: %@", response.suggestedFilename);
-    NSLog(@"Expected content: %lld", response.expectedContentLength);
+//    NSLog(@"Suggested Filename: %@", response.suggestedFilename);
+//    NSLog(@"Expected content: %lld", response.expectedContentLength);
     
     self.filename = response.suggestedFilename;
     self.expectedLength = response.expectedContentLength;
+    
+    [self.delegate downloader:self
+        updatedFilename:self.filename];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [self.downloadData appendData:data];
+    
+    self.progress = self.downloadData.length/(Float32)self.expectedLength;
+    
+    [self.delegate downloader:self
+                 madeProgress:self.progress];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -70,7 +83,14 @@
     [self.downloadData writeToFile:filePath
                         atomically:YES];
     
-    NSLog(@"File saved to: %@", filePath);
+//    NSLog(@"File saved to: %@", filePath);
+    
+    [self.delegate downloader:self
+        finishedDownloadingTo:filePath];
+    
+    [self.manager downloader:self
+        finishedDownloadingTo:filePath];
+
 }
 
 

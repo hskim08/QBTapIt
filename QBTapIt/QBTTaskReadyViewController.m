@@ -47,4 +47,12 @@
     [self performSegueWithIdentifier:@"ReadyToTask" sender:self];
 }
 
+- (IBAction) practiceClicked:(UIButton*)sender
+{
+    [QBTLyricsData sharedInstance].isTrialRun = YES;
+    
+    [self performSegueWithIdentifier:@"ReadyToTask"
+                              sender:self];
+}
+
 @end

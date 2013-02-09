@@ -10,6 +10,7 @@
 
 @interface QBTTaskReadyViewController : UIViewController
 
-- (IBAction)continueClicked:(UIButton*)sender;
+- (IBAction) continueClicked:(UIButton*)sender;
+- (IBAction) practiceClicked:(UIButton*)sender;
 
 @end
