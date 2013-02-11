@@ -92,8 +92,8 @@
         CGPoint point = [touch locationInView:self.view];
         
         [self.tapXPosData appendFormat:@"%f, ", point.x];
-        [self.tapYPosData appendFormat:@"%f, ", point.y];
-//        NSLog(@"x/y: %f/%f", point.x, point.y);
+        [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
+        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height-point.y);
         break;
     }
 }
@@ -150,6 +150,7 @@
     else {
         
         NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:0];
+        srand(time(NULL)); // set random seed
         
         while (array.count > 0) {
             int removeIdx = rand() % array.count;
