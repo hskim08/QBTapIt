@@ -11,7 +11,7 @@ class RecordController < ApplicationController
     @task.experimenter_id = params[:experimenter_id]
     @task.device_type = params[:device_type]
 
-    @task.song_id = params[:song_id]
+    @task.song_title = params[:song_title]
     @task.task_order = params[:task_order]
     
     @task.tap_data = params[:tap_data]

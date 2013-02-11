@@ -35,6 +35,7 @@
 @property QBTTaskData* currentTask;
 
 - (void) createRandomOrder;
+
 - (void) updateTaskUI;
 - (void) startTask;
 - (void) saveTaskData;
@@ -188,10 +189,13 @@
 
 - (void) startTask
 {
+    NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
+    int taskIdx = n.intValue;
+    
     // initialize task data object
     self.currentTask = [[QBTTaskData alloc] init];
     self.currentTask.trackOrder = self.taskNumber+1;
-    self.currentTask.songId = [NSString stringWithFormat:@"%d", self.taskNumber]; // TODO: set song format properly
+    self.currentTask.songTitle = [[QBTLyricsData sharedInstance] titleForTask:taskIdx];
     self.currentTask.withMusic = self.withMusic;
     
     // initialize data buffers

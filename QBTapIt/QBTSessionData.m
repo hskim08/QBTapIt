@@ -14,7 +14,7 @@
 #import "QBTServerSettings.h"
 #import "QBTTaskData.h"
 
-@interface QBTSessionData()<NSURLConnectionDelegate>
+@interface QBTSessionData()<NSURLConnectionDataDelegate>
 
 @property(nonatomic,strong) NSURLConnection* connection;
 
@@ -89,7 +89,7 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
         [params appendFormat:@"&device_type=%@", self.deviceType];
 
-        [params appendFormat:@"&song_id=%@", taskData.songId];
+        [params appendFormat:@"&song_title=%@", taskData.songTitle];
         [params appendFormat:@"&task_order=%d", taskData.trackOrder];
         
         [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
@@ -110,11 +110,22 @@ static QBTSessionData* sharedInstance = nil;
 {
 }
 
-#pragma mark - NSURLConnectionDelegate selectors
+#pragma mark - NSURLConnectionDataDelegate selectors
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError:%@", error.description);
+}
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+//    NSString* ss = [[NSString alloc] initWithBytes:data.bytes
+//                                            length:data.length
+//                                          encoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"TaskInfo: %@", ss);
 }
 
 #pragma mark - Private implementation

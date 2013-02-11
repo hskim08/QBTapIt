@@ -22,10 +22,6 @@
 - (CSVParser*) parserWithUrl:(NSURL*)url;
 - (CSVParser*) parserWithString:(NSString*)csvString;
 
-//- (NSString*) downloadCsvStringFromUrl:(NSURL*)url;
-//- (void) saveStringToDocuments:(NSString*)string;
-//- (void) downloadAudioFiles;
-
 @end
 
 @implementation QBTLyricsData
