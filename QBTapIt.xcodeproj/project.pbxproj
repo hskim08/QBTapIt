@@ -18,6 +18,8 @@
 		AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */; };
 		AA4F4BD616C09D9B0037E613 /* on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD116C09D9B0037E613 /* on.mp3 */; };
 		AA4F4BD716C09D9B0037E613 /* somebody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD216C09D9B0037E613 /* somebody.mp3 */; };
+		AA56120916C9C73A00377661 /* gears.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120716C9C73A00377661 /* gears.png */; };
+		AA56120A16C9C73A00377661 /* gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120816C9C73A00377661 /* gears@2x.png */; };
 		AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */; };
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
 		AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F916AF35AC00F9D64A /* icon57.png */; };
@@ -66,6 +68,8 @@
 		AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lyrics_trial.csv; path = Trial/lyrics_trial.csv; sourceTree = "<group>"; };
 		AA4F4BD116C09D9B0037E613 /* on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = on.mp3; path = Trial/on.mp3; sourceTree = "<group>"; };
 		AA4F4BD216C09D9B0037E613 /* somebody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = somebody.mp3; path = Trial/somebody.mp3; sourceTree = "<group>"; };
+		AA56120716C9C73A00377661 /* gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gears.png; sourceTree = "<group>"; };
+		AA56120816C9C73A00377661 /* gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gears@2x.png"; sourceTree = "<group>"; };
 		AA687E5116BC46050019DA5F /* QBTAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioDownloader.h; sourceTree = "<group>"; };
 		AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioDownloader.m; sourceTree = "<group>"; };
 		AA7324F616AF35A500F9D64A /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 		AADDFB3C16448D90004955C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA56120716C9C73A00377661 /* gears.png */,
+				AA56120816C9C73A00377661 /* gears@2x.png */,
 				AA687E4F16BC41DC0019DA5F /* Trial */,
 				AA7324F916AF35AC00F9D64A /* icon57.png */,
 				AA7324F616AF35A500F9D64A /* icon114.png */,
@@ -374,6 +380,8 @@
 				AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */,
 				AA4F4BD616C09D9B0037E613 /* on.mp3 in Resources */,
 				AA4F4BD716C09D9B0037E613 /* somebody.mp3 in Resources */,
+				AA56120916C9C73A00377661 /* gears.png in Resources */,
+				AA56120A16C9C73A00377661 /* gears@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +479,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -479,6 +488,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -498,10 +509,14 @@
 		AADDFB3B16448D68004955C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QBTapIt/QBTapIt-Prefix.pch";
 				INFOPLIST_FILE = "QBTapIt/QBTapIt-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

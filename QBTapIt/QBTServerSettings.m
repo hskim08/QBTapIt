@@ -18,8 +18,8 @@
         
         if (!self.uploadServer) {
             
-            self.uploadServer = @"ding.stanford.edu";
-            self.songListServer = @"ding.stanford.edu";
+            self.uploadServer = @"ding.stanford.edu/qbt";
+            self.songListServer = @"ding.stanford.edu/qbt";
         }
     }
     

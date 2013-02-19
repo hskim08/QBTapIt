@@ -26,7 +26,7 @@
 {
     [super viewWillAppear:animated];
 
-    self.continueButton.enabled = YES; // TODO: this should be NO for release version
+    self.continueButton.enabled = NO; // NOTE: this should be NO for release version
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -62,7 +62,7 @@
 
     [[QBTAudioPlayer sharedInstance] stop];
 
-    // uncomment the following coe to close view controller
+    // uncomment the following code to close view controller
     // immediately after audio stops
 //    [self dismissViewControllerAnimated:YES
 //                             completion:^{

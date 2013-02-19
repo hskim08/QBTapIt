@@ -1081,7 +1081,7 @@ Copies of this information sheet are available by request. If you would like a c
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Information" id="Rkm-ZO-wwb">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="eq2-nW-AVp">
+                        <barButtonItem key="rightBarButtonItem" image="gears.png" id="eq2-nW-AVp">
                             <connections>
                                 <action selector="settingsPushed:" destination="wzd-gB-ePg" id="mDA-uA-gyl"/>
                             </connections>
@@ -1387,6 +1387,9 @@ Copies of this information sheet are available by request. If you would like a c
             <point key="canvasLocation" x="-397" y="-999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gears.png" width="20" height="20"/>
+    </resources>
     <classes>
         <class className="QBTDownloadCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTDownloadCell.h"/>
@@ -1514,8 +1517,8 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3ic-5O-9sf"/>
-        <segue reference="fBF-bT-fqL"/>
         <segue reference="sH7-10-Hxp"/>
+        <segue reference="fBF-bT-fqL"/>
+        <segue reference="OTg-lf-E03"/>
     </inferredMetricsTieBreakers>
 </document>
