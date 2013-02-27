@@ -53,6 +53,13 @@
     [self.navigationController setToolbarHidden:YES
                                        animated:YES];
     
+    if ( [QBTUserData sharedInstance].handedness == 0 ) { // left handed - hide left button
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+    else { // right handed - hide right button
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     self.taskNumber = 0;
     self.withMusic = NO;
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
@@ -109,16 +116,32 @@
     NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     [self.tapOffData appendFormat:@"%f, ", tapOffTime];
 //    NSLog(@"Off: %f", tapOffTime);
+    
+    // save positions
+    assert(touches.count == 1);
+    
+    for (UITouch* touch in touches) {
+        CGPoint point = [touch locationInView:self.view];
+        
+//        [self.tapXPosData appendFormat:@"%f, ", point.x];
+//        [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
+        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height-point.y);
+        break;
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"TaskToTaskQuestion"]){
+    if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) {
+        
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
         questionVC.withMusic = self.withMusic;
+        
+        questionVC.noTaps = (self.tapOnData.length < 1);
     }
-    else if([segue.identifier isEqualToString:@"TaskToAudio"]){
+    else if ( [segue.identifier isEqualToString:@"TaskToAudio"] ) {
+        
         QBTTaskAudioViewController* audioVC = [segue destinationViewController];
         audioVC.delegate = self;
     }

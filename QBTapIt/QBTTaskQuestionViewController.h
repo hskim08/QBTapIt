@@ -23,6 +23,7 @@
 
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
 @property BOOL withMusic;
+@property BOOL noTaps;
 
 @property IBOutlet UIBarButtonItem* doneButton;
 
@@ -35,11 +36,13 @@
 @property IBOutlet UILabel* answer3;
 @property IBOutlet UILabel* answer4;
 @property IBOutlet UILabel* answer5;
+@property IBOutlet UILabel* answer6;
 @property IBOutlet UILabel* checkBox1;
 @property IBOutlet UILabel* checkBox2;
 @property IBOutlet UILabel* checkBox3;
 @property IBOutlet UILabel* checkBox4;
 @property IBOutlet UILabel* checkBox5;
+@property IBOutlet UILabel* checkBox6;
 
 - (IBAction) doneClicked:(UIButton*)sender;
 - (IBAction) labelTapped:(UITapGestureRecognizer*)sender;

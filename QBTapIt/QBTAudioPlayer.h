@@ -26,4 +26,6 @@
 - (void) pause;
 - (void) stop;
 
+- (BOOL) isPlaying;
+
 @end

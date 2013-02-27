@@ -48,8 +48,14 @@
 {
     [super viewWillAppear:animated];
     
-    if (self.withMusic)
+    if (self.withMusic) {
         self.doneButton.enabled = NO;
+    }
+    else {
+        if (self.noTaps) {
+            self.familiaritySlider.value = 0;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,6 +117,7 @@
     else if (label == self.answer3) return 3;
     else if (label == self.answer4) return 4;
     else if (label == self.answer5) return 5;
+    else if (label == self.answer6) return 6;
     return 0;
 }
 
@@ -121,6 +128,7 @@
     else if (label == self.checkBox3) return 3;
     else if (label == self.checkBox4) return 4;
     else if (label == self.checkBox5) return 5;
+    else if (label == self.checkBox6) return 6;
     return 0;
 }
 
@@ -131,23 +139,27 @@
     UIColor* unselected = [UIColor whiteColor];
     UIColor* selected = [UIColor yellowColor];
     
+    // TODO: systematically add buttons
     self.answer1.backgroundColor = self.labelSelected == 1 ? selected : unselected;
     self.answer2.backgroundColor = self.labelSelected == 2 ? selected : unselected;
     self.answer3.backgroundColor = self.labelSelected == 3 ? selected : unselected;
     self.answer4.backgroundColor = self.labelSelected == 4 ? selected : unselected;
     self.answer5.backgroundColor = self.labelSelected == 5 ? selected : unselected;
+    self.answer6.backgroundColor = self.labelSelected == 6 ? selected : unselected;
     
     self.checkBox1.text = self.labelSelected == 1 ? @"▣" : @"□";
     self.checkBox2.text = self.labelSelected == 2 ? @"▣" : @"□";
     self.checkBox3.text = self.labelSelected == 3 ? @"▣" : @"□";
     self.checkBox4.text = self.labelSelected == 4 ? @"▣" : @"□";
     self.checkBox5.text = self.labelSelected == 5 ? @"▣" : @"□";
+    self.checkBox6.text = self.labelSelected == 6 ? @"▣" : @"□";
     
     self.checkBox1.backgroundColor = self.labelSelected == 1 ? selected : unselected;
     self.checkBox2.backgroundColor = self.labelSelected == 2 ? selected : unselected;
     self.checkBox3.backgroundColor = self.labelSelected == 3 ? selected : unselected;
     self.checkBox4.backgroundColor = self.labelSelected == 4 ? selected : unselected;
     self.checkBox5.backgroundColor = self.labelSelected == 5 ? selected : unselected;
+    self.checkBox6.backgroundColor = self.labelSelected == 6 ? selected : unselected;
 }
 
 @end

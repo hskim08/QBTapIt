@@ -20,6 +20,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.playButton setTitle:@"Play"
+                     forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -34,7 +37,7 @@
     [super viewWillAppear:animated];
     
     [QBTAudioPlayer sharedInstance].delegate = self;
-    [[QBTAudioPlayer sharedInstance] play];
+//    [[QBTAudioPlayer sharedInstance] play]; // uncomment code to start playing immediately
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +58,33 @@
                              }];
 }
 
+- (IBAction) playClicked:(UIButton*)sender
+{
+    if ( [QBTAudioPlayer sharedInstance].isPlaying ) {
+        
+        [[QBTAudioPlayer sharedInstance] stop];
+        
+        [self.playButton setTitle:@"Play"
+                         forState:UIControlStateNormal];
+    }
+    else {
+        
+        [[QBTAudioPlayer sharedInstance] play];
+        
+        [self.playButton setTitle:@"Pause"
+                         forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark QBTAudioPlayerDelegate Selectors
 - (void)audioPlayerDidFinishPlaying
 {
     self.continueButton.enabled = YES;
 
     [[QBTAudioPlayer sharedInstance] stop];
+    
+    [self.playButton setTitle:@"Play"
+                     forState:UIControlStateNormal];
 
     // uncomment the following code to close view controller
     // immediately after audio stops

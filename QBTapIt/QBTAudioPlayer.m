@@ -67,6 +67,11 @@ static QBTAudioPlayer* sharedInstance = nil;
     [self.audioPlayer stop];
 }
 
+- (BOOL) isPlaying
+{
+    return self.audioPlayer.isPlaying;
+}
+
 #pragma mark - AVAudioPlayerDelegate Selectors
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag

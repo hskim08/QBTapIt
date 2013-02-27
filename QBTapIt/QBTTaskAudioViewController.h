@@ -19,7 +19,9 @@
 @property id<QBTTaskAudioViewControllerDelegate> delegate;
 
 @property IBOutlet UIBarButtonItem* continueButton;
+@property IBOutlet UIButton* playButton;
 
 - (IBAction) doneClicked:(UIButton*)sender;
+- (IBAction) playClicked:(UIButton*)sender;
 
 @end
