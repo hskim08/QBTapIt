@@ -31,6 +31,8 @@
 @property NSMutableString* tapOffData;
 @property NSMutableString* tapXPosData;
 @property NSMutableString* tapYPosData;
+@property NSMutableString* tapOffXPosData;
+@property NSMutableString* tapOffYPosData;
 
 @property QBTTaskData* currentTask;
 
@@ -101,7 +103,7 @@
         
         [self.tapXPosData appendFormat:@"%f, ", point.x];
         [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
-        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height-point.y);
+//        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
         break;
     }
 }
@@ -123,9 +125,9 @@
     for (UITouch* touch in touches) {
         CGPoint point = [touch locationInView:self.view];
         
-//        [self.tapXPosData appendFormat:@"%f, ", point.x];
-//        [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
-        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height-point.y);
+        [self.tapOffXPosData appendFormat:@"%f, ", point.x];
+        [self.tapOffYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
+//        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
         break;
     }
 }
@@ -226,6 +228,8 @@
     self.tapOffData = [NSMutableString stringWithCapacity:3];
     self.tapXPosData = [NSMutableString stringWithCapacity:3];
     self.tapYPosData = [NSMutableString stringWithCapacity:3];
+    self.tapOffXPosData = [NSMutableString stringWithCapacity:3];
+    self.tapOffYPosData = [NSMutableString stringWithCapacity:3];
 
     // reset start time
     self.startTime = [[NSDate date] timeIntervalSince1970];
@@ -242,12 +246,18 @@
         [self.tapXPosData deleteCharactersInRange:NSMakeRange(self.tapXPosData.length-2, 2)];
     if (self.tapYPosData.length > 2)
         [self.tapYPosData deleteCharactersInRange:NSMakeRange(self.tapYPosData.length-2, 2)];
+    if (self.tapOffXPosData.length > 2)
+        [self.tapOffXPosData deleteCharactersInRange:NSMakeRange(self.tapOffXPosData.length-2, 2)];
+    if (self.tapOffYPosData.length > 2)
+        [self.tapOffYPosData deleteCharactersInRange:NSMakeRange(self.tapOffYPosData.length-2, 2)];
     
     // save task data
     self.currentTask.tapOnTimeData = self.tapOnData;
     self.currentTask.tapOffTimeData = self.tapOffData;
     self.currentTask.tapXPositionData = self.tapXPosData;
     self.currentTask.tapYPositionData = self.tapYPosData;
+    self.currentTask.tapOffXPositionData = self.tapOffXPosData;
+    self.currentTask.tapOffYPositionData = self.tapOffYPosData;
         
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];

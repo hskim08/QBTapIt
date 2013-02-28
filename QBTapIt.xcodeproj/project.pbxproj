@@ -20,6 +20,8 @@
 		AA4F4BD716C09D9B0037E613 /* somebody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD216C09D9B0037E613 /* somebody.mp3 */; };
 		AA56120916C9C73A00377661 /* gears.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120716C9C73A00377661 /* gears.png */; };
 		AA56120A16C9C73A00377661 /* gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120816C9C73A00377661 /* gears@2x.png */; };
+		AA66D67B16DE97EA0052145B /* QBTVolumeAdjustViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA66D67A16DE97EA0052145B /* QBTVolumeAdjustViewController.m */; };
+		AA66D67D16DE98D50052145B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA66D67C16DE98D50052145B /* MediaPlayer.framework */; };
 		AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */; };
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
 		AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F916AF35AC00F9D64A /* icon57.png */; };
@@ -48,7 +50,6 @@
 		AAE86FF716A4DC0D00B819DB /* QBTTaskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE86FF616A4DC0D00B819DB /* QBTTaskQuestionViewController.m */; };
 		AAF1E09F16BA32B0003523CD /* QBTLyricsData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1E09E16BA32B0003523CD /* QBTLyricsData.m */; };
 		AAF98B5D16C47265002AD8DF /* QBTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF98B5C16C47265002AD8DF /* QBTSettingsViewController.m */; };
-		AAF98B6216C49D8C002AD8DF /* QBTServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF98B6116C49D8C002AD8DF /* QBTServerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,9 @@
 		AA4F4BD216C09D9B0037E613 /* somebody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = somebody.mp3; path = Trial/somebody.mp3; sourceTree = "<group>"; };
 		AA56120716C9C73A00377661 /* gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gears.png; sourceTree = "<group>"; };
 		AA56120816C9C73A00377661 /* gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gears@2x.png"; sourceTree = "<group>"; };
+		AA66D67916DE97EA0052145B /* QBTVolumeAdjustViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTVolumeAdjustViewController.h; sourceTree = "<group>"; };
+		AA66D67A16DE97EA0052145B /* QBTVolumeAdjustViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTVolumeAdjustViewController.m; sourceTree = "<group>"; };
+		AA66D67C16DE98D50052145B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AA687E5116BC46050019DA5F /* QBTAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioDownloader.h; sourceTree = "<group>"; };
 		AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioDownloader.m; sourceTree = "<group>"; };
 		AA7324F616AF35A500F9D64A /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
@@ -118,8 +122,6 @@
 		AAF1E09E16BA32B0003523CD /* QBTLyricsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTLyricsData.m; sourceTree = "<group>"; };
 		AAF98B5B16C47265002AD8DF /* QBTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSettingsViewController.h; sourceTree = "<group>"; };
 		AAF98B5C16C47265002AD8DF /* QBTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSettingsViewController.m; sourceTree = "<group>"; };
-		AAF98B6016C49D8C002AD8DF /* QBTServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTServerViewController.h; sourceTree = "<group>"; };
-		AAF98B6116C49D8C002AD8DF /* QBTServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTServerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA66D67D16DE98D50052145B /* MediaPlayer.framework in Frameworks */,
 				50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */,
 				AADDFB1A16448D68004955C1 /* UIKit.framework in Frameworks */,
 				AADDFB1C16448D68004955C1 /* Foundation.framework in Frameworks */,
@@ -201,6 +204,8 @@
 				AADDFB44164490C3004955C1 /* QBTTextViewController.m */,
 				AADDFB401644900C004955C1 /* QBTQuestionViewController.h */,
 				AADDFB411644900C004955C1 /* QBTQuestionViewController.m */,
+				AA66D67916DE97EA0052145B /* QBTVolumeAdjustViewController.h */,
+				AA66D67A16DE97EA0052145B /* QBTVolumeAdjustViewController.m */,
 			);
 			name = UserInfo;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 		AADDFB0A16448D68004955C1 = {
 			isa = PBXGroup;
 			children = (
+				AA66D67C16DE98D50052145B /* MediaPlayer.framework */,
 				AA4B2FD9169B8B3E00030E29 /* Ext */,
 				AADDFB1F16448D68004955C1 /* QBTapIt */,
 				AADDFB3C16448D90004955C1 /* Resources */,
@@ -287,8 +293,6 @@
 				AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */,
 				AAF98B5B16C47265002AD8DF /* QBTSettingsViewController.h */,
 				AAF98B5C16C47265002AD8DF /* QBTSettingsViewController.m */,
-				AAF98B6016C49D8C002AD8DF /* QBTServerViewController.h */,
-				AAF98B6116C49D8C002AD8DF /* QBTServerViewController.m */,
 				AA1E4A0A16C58BA000238C54 /* QBTDownloadViewController.h */,
 				AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */,
 				AA1E4A0D16C58EA100238C54 /* QBTDownloadCell.h */,
@@ -412,10 +416,10 @@
 				AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */,
 				AACE7A7C16C0923500B7C0C7 /* QBTTaskReadyViewController.m in Sources */,
 				AAF98B5D16C47265002AD8DF /* QBTSettingsViewController.m in Sources */,
-				AAF98B6216C49D8C002AD8DF /* QBTServerViewController.m in Sources */,
 				AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */,
 				AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */,
 				AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */,
+				AA66D67B16DE97EA0052145B /* QBTVolumeAdjustViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

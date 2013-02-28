@@ -57,112 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2G-0o-k8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="-999"/>
-        </scene>
-        <!--Server View Controller - Server-->
-        <scene sceneID="Wat-JY-UwM">
-            <objects>
-                <tableViewController id="pJ2-6e-vrO" customClass="QBTServerViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FUZ-18-xGR">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Server IP settings" id="sVg-lt-wxH">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fx1-s4-eSu">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnd-mJ-xUG">
-                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu/qbt" minimumFontSize="17" clearButtonMode="whileEditing" id="B82-84-n68">
-                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JdU-J3-XyA">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lZu-zm-85V">
-                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu/qbt" minimumFontSize="17" clearButtonMode="whileEditing" id="Mdr-HW-U0B">
-                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection footerTitle="Update songlist and download audio excerpt files from server." id="c42-Be-LAe">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DS6-Oz-zFn" style="IBUITableViewCellStyleDefault" id="iew-9S-XLY">
-                                        <rect key="frame" x="0.0" y="156" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download from Server" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DS6-Oz-zFn">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="s07-SZ-QPw" kind="push" id="VFs-yv-k9Q"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="pJ2-6e-vrO" id="fom-R2-Asc"/>
-                            <outlet property="delegate" destination="pJ2-6e-vrO" id="cfO-LC-mAk"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Server" id="jru-jr-tT3"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="downloadText" destination="B82-84-n68" id="RzZ-Uc-Tl3"/>
-                        <outlet property="uploadText" destination="Mdr-HW-U0B" id="8Jt-Dh-Q1c"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J1f-OR-Ph5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="501" y="-999"/>
+            <point key="canvasLocation" x="527" y="-999"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="GC6-QL-msC">
@@ -238,16 +133,70 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Cb6-JX-4hK">
+                            <tableViewSection headerTitle="Server Settings" id="2RK-hC-Lrb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4uZ-2U-Spa" style="IBUITableViewCellStyleDefault" id="dYA-MQ-rZr">
-                                        <rect key="frame" x="0.0" y="192" width="320" height="46"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wdn-rR-PDn">
+                                        <rect key="frame" x="0.0" y="218" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Download" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jLm-sx-0bR">
+                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu/qbt" minimumFontSize="17" clearButtonMode="whileEditing" id="Svj-y3-b8m">
+                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mhj-oY-Ni7">
+                                        <rect key="frame" x="0.0" y="263" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Upload" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lX7-l0-l9l">
+                                                    <rect key="frame" x="10" y="11" width="90" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ding.stanford.edu/qbt" minimumFontSize="17" clearButtonMode="whileEditing" id="cKR-IY-2s8">
+                                                    <rect key="frame" x="110" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Update songlist and download audio excerpt files from server." id="vXM-cD-gfu">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="r9F-pc-vFw" style="IBUITableViewCellStyleDefault" id="eaf-jY-EqK">
+                                        <rect key="frame" x="0.0" y="328" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Server Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4uZ-2U-Spa">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Download from Server" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9F-pc-vFw">
                                                     <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -258,7 +207,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="pJ2-6e-vrO" kind="push" id="IUu-NU-XOC"/>
+                                            <segue destination="s07-SZ-QPw" kind="push" id="yhG-3m-7Q0"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -278,9 +227,11 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="downloadText" destination="Svj-y3-b8m" id="UEt-J5-EWv"/>
                         <outlet property="experimenterIdText" destination="QET-pZ-rGQ" id="Jnv-Jr-7xo"/>
                         <outlet property="trialLabel" destination="Z9J-vf-fWR" id="hvr-yv-1Yu"/>
                         <outlet property="trialStepper" destination="ZfD-OR-pEN" id="Hog-v1-MJJ"/>
+                        <outlet property="uploadText" destination="cKR-IY-2s8" id="kZt-zc-AVi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJb-lZ-idB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,7 +250,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.
+                                <mutableString key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.
 
 For each song, you will first see just the lyrics. Even if you are only slightly familiar with the melody that goes with the lyrics, try your best to tap it out. Press “next” when you are finished. If the lyrics are totally unfamiliar to you, just press “next”. 
 
@@ -307,7 +258,7 @@ You will now hear the music that goes along with the lyrics. Listen closely, and
 
 You will also be asked to answer questions about your familiarity with the lyrics, and whether the excerpts helped you with the tapping.
 
-Use the “next” button to get started on some training tasks to help you get familiarized with the app.</string>
+Use the “Start” button to get started on some training tasks to help you get familiarized with the app.</mutableString>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -400,6 +351,65 @@ Use the “next” button to get started on some training tasks to help you get 
             </objects>
             <point key="canvasLocation" x="1408" y="126"/>
         </scene>
+        <!--Volume Adjust View Controller - Adjust Volume-->
+        <scene sceneID="2rP-Cn-bzd">
+            <objects>
+                <viewController id="hyY-3O-zxI" customClass="QBTVolumeAdjustViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KK2-1H-XUU">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="3sX-43-qq6" customClass="MPVolumeView">
+                                <rect key="frame" x="20" y="272" width="280" height="25"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RHC-Lx-NzH">
+                                <rect key="frame" x="92" y="221" width="137" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Play Test Audio">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playClicked:" destination="hyY-3O-zxI" eventType="touchUpInside" id="RDN-um-kkO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QzS-8t-FNJ">
+                                <rect key="frame" x="20" y="20" width="280" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Press the "Play Test Audio" button to play the test audio while adjusting the volume with the slider. You can also use the volume buttons on the side of the device to adjust the volume. 
+
+If you have finished adjusting the volume press the "Continue" button to continue.</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ipE-V3-gum"/>
+                        <barButtonItem title="Continue" style="done" id="N94-fF-Z0I">
+                            <connections>
+                                <action selector="continueClicked:" destination="hyY-3O-zxI" id="0mA-Lx-raz"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Adjust Volume" id="YBQ-uh-RSo"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="H7X-u4-UMW" kind="push" identifier="VolumeToStart" id="p1b-GZ-yyF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q73-MW-CgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="902"/>
+        </scene>
         <!--Task Ready View Controller - Instructions-->
         <scene sceneID="08E-cm-drs">
             <objects>
@@ -408,18 +418,18 @@ Use the “next” button to get started on some training tasks to help you get 
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="0aG-YU-qlP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Acq-ow-Wka">
+                                <rect key="frame" x="20" y="20" width="280" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">You have now completed the training trials and are ready to begin the test.
 
 If you have any questions, please ask the experimenter at this time.
 
 Hit “Continue” to begin the test section, or “Practice” to try out the training trials again.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -475,7 +485,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="rgK-x5-DEj">
-                                <rect key="frame" x="20" y="64" width="280" height="337"/>
+                                <rect key="frame" x="20" y="64" width="280" height="357"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
@@ -519,7 +529,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                         </connections>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wla-zc-rvq">
-                                        <rect key="frame" x="1" y="268" width="22" height="20"/>
+                                        <rect key="frame" x="1" y="317" width="22" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -530,7 +540,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                         </connections>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="□" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H2m-Pg-IRl">
-                                        <rect key="frame" x="1" y="296" width="22" height="20"/>
+                                        <rect key="frame" x="1" y="268" width="22" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -552,7 +562,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                         </connections>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="No - I already knew the song really well" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WQ-Bz-4el">
-                                        <rect key="frame" x="21" y="268" width="260" height="20"/>
+                                        <rect key="frame" x="21" y="317" width="260" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
@@ -563,7 +573,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                         </connections>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="No - this song is totally unfamiliar, so hearing it once didn’t help" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mxI-Hh-vca">
-                                        <rect key="frame" x="21" y="296" width="260" height="41"/>
+                                        <rect key="frame" x="21" y="268" width="260" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
@@ -766,7 +776,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yf9-aT-w2d">
-                                <rect key="frame" x="121" y="227" width="78" height="44"/>
+                                <rect key="frame" x="121" y="252" width="78" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Pause">
@@ -780,6 +790,16 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                     <action selector="playClicked:" destination="E7j-Ke-dXr" eventType="touchUpInside" id="yb2-XJ-bTl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tAj-9E-Ns8">
+                                <rect key="frame" x="20" y="62" width="280" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Press the "Play" button below to play the audio excerpt. After the audio has finished playing, you may press the "Play" to listen to the audio excerpt again. 
+
+Press the "Continue" button at the bottom to continue.</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1425,7 +1445,7 @@ Copies of this information sheet are available by request. If you would like a c
                         <outlet property="scrollView" destination="RvQ-hu-m5d" id="Pro-87-Ak6"/>
                         <outlet property="theorySlider" destination="oqM-Xy-Qlq" id="BHD-Un-QAC"/>
                         <outlet property="toneButton" destination="8Hs-Yj-ugx" id="74c-wW-u9X"/>
-                        <segue destination="H7X-u4-UMW" kind="push" identifier="QuestionToStart" id="7b8-Vg-m62"/>
+                        <segue destination="hyY-3O-zxI" kind="push" identifier="QuestionToVolume" id="UpO-2n-R2y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xQ-qu-bLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1478,14 +1498,144 @@ Copies of this information sheet are available by request. If you would like a c
     <resources>
         <image name="gears.png" width="20" height="20"/>
     </resources>
+    <classes>
+        <class className="MPVolumeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPVolumeView.h"/>
+        </class>
+        <class className="QBTDownloadCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTDownloadCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QBTDownloadViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTDownloadViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="downloadClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTQuestionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="arrhythmicPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="continuePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="genderPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="handPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="languagePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="pickerDonePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="tonePushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ageText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="arrhythmicButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="genderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="habitSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="handedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="instrumentSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="languageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="theorySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="toneButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="donePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="trialStepperPushed:" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="downloadText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="experimenterIdText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="trialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="trialStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="uploadText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskAudioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskAudioViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="playClicked:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskDoneViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskDoneViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okPushed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskQuestionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskQuestionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkBoxTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="labelTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="answer1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="answer6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkBox6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="familiarityView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="helpfulView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskReadyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskReadyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="continueClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="practiceClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextPushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lyricsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="tapLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QBTTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="agreePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="disagreePushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="settingsPushed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="QBTVolumeAdjustViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTVolumeAdjustViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="continueClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="playClicked:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OTg-lf-E03"/>
-        <segue reference="sH7-10-Hxp"/>
-        <segue reference="bFU-UO-XeH"/>
+        <segue reference="ySn-8w-9am"/>
+        <segue reference="fBF-bT-fqL"/>
+        <segue reference="3ic-5O-9sf"/>
     </inferredMetricsTieBreakers>
 </document>

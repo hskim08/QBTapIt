@@ -15,6 +15,9 @@
 @property IBOutlet UIStepper* trialStepper;
 @property IBOutlet UILabel* trialLabel;
 
+@property IBOutlet UITextField* downloadText;
+@property IBOutlet UITextField* uploadText;
+
 - (IBAction)donePushed:(UIButton*)sender;
 
 - (IBAction)trialStepperPushed:(UIStepper*)sender;

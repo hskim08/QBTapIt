@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString* tapOffTimeData;
 @property (nonatomic, strong) NSString* tapYPositionData;
 @property (nonatomic, strong) NSString* tapXPositionData;
+@property (nonatomic, strong) NSString* tapOffYPositionData;
+@property (nonatomic, strong) NSString* tapOffXPositionData;
 
 @property (nonatomic, readwrite) SInt8 withMusic;
 

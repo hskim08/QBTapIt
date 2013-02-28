@@ -96,6 +96,8 @@ static QBTSessionData* sharedInstance = nil;
         [params appendFormat:@"&tap_off_data=%@", taskData.tapOffTimeData];
         [params appendFormat:@"&tap_y_data=%@", taskData.tapYPositionData];
         [params appendFormat:@"&tap_x_data=%@", taskData.tapXPositionData];
+        [params appendFormat:@"&tap_off_y_data=%@", taskData.tapOffYPositionData];
+        [params appendFormat:@"&tap_off_x_data=%@", taskData.tapOffXPositionData];
         
         [params appendFormat:@"&with_music=%d", taskData.withMusic];
         [params appendFormat:@"&song_familiarity=%f", taskData.songFamiliarity];

@@ -8,6 +8,8 @@
 
 #import "QBTSettingsViewController.h"
 
+#import "QBTServerSettings.h"
+
 @interface QBTSettingsViewController () <UITextFieldDelegate>
 
 @property (nonatomic) NSString* experimenterId;
@@ -47,6 +49,12 @@
     self.trialLabel.text = [NSString stringWithFormat:@"%d", (int)self.trialStepper.value];
     
     self.experimenterIdText.delegate = self;
+    
+    self.uploadText.text = [QBTServerSettings sharedInstance].uploadServer;
+    self.downloadText.text = [QBTServerSettings sharedInstance].songListServer;
+    
+    self.uploadText.delegate = self;
+    self.downloadText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,7 +103,19 @@
     [textField resignFirstResponder];
     
     // save to defaults
-    self.experimenterId = textField.text;
+    if (textField == self.uploadText) {
+        
+        [QBTServerSettings sharedInstance].uploadServer = textField.text;
+    }
+    else if (textField == self.downloadText) {
+        
+        [QBTServerSettings sharedInstance].songListServer = textField.text;
+    }
+    else if (textField == self.experimenterIdText) {
+        
+        self.experimenterId = textField.text;
+    }
+    
     return NO;
 }
 
