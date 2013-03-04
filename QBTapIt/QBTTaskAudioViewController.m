@@ -30,6 +30,8 @@
     [super viewWillAppear:animated];
 
     self.continueButton.enabled = NO; // NOTE: this should be NO for release version
+    self.titleLabel.text = self.songTitle;
+    self.lyricsView.text = self.lyrics;
 }
 
 - (void) viewDidAppear:(BOOL)animated

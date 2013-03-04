@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */; };
 		50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */; };
+		AA1DD13516E5398400178C52 /* earthAngel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13216E5398400178C52 /* earthAngel.mp3 */; };
+		AA1DD13616E5398400178C52 /* iWalkTheLine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */; };
+		AA1DD13716E5398400178C52 /* somewhereOverTheRainbow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */; };
 		AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */; };
 		AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */; };
 		AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */; };
 		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AA4F4BD316C09D9B0037E613 /* al.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BCE16C09D9B0037E613 /* al.mp3 */; };
-		AA4F4BD416C09D9B0037E613 /* dreams.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BCF16C09D9B0037E613 /* dreams.mp3 */; };
 		AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */; };
-		AA4F4BD616C09D9B0037E613 /* on.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD116C09D9B0037E613 /* on.mp3 */; };
-		AA4F4BD716C09D9B0037E613 /* somebody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD216C09D9B0037E613 /* somebody.mp3 */; };
 		AA56120916C9C73A00377661 /* gears.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120716C9C73A00377661 /* gears.png */; };
 		AA56120A16C9C73A00377661 /* gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120816C9C73A00377661 /* gears@2x.png */; };
 		AA66D67B16DE97EA0052145B /* QBTVolumeAdjustViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA66D67A16DE97EA0052145B /* QBTVolumeAdjustViewController.m */; };
@@ -56,6 +55,9 @@
 		50EBEDBA16B1C987005516C4 /* QBTAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioPlayer.h; sourceTree = "<group>"; };
 		50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioPlayer.m; sourceTree = "<group>"; };
 		50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA1DD13216E5398400178C52 /* earthAngel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = earthAngel.mp3; sourceTree = "<group>"; };
+		AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iWalkTheLine.mp3; sourceTree = "<group>"; };
+		AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = somewhereOverTheRainbow.mp3; sourceTree = "<group>"; };
 		AA1E4A0A16C58BA000238C54 /* QBTDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTDownloadViewController.h; sourceTree = "<group>"; };
 		AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTDownloadViewController.m; sourceTree = "<group>"; };
 		AA1E4A0D16C58EA100238C54 /* QBTDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTDownloadCell.h; sourceTree = "<group>"; };
@@ -64,11 +66,7 @@
 		AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSongListDownloader.m; sourceTree = "<group>"; };
 		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
 		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
-		AA4F4BCE16C09D9B0037E613 /* al.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = al.mp3; path = Trial/al.mp3; sourceTree = "<group>"; };
-		AA4F4BCF16C09D9B0037E613 /* dreams.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = dreams.mp3; path = Trial/dreams.mp3; sourceTree = "<group>"; };
 		AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lyrics_trial.csv; path = Trial/lyrics_trial.csv; sourceTree = "<group>"; };
-		AA4F4BD116C09D9B0037E613 /* on.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = on.mp3; path = Trial/on.mp3; sourceTree = "<group>"; };
-		AA4F4BD216C09D9B0037E613 /* somebody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = somebody.mp3; path = Trial/somebody.mp3; sourceTree = "<group>"; };
 		AA56120716C9C73A00377661 /* gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gears.png; sourceTree = "<group>"; };
 		AA56120816C9C73A00377661 /* gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gears@2x.png"; sourceTree = "<group>"; };
 		AA66D67916DE97EA0052145B /* QBTVolumeAdjustViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTVolumeAdjustViewController.h; sourceTree = "<group>"; };
@@ -161,11 +159,10 @@
 		AA687E4F16BC41DC0019DA5F /* Trial */ = {
 			isa = PBXGroup;
 			children = (
-				AA4F4BCE16C09D9B0037E613 /* al.mp3 */,
-				AA4F4BCF16C09D9B0037E613 /* dreams.mp3 */,
+				AA1DD13216E5398400178C52 /* earthAngel.mp3 */,
+				AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */,
+				AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */,
 				AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */,
-				AA4F4BD116C09D9B0037E613 /* on.mp3 */,
-				AA4F4BD216C09D9B0037E613 /* somebody.mp3 */,
 			);
 			name = Trial;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 		AADDFB0A16448D68004955C1 = {
 			isa = PBXGroup;
 			children = (
-				AA66D67C16DE98D50052145B /* MediaPlayer.framework */,
 				AA4B2FD9169B8B3E00030E29 /* Ext */,
 				AADDFB1F16448D68004955C1 /* QBTapIt */,
 				AADDFB3C16448D90004955C1 /* Resources */,
@@ -234,6 +230,7 @@
 		AADDFB1816448D68004955C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA66D67C16DE98D50052145B /* MediaPlayer.framework */,
 				50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */,
 				AADDFB1916448D68004955C1 /* UIKit.framework */,
 				AADDFB1B16448D68004955C1 /* Foundation.framework */,
@@ -379,13 +376,12 @@
 				AADDFB3316448D68004955C1 /* MainStoryboard.storyboard in Resources */,
 				AA7324F716AF35A500F9D64A /* icon114.png in Resources */,
 				AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */,
-				AA4F4BD316C09D9B0037E613 /* al.mp3 in Resources */,
-				AA4F4BD416C09D9B0037E613 /* dreams.mp3 in Resources */,
 				AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */,
-				AA4F4BD616C09D9B0037E613 /* on.mp3 in Resources */,
-				AA4F4BD716C09D9B0037E613 /* somebody.mp3 in Resources */,
 				AA56120916C9C73A00377661 /* gears.png in Resources */,
 				AA56120A16C9C73A00377661 /* gears@2x.png in Resources */,
+				AA1DD13516E5398400178C52 /* earthAngel.mp3 in Resources */,
+				AA1DD13616E5398400178C52 /* iWalkTheLine.mp3 in Resources */,
+				AA1DD13716E5398400178C52 /* somewhereOverTheRainbow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

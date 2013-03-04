@@ -21,6 +21,12 @@
 @property IBOutlet UIBarButtonItem* continueButton;
 @property IBOutlet UIButton* playButton;
 
+@property IBOutlet UILabel* titleLabel;
+@property IBOutlet UITextView* lyricsView;
+
+@property NSString* songTitle;
+@property NSString* lyrics;
+
 - (IBAction) doneClicked:(UIButton*)sender;
 - (IBAction) playClicked:(UIButton*)sender;
 

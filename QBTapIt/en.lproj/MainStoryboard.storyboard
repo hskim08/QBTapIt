@@ -97,7 +97,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Choose between 1 to 4 songs for the trial run" id="IM7-6A-20j">
+                            <tableViewSection footerTitle="Choose the number of songs to use for the trial run" id="IM7-6A-20j">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RO6-7p-cvI">
                                         <rect key="frame" x="0.0" y="76" width="320" height="46"/>
@@ -113,7 +113,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" value="1" minimumValue="1" maximumValue="4" id="ZfD-OR-pEN">
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" value="1" minimumValue="1" maximumValue="3" id="ZfD-OR-pEN">
                                                     <rect key="frame" x="196" y="8" width="94" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
@@ -247,10 +247,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="yzA-Ru-FBk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="10" y="10" width="300" height="450"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.
+                                <string key="text">In this study you will be asked to produce tapped representations of songs. You will be cued by just the lyrics or the music plus the lyrics. Please use the entire shaded area of the touchscreen for your taps, moving upward for higher notes and down for lower notes.
 
 For each song, you will first see just the lyrics. Even if you are only slightly familiar with the melody that goes with the lyrics, try your best to tap it out. Press “next” when you are finished. If the lyrics are totally unfamiliar to you, just press “next”. 
 
@@ -258,8 +258,8 @@ You will now hear the music that goes along with the lyrics. Listen closely, and
 
 You will also be asked to answer questions about your familiarity with the lyrics, and whether the excerpts helped you with the tapping.
 
-Use the “Start” button to get started on some training tasks to help you get familiarized with the app.</mutableString>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
+Use the “Start” button to get started on some training tasks to help you get familiarized with the app.</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -360,12 +360,12 @@ Use the “Start” button to get started on some training tasks to help you get
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="3sX-43-qq6" customClass="MPVolumeView">
-                                <rect key="frame" x="20" y="272" width="280" height="25"/>
+                                <rect key="frame" x="20" y="290" width="280" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RHC-Lx-NzH">
-                                <rect key="frame" x="92" y="221" width="137" height="44"/>
+                                <rect key="frame" x="92" y="230" width="137" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Play Test Audio">
@@ -390,7 +390,7 @@ If you have finished adjusting the volume press the "Continue" button to continu
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ipE-V3-gum"/>
@@ -420,7 +420,7 @@ If you have finished adjusting the volume press the "Continue" button to continu
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Acq-ow-Wka">
                                 <rect key="frame" x="20" y="20" width="280" height="190"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <string key="text">You have now completed the training trials and are ready to begin the test.
 
 If you have any questions, please ask the experimenter at this time.
@@ -485,7 +485,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="rgK-x5-DEj">
-                                <rect key="frame" x="20" y="64" width="280" height="357"/>
+                                <rect key="frame" x="20" y="64" width="280" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Did hearing the music help? Tap on the answer that fits best." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SW6-wL-dcA">
@@ -776,7 +776,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yf9-aT-w2d">
-                                <rect key="frame" x="121" y="252" width="78" height="44"/>
+                                <rect key="frame" x="10" y="55" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Pause">
@@ -790,23 +790,38 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                                     <action selector="playClicked:" destination="E7j-Ke-dXr" eventType="touchUpInside" id="yb2-XJ-bTl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tAj-9E-Ns8">
-                                <rect key="frame" x="20" y="62" width="280" height="167"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="H37-fV-wNG">
+                                <rect key="frame" x="10" y="155" width="300" height="336"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ADB-wE-01T">
+                                <rect key="frame" x="20" y="126" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Press the "Play" button below to play the audio excerpt. After the audio has finished playing, you may press the "Play" to listen to the audio excerpt again. 
-
-Press the "Continue" button at the bottom to continue.</string>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Press the &quot;Play&quot; button to play the audio excerpt. Press the &quot;Continue&quot; button at the bottom to continue." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SAK-MC-nlt">
+                                <rect key="frame" x="95" y="55" width="215" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dfA-YF-MKa"/>
                     <connections>
                         <outlet property="continueButton" destination="WQK-kn-tro" id="nl0-sL-ETH"/>
+                        <outlet property="lyricsView" destination="H37-fV-wNG" id="BEI-GS-gvC"/>
                         <outlet property="playButton" destination="Yf9-aT-w2d" id="VVg-9P-adF"/>
+                        <outlet property="titleLabel" destination="ADB-wE-01T" id="CvU-4g-L6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHc-lD-Pok" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1394,6 +1409,7 @@ Copies of this information sheet are available by request. If you would like a c
                                         <rect key="frame" x="19" y="427" width="284" height="23"/>
                                     </slider>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </scrollView>
                             <view contentMode="scaleToFill" id="onO-Ka-REl">
                                 <rect key="frame" x="0.0" y="550" width="321" height="260"/>
@@ -1557,7 +1573,9 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
                 <relationship kind="action" name="playClicked:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="lyricsView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="QBTTaskDoneViewController" superclassName="UIViewController">
@@ -1634,8 +1652,8 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ySn-8w-9am"/>
-        <segue reference="fBF-bT-fqL"/>
         <segue reference="3ic-5O-9sf"/>
+        <segue reference="bFU-UO-XeH"/>
+        <segue reference="ySn-8w-9am"/>
     </inferredMetricsTieBreakers>
 </document>

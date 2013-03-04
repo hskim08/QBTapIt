@@ -98,9 +98,18 @@
 
 #pragma mark - UITextFieldDelegate Selectors
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     
     // save to defaults
     if (textField == self.uploadText) {

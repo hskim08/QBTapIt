@@ -134,7 +134,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) {
+    if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) { // prepare questionnaire
         
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
@@ -142,10 +142,22 @@
         
         questionVC.noTaps = (self.tapOnData.length < 1);
     }
-    else if ( [segue.identifier isEqualToString:@"TaskToAudio"] ) {
+    else if ( [segue.identifier isEqualToString:@"TaskToAudio"] ) { // prepare audio view
         
         QBTTaskAudioViewController* audioVC = [segue destinationViewController];
         audioVC.delegate = self;
+    
+        // prepare for audio playback
+        NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
+        int taskIdx = n.intValue;
+        
+        // load music
+        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:taskIdx];
+        [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
+        
+        // set song title and lyrics
+        audioVC.songTitle = [[QBTLyricsData sharedInstance] titleForTask:taskIdx];
+        audioVC.lyrics = [[QBTLyricsData sharedInstance] lyricsForTask:taskIdx];
     }
 }
 
@@ -171,6 +183,7 @@
     }
     
     if ([QBTLyricsData sharedInstance].isTrialRun) { // don't randomize for trial
+        
         self.taskOrder = array;
     }
     else {
@@ -318,14 +331,7 @@
         }
     }
     else { // prepare for with music task
-    
-        NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
-        int taskIdx = n.intValue;
-        
-        // load music
-        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:taskIdx];
-        [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
-        
+
         // open audio view controller
         [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
         // start task when audio view controller closes
