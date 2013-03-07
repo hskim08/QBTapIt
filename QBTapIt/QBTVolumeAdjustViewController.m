@@ -10,8 +10,6 @@
 
 #import "QBTAudioPlayer.h"
 
-#import <MediaPlayer/MediaPlayer.h>
-
 @interface QBTVolumeAdjustViewController ()
 
 @end
@@ -31,6 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.volumeView.showsRouteButton = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,7 +45,7 @@
 {
     [[QBTAudioPlayer sharedInstance] stop];
     
-    [self performSegueWithIdentifier:@"VolumeToStart"
+    [self performSegueWithIdentifier:@"VolumeToTask"
                               sender:self];
 }
 

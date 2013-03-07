@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		50EBEDBC16B1C987005516C4 /* QBTAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */; };
 		50EBEDC316B1CAD5005516C4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */; };
-		AA1DD13516E5398400178C52 /* earthAngel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13216E5398400178C52 /* earthAngel.mp3 */; };
-		AA1DD13616E5398400178C52 /* iWalkTheLine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */; };
-		AA1DD13716E5398400178C52 /* somewhereOverTheRainbow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */; };
+		AA0ADE3016E55064006C9790 /* earthAngel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA0ADE2D16E55064006C9790 /* earthAngel.mp3 */; };
+		AA0ADE3116E55064006C9790 /* iWalkTheLine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA0ADE2E16E55064006C9790 /* iWalkTheLine.mp3 */; };
+		AA0ADE3216E55064006C9790 /* somewhereOverTheRainbow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AA0ADE2F16E55064006C9790 /* somewhereOverTheRainbow.mp3 */; };
 		AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */; };
 		AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */; };
 		AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */; };
@@ -55,9 +55,9 @@
 		50EBEDBA16B1C987005516C4 /* QBTAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTAudioPlayer.h; sourceTree = "<group>"; };
 		50EBEDBB16B1C987005516C4 /* QBTAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioPlayer.m; sourceTree = "<group>"; };
 		50EBEDC216B1CAD5005516C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		AA1DD13216E5398400178C52 /* earthAngel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = earthAngel.mp3; sourceTree = "<group>"; };
-		AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iWalkTheLine.mp3; sourceTree = "<group>"; };
-		AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = somewhereOverTheRainbow.mp3; sourceTree = "<group>"; };
+		AA0ADE2D16E55064006C9790 /* earthAngel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = earthAngel.mp3; path = Trial/earthAngel.mp3; sourceTree = "<group>"; };
+		AA0ADE2E16E55064006C9790 /* iWalkTheLine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = iWalkTheLine.mp3; path = Trial/iWalkTheLine.mp3; sourceTree = "<group>"; };
+		AA0ADE2F16E55064006C9790 /* somewhereOverTheRainbow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = somewhereOverTheRainbow.mp3; path = Trial/somewhereOverTheRainbow.mp3; sourceTree = "<group>"; };
 		AA1E4A0A16C58BA000238C54 /* QBTDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTDownloadViewController.h; sourceTree = "<group>"; };
 		AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTDownloadViewController.m; sourceTree = "<group>"; };
 		AA1E4A0D16C58EA100238C54 /* QBTDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTDownloadCell.h; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 		AA687E4F16BC41DC0019DA5F /* Trial */ = {
 			isa = PBXGroup;
 			children = (
-				AA1DD13216E5398400178C52 /* earthAngel.mp3 */,
-				AA1DD13316E5398400178C52 /* iWalkTheLine.mp3 */,
-				AA1DD13416E5398400178C52 /* somewhereOverTheRainbow.mp3 */,
+				AA0ADE2D16E55064006C9790 /* earthAngel.mp3 */,
+				AA0ADE2E16E55064006C9790 /* iWalkTheLine.mp3 */,
+				AA0ADE2F16E55064006C9790 /* somewhereOverTheRainbow.mp3 */,
 				AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */,
 			);
 			name = Trial;
@@ -379,9 +379,9 @@
 				AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */,
 				AA56120916C9C73A00377661 /* gears.png in Resources */,
 				AA56120A16C9C73A00377661 /* gears@2x.png in Resources */,
-				AA1DD13516E5398400178C52 /* earthAngel.mp3 in Resources */,
-				AA1DD13616E5398400178C52 /* iWalkTheLine.mp3 in Resources */,
-				AA1DD13716E5398400178C52 /* somewhereOverTheRainbow.mp3 in Resources */,
+				AA0ADE3016E55064006C9790 /* earthAngel.mp3 in Resources */,
+				AA0ADE3116E55064006C9790 /* iWalkTheLine.mp3 in Resources */,
+				AA0ADE3216E55064006C9790 /* somewhereOverTheRainbow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

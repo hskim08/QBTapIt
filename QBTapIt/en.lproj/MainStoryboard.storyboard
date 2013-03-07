@@ -89,7 +89,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -154,7 +154,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -179,7 +179,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -277,12 +277,12 @@ Use the “Start” button to get started on some training tasks to help you get
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="Tcy-xI-xK3" kind="push" identifier="StartToTask" id="OTg-lf-E03"/>
+                        <segue destination="hyY-3O-zxI" kind="push" identifier="StartToVolume" id="eLb-tb-eHA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wd-Hq-3yG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="-222"/>
+            <point key="canvasLocation" x="1163" y="-278"/>
         </scene>
         <!--Task View Controller - Task-->
         <scene sceneID="6K2-9n-2WK">
@@ -349,7 +349,7 @@ Use the “Start” button to get started on some training tasks to help you get
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8j-hh-cOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="126"/>
+            <point key="canvasLocation" x="2272" y="-278"/>
         </scene>
         <!--Volume Adjust View Controller - Adjust Volume-->
         <scene sceneID="2rP-Cn-bzd">
@@ -403,12 +403,13 @@ If you have finished adjusting the volume press the "Continue" button to continu
                     <navigationItem key="navigationItem" title="Adjust Volume" id="YBQ-uh-RSo"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="H7X-u4-UMW" kind="push" identifier="VolumeToStart" id="p1b-GZ-yyF"/>
+                        <outlet property="volumeView" destination="3sX-43-qq6" id="A5q-L0-k2g"/>
+                        <segue destination="Tcy-xI-xK3" kind="push" identifier="VolumeToTask" id="8fK-cr-Dud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q73-MW-CgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="902"/>
+            <point key="canvasLocation" x="1668" y="-278"/>
         </scene>
         <!--Task Ready View Controller - Instructions-->
         <scene sceneID="08E-cm-drs">
@@ -455,7 +456,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUU-3w-yQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="474"/>
+            <point key="canvasLocation" x="1668" y="482"/>
         </scene>
         <!--Task Question View Controller-->
         <scene sceneID="4WX-Y9-Rtx">
@@ -682,6 +683,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                         <outlet property="familiaritySlider" destination="b8S-ue-Pjg" id="q5L-Zv-0l1"/>
                         <outlet property="familiarityView" destination="IXi-T1-W7w" id="h2L-OR-mdA"/>
                         <outlet property="helpfulView" destination="rgK-x5-DEj" id="urf-A1-daO"/>
+                        <segue destination="E7j-Ke-dXr" kind="modal" identifier="TaskQuestionToAudio" modalTransitionStyle="coverVertical" id="GEk-GN-Vbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0U-Tn-9HJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -746,7 +748,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1408" y="868"/>
+            <point key="canvasLocation" x="2824" y="-668"/>
         </scene>
         <!--Task Audio View Controller-->
         <scene sceneID="AfM-y2-9el">
@@ -826,7 +828,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHc-lD-Pok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="868"/>
+            <point key="canvasLocation" x="2812" y="556"/>
         </scene>
         <!--Task Done View Controller - Done!-->
         <scene sceneID="KWW-gg-iHd">
@@ -862,7 +864,7 @@ Hit “Continue” to begin the test section, or “Practice” to try out the t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73c-Jr-pHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="126"/>
+            <point key="canvasLocation" x="1188" y="1542"/>
         </scene>
         <!--Text View Controller - Information-->
         <scene sceneID="wtb-FI-vY1">
@@ -1353,6 +1355,9 @@ Copies of this information sheet are available by request. If you would like a c
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="546-TP-WBF">
                                         <rect key="frame" x="19" y="276" width="285" height="23"/>
+                                        <connections>
+                                            <segue destination="H7X-u4-UMW" kind="push" identifier="QuestionToStart" id="8rs-Mn-wov"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Training" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXi-9I-RMs">
                                         <rect key="frame" x="20" y="369" width="74" height="21"/>
@@ -1461,7 +1466,6 @@ Copies of this information sheet are available by request. If you would like a c
                         <outlet property="scrollView" destination="RvQ-hu-m5d" id="Pro-87-Ak6"/>
                         <outlet property="theorySlider" destination="oqM-Xy-Qlq" id="BHD-Un-QAC"/>
                         <outlet property="toneButton" destination="8Hs-Yj-ugx" id="74c-wW-u9X"/>
-                        <segue destination="hyY-3O-zxI" kind="push" identifier="QuestionToVolume" id="UpO-2n-R2y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xQ-qu-bLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1643,6 +1647,7 @@ Copies of this information sheet are available by request. If you would like a c
             <relationships>
                 <relationship kind="action" name="continueClicked:" candidateClass="UIButton"/>
                 <relationship kind="action" name="playClicked:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="volumeView" candidateClass="MPVolumeView"/>
             </relationships>
         </class>
     </classes>
@@ -1652,8 +1657,9 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3ic-5O-9sf"/>
+        <segue reference="sH7-10-Hxp"/>
         <segue reference="bFU-UO-XeH"/>
-        <segue reference="ySn-8w-9am"/>
+        <segue reference="8fK-cr-Dud"/>
+        <segue reference="4fJ-Ix-orI"/>
     </inferredMetricsTieBreakers>
 </document>

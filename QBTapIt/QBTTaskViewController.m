@@ -68,6 +68,9 @@
     [sessionData initData];
     sessionData.userId = [QBTUserData sharedInstance].userId;
     
+    // send user data to server
+    [[QBTUserData sharedInstance] sendToServer];
+    
     // create random order
     [self createRandomOrder];
     
@@ -93,7 +96,7 @@
     NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     
     [self.tapOnData appendFormat:@"%f, ", tapOnTime];
-//    NSLog(@"On: %f", tapOnTime);
+    NSLog(@"On: %f", tapOnTime);
     
     // save positions
     assert(touches.count == 1);
@@ -117,7 +120,7 @@
     // save tap off
     NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     [self.tapOffData appendFormat:@"%f, ", tapOffTime];
-//    NSLog(@"Off: %f", tapOffTime);
+    NSLog(@"Off: %f", tapOffTime);
     
     // save positions
     assert(touches.count == 1);
@@ -199,13 +202,6 @@
         }
         
         self.taskOrder = result;
-        
-//        int i = 0;
-//        NSLog(@"Printing randomized result");
-//        for (NSNumber* n in result) {
-//            i++;
-//            NSLog(@"%d: %d", i, n.intValue);
-//        }
     }
 }
 
@@ -275,7 +271,8 @@
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
     [sessionData.taskDataArray addObject:self.currentTask];
     
-    NSLog(@"Saved task: %d", sessionData.taskDataArray.count);
+    // send task data to server
+    [sessionData sendTaskToServer:self.currentTask];
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors
@@ -316,9 +313,9 @@
                 [self performSegueWithIdentifier:@"TaskToReady" sender:self];
             }
             else {
-                // send data to server
-                [[QBTUserData sharedInstance] sendToServer];
-                [[QBTSessionData sharedInstance] sendToServer];
+                // send data to server - uncomment the code here to send all data after all tasks are finished
+//                [[QBTUserData sharedInstance] sendToServer];
+//                [[QBTSessionData sharedInstance] sendToServer];
                 
                 [self performSegueWithIdentifier:@"TaskToDone" sender:self];
             }

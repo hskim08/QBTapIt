@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import <MediaPlayer/MediaPlayer.h>
+
 @interface QBTVolumeAdjustViewController : UIViewController
+
+@property IBOutlet MPVolumeView* volumeView;
 
 - (IBAction)playClicked:(UIButton*)sender;
 - (IBAction)continueClicked:(UIButton*)sender;

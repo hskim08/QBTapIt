@@ -29,7 +29,12 @@
 {
     [super viewWillAppear:animated];
 
-    self.continueButton.enabled = NO; // NOTE: this should be NO for release version
+#ifdef DEBUG
+    self.continueButton.enabled = YES; // Note: enable button for debugging
+#else
+    self.continueButton.enabled = NO;
+#endif
+    
     self.titleLabel.text = self.songTitle;
     self.lyricsView.text = self.lyrics;
 }

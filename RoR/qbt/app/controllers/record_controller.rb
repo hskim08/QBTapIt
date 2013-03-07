@@ -18,6 +18,8 @@ class RecordController < ApplicationController
     @task.tap_off_data = params[:tap_off_data]
     @task.tap_y_data = params[:tap_y_data]
     @task.tap_x_data = params[:tap_x_data]
+    @task.tap_off_y_data = params[:tap_off_y_data]
+    @task.tap_off_x_data = params[:tap_off_x_data]
     
     @task.with_music = params[:with_music]
     @task.song_familiarity = params[:song_familiarity]

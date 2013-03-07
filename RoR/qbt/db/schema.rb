@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211232856) do
+ActiveRecord::Schema.define(:version => 20130307184005) do
 
   create_table "songs", :force => true do |t|
     t.string   "title"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20130211232856) do
     t.integer  "audio_helpful"
     t.integer  "task_order"
     t.string   "device_type"
+    t.string   "tap_off_x_data"
+    t.string   "tap_off_y_data"
   end
 
   create_table "users", :force => true do |t|

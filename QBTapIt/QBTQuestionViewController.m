@@ -94,7 +94,7 @@ enum PickerType {
     userData.listeningHabits = self.habitSlider.value*5;
     
     // open next page
-    [self performSegueWithIdentifier:@"QuestionToVolume"
+    [self performSegueWithIdentifier:@"QuestionToStart"
                               sender:self];
 }
 
