@@ -37,13 +37,12 @@
 
 @property UInt32 taskOrder;
 
-@property (nonatomic) NSMutableArray* taskDataArray;
+//@property (nonatomic) NSMutableArray* taskDataArray;
 
 - (void) initData;
 
 - (void) sendTaskToServer:(QBTTaskData*)taskData;
-
-- (void) sendToServer;
+//- (void) sendToServer;
 - (void) saveToDisk;
 
 @end

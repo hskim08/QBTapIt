@@ -21,6 +21,8 @@
 @property id<QBTTaskFamiliarityViewControllerDelegate> delegate;
 
 @property BOOL noTaps;
+@property NSUInteger taskIdx;
+
 @property IBOutlet UISlider* familiaritySlider;
 
 @end

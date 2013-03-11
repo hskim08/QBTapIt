@@ -8,7 +8,9 @@
 
 #import "QBTTaskFamiliarityViewController.h"
 
-@interface QBTTaskFamiliarityViewController ()
+#import "QBTTaskAudioViewController.h"
+
+@interface QBTTaskFamiliarityViewController () <QBTTaskAudioViewControllerDelegate>
 
 @end
 
@@ -44,15 +46,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ( [segue.identifier isEqualToString:@"FamiliarityToAudio"] ) { // prepare audio view
+
+        QBTTaskAudioViewController* audioVC = [segue destinationViewController];
+        audioVC.delegate = self;
+        
+        audioVC.taskIdx = self.taskIdx;
+    }
+}
+
 #pragma mark - IBAction Selectors
 
 - (IBAction) doneClicked:(UIButton*)sender
 {
+    // save data
     [self.delegate handleFamiliarity:self.familiaritySlider.value*5];
     
+    // show audio view
+    [self performSegueWithIdentifier:@"FamiliarityToAudio"
+                              sender:self];
+}
+
+#pragma mark - QBTTaskAudioViewControllerDelegate Selectors
+
+- (void) didCloseAudioViewController
+{
     [self dismissViewControllerAnimated:YES
                              completion:^(void){
-                                 
+
                                  [self.delegate didCloseFamiliarity];
                              }];
 }

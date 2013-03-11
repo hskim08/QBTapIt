@@ -18,16 +18,14 @@
 
 @property id<QBTTaskAudioViewControllerDelegate> delegate;
 
+@property NSUInteger taskIdx;
+
 @property IBOutlet UIBarButtonItem* continueButton;
 @property IBOutlet UIButton* playButton;
 
 @property IBOutlet UILabel* titleLabel;
 @property IBOutlet UILabel* artistLabel;
 @property IBOutlet UITextView* lyricsView;
-
-@property NSString* songTitle;
-@property NSString* artist;
-@property NSString* lyrics;
 
 - (IBAction) doneClicked:(UIButton*)sender;
 - (IBAction) playClicked:(UIButton*)sender;

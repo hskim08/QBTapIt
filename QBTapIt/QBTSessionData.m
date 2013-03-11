@@ -50,13 +50,13 @@ static QBTSessionData* sharedInstance = nil;
     return [self platform];
 }
 
-@synthesize taskDataArray = _taskDataArray;
-- (NSMutableArray*)taskDataArray {
-    if (_taskDataArray == nil) {
-        _taskDataArray = [[NSMutableArray alloc] initWithCapacity:1];
-    }
-    return _taskDataArray;
-}
+//@synthesize taskDataArray = _taskDataArray;
+//- (NSMutableArray*)taskDataArray {
+//    if (_taskDataArray == nil) {
+//        _taskDataArray = [[NSMutableArray alloc] initWithCapacity:1];
+//    }
+//    return _taskDataArray;
+//}
 
 - (void) initData
 {
@@ -65,18 +65,18 @@ static QBTSessionData* sharedInstance = nil;
 
     self.experimenterId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ExperimenterId"];
     
-    [self.taskDataArray removeAllObjects];
+//    [self.taskDataArray removeAllObjects];
 }
 
-- (void) sendToServer
-{
-    // For each task
-    for (QBTTaskData* taskData in self.taskDataArray) {
-        // Create a request with related data
-
-        [self sendTaskToServer:taskData];
-    }
-}
+//- (void) sendToServer
+//{
+//    // For each task
+//    for (QBTTaskData* taskData in self.taskDataArray) {
+//        // Create a request with related data
+//
+//        [self sendTaskToServer:taskData];
+//    }
+//}
 
 - (void) sendTaskToServer:(QBTTaskData*)taskData
 {

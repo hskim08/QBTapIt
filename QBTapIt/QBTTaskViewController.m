@@ -16,11 +16,8 @@
 
 #import "QBTTaskFamiliarityViewController.h"
 #import "QBTTaskQuestionViewController.h"
-#import "QBTTaskAudioViewController.h"
 
-#import "QBTAudioPlayer.h"
-
-@interface QBTTaskViewController () <QBTTaskFamiliarityViewControllerDelegate, QBTTaskQuestionViewControllerDelegate, QBTTaskAudioViewControllerDelegate>
+@interface QBTTaskViewController () <QBTTaskFamiliarityViewControllerDelegate, QBTTaskQuestionViewControllerDelegate>
 
 @property NSInteger taskNumber;
 @property NSTimeInterval startTime;
@@ -98,7 +95,7 @@
     NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     
     [self.tapOnData appendFormat:@"%f, ", tapOnTime];
-    NSLog(@"On: %f", tapOnTime);
+//    NSLog(@"On: %f", tapOnTime);
     
     // save positions
     assert(touches.count == 1);
@@ -122,7 +119,7 @@
     // save tap off
     NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     [self.tapOffData appendFormat:@"%f, ", tapOffTime];
-    NSLog(@"Off: %f", tapOffTime);
+//    NSLog(@"Off: %f", tapOffTime);
     
     // save positions
     assert(touches.count == 1);
@@ -145,29 +142,14 @@
         familiarityVC.delegate = self;
         
         familiarityVC.noTaps = (self.tapOnData.length < 1);
+        
+        NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
+        familiarityVC.taskIdx = n.intValue;
     }
     else if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) { // prepare questionnaire
         
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
-    }
-    else if ( [segue.identifier isEqualToString:@"TaskToAudio"] ) { // prepare audio view
-        
-        QBTTaskAudioViewController* audioVC = [segue destinationViewController];
-        audioVC.delegate = self;
-    
-        // prepare for audio playback
-        NSNumber* n = [self.taskOrder objectAtIndex:self.taskNumber];
-        int taskIdx = n.intValue;
-        
-        // load music
-        NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:taskIdx];
-        [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
-        
-        // set song title and lyrics
-        audioVC.songTitle = [[QBTLyricsData sharedInstance] titleForTask:taskIdx];
-        audioVC.lyrics = [[QBTLyricsData sharedInstance] lyricsForTask:taskIdx];
-        audioVC.artist = [NSString stringWithFormat:@"%@ (%@)", [[QBTLyricsData sharedInstance] artistForTask:taskIdx], [[QBTLyricsData sharedInstance] yearForTask:taskIdx]];
     }
 }
 
@@ -279,7 +261,7 @@
     self.currentTask.tapOffYPositionData = self.tapOffYPosData;
         
     QBTSessionData* sessionData = [QBTSessionData sharedInstance];
-    [sessionData.taskDataArray addObject:self.currentTask];
+//    [sessionData.taskDataArray addObject:self.currentTask];
     
     // send task data to server
     [sessionData sendTaskToServer:self.currentTask];
@@ -313,9 +295,11 @@
     if (![QBTLyricsData sharedInstance].isTrialRun)
         [self saveTaskData];
     
-    // open audio view controller
-    [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
-    // start task when audio view controller closes
+    self.withMusic = YES;
+    
+    // prepare next task
+    if (![QBTLyricsData sharedInstance].isTrialRun)
+        [self startTask];
 }
 
 - (void) didCloseQuestionnaire
@@ -343,17 +327,6 @@
         if (![QBTLyricsData sharedInstance].isTrialRun)
             [self startTask];
     }
-}
-
-#pragma mark - QBTTaskAudioViewControllerDelegate Selectors
-
-- (void) didCloseAudioViewController
-{
-    self.withMusic = YES;
-    
-    // prepare next task
-    if (![QBTLyricsData sharedInstance].isTrialRun)
-        [self startTask];
 }
 
 @end

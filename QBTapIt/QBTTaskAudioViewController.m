@@ -8,6 +8,8 @@
 
 #import "QBTTaskAudioViewController.h"
 
+#import "QBTLyricsData.h"
+
 #import "QBTAudioPlayer.h"
 
 @interface QBTTaskAudioViewController () <QBTAudioPlayerDelegate>
@@ -24,6 +26,10 @@
     self.playButton.enabled = YES;
     [self.playButton setTitle:@"Play"
                      forState:UIControlStateNormal];
+    
+    // load music
+    NSURL* fileUrl = [[QBTLyricsData sharedInstance] fileUrlForTask:self.taskIdx];
+    [[QBTAudioPlayer sharedInstance] initWithUrl:fileUrl];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -36,9 +42,9 @@
     self.continueButton.enabled = NO;
 #endif
     
-    self.titleLabel.text = self.songTitle;
-    self.artistLabel.text = self.artist;
-    self.lyricsView.text = self.lyrics;
+    self.titleLabel.text = [[QBTLyricsData sharedInstance] titleForTask:self.taskIdx];
+    self.artistLabel.text = [NSString stringWithFormat:@"%@ (%@)", [[QBTLyricsData sharedInstance] artistForTask:self.taskIdx], [[QBTLyricsData sharedInstance] yearForTask:self.taskIdx]];
+    self.lyricsView.text = [[QBTLyricsData sharedInstance] lyricsForTask:self.taskIdx];
 }
 
 - (void) viewDidAppear:(BOOL)animated

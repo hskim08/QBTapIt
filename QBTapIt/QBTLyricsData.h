@@ -20,10 +20,10 @@
 
 - (UInt16) taskCount;
 
-- (NSString*) titleForTask:(UInt16)task;
-- (NSString*) artistForTask:(UInt16)task;
-- (NSString*) yearForTask:(UInt16)task;
-- (NSString*) lyricsForTask:(UInt16)task;
-- (NSURL*) fileUrlForTask:(UInt16)task;
+- (NSString*) titleForTask:(NSUInteger)task;
+- (NSString*) artistForTask:(NSUInteger)task;
+- (NSString*) yearForTask:(NSUInteger)task;
+- (NSString*) lyricsForTask:(NSUInteger)task;
+- (NSURL*) fileUrlForTask:(NSUInteger)task;
 
 @end
