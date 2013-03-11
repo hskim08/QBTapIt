@@ -10,8 +10,6 @@
 
 @interface QBTTaskQuestionViewController ()
 
-@property (nonatomic) NSArray* withMusicArray;
-
 @property UInt8 labelSelected;
 
 - (NSUInteger) indexOfLabel:(UILabel*)label;
@@ -37,25 +35,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.familiarityView.hidden = self.withMusic;
-    self.helpfulView.hidden = !self.withMusic;
-    
-    if (self.withMusic)
-        [self updateSelection];
+    [self updateSelection];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    if (self.withMusic) {
-        self.doneButton.enabled = NO;
-    }
-    else {
-        if (self.noTaps) {
-            self.familiaritySlider.value = 0;
-        }
-    }
+    self.doneButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,10 +55,7 @@
 
 - (IBAction) doneClicked:(UIButton*)sender
 {
-    if (self.withMusic)
-        [self.delegate handleHelpful:self.labelSelected];
-    else
-        [self.delegate handleFamiliarity:self.familiaritySlider.value*5];
+    [self.delegate handleHelpful:self.labelSelected];
     
     [self.delegate willCloseQuestionnaire];
     
@@ -96,19 +80,6 @@
 }
 
 #pragma mark - Private Implementation
-
-@synthesize withMusicArray = _withMusicArray;
-- (NSArray*) withMusicArray
-{
-    if (!_withMusicArray) {
-        _withMusicArray = @[@"Yes - it helped me remember more details of the song",
-        @"Yes - I thought the lyrics were from a different song, but now I know which song it is",
-        @"Yes - I had no idea of the song from just the lyrics, but listening made me recognize it",
-        @"No - I already knew the song really well",
-        @"No - this song is totally unfamiliar, so hearing it once didn’t help"];
-    }
-    return _withMusicArray;
-}
 
 - (NSUInteger) indexOfLabel:(UILabel*)label
 {

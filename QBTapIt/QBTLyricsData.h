@@ -22,6 +22,7 @@
 
 - (NSString*) titleForTask:(UInt16)task;
 - (NSString*) artistForTask:(UInt16)task;
+- (NSString*) yearForTask:(UInt16)task;
 - (NSString*) lyricsForTask:(UInt16)task;
 - (NSURL*) fileUrlForTask:(UInt16)task;
 

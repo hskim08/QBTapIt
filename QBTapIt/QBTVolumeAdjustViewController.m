@@ -51,7 +51,7 @@
 
 - (IBAction)playClicked:(UIButton*)sender
 {
-    NSURL* testTrackUrl = [[NSBundle mainBundle] URLForResource:@"earthAngel"
+    NSURL* testTrackUrl = [[NSBundle mainBundle] URLForResource:@"testSong"
                                                   withExtension:@"mp3"];
     
     [[QBTAudioPlayer sharedInstance] initWithUrl:testTrackUrl];

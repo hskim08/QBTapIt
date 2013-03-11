@@ -10,7 +10,7 @@
 
 @protocol QBTTaskQuestionViewControllerDelegate <NSObject>
 
-- (void) handleFamiliarity:(Float32)answer;
+//- (void) handleFamiliarity:(Float32)answer;
 - (void) handleHelpful:(UInt16)answer;
 
 - (void) willCloseQuestionnaire;
@@ -22,13 +22,13 @@
 @interface QBTTaskQuestionViewController : UIViewController
 
 @property id<QBTTaskQuestionViewControllerDelegate> delegate;
-@property BOOL withMusic;
-@property BOOL noTaps;
+//@property BOOL withMusic;
+//@property BOOL noTaps;
 
 @property IBOutlet UIBarButtonItem* doneButton;
 
-@property IBOutlet UIView* familiarityView;
-@property IBOutlet UISlider* familiaritySlider;
+//@property IBOutlet UIView* familiarityView;
+//@property IBOutlet UISlider* familiaritySlider;
 
 @property IBOutlet UIView* helpfulView;
 @property IBOutlet UILabel* answer1;

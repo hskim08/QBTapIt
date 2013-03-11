@@ -14,12 +14,13 @@
 #import "QBTSessionData.h"
 #import "QBTTaskData.h"
 
+#import "QBTTaskFamiliarityViewController.h"
 #import "QBTTaskQuestionViewController.h"
 #import "QBTTaskAudioViewController.h"
 
 #import "QBTAudioPlayer.h"
 
-@interface QBTTaskViewController () <QBTTaskQuestionViewControllerDelegate, QBTTaskAudioViewControllerDelegate>
+@interface QBTTaskViewController () <QBTTaskFamiliarityViewControllerDelegate, QBTTaskQuestionViewControllerDelegate, QBTTaskAudioViewControllerDelegate>
 
 @property NSInteger taskNumber;
 @property NSTimeInterval startTime;
@@ -69,7 +70,8 @@
     sessionData.userId = [QBTUserData sharedInstance].userId;
     
     // send user data to server
-    [[QBTUserData sharedInstance] sendToServer];
+    if (![QBTLyricsData sharedInstance].isTrialRun)
+        [[QBTUserData sharedInstance] sendToServer];
     
     // create random order
     [self createRandomOrder];
@@ -137,13 +139,17 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) { // prepare questionnaire
+    if ( [segue.identifier isEqualToString:@"TaskToFamiliarity"] ) { // prepare familiarity
+        
+        QBTTaskFamiliarityViewController* familiarityVC = [segue destinationViewController];
+        familiarityVC.delegate = self;
+        
+        familiarityVC.noTaps = (self.tapOnData.length < 1);
+    }
+    else if ( [segue.identifier isEqualToString:@"TaskToTaskQuestion"] ) { // prepare questionnaire
         
         QBTTaskQuestionViewController* questionVC = [segue destinationViewController];
         questionVC.delegate = self;
-        questionVC.withMusic = self.withMusic;
-        
-        questionVC.noTaps = (self.tapOnData.length < 1);
     }
     else if ( [segue.identifier isEqualToString:@"TaskToAudio"] ) { // prepare audio view
         
@@ -161,6 +167,7 @@
         // set song title and lyrics
         audioVC.songTitle = [[QBTLyricsData sharedInstance] titleForTask:taskIdx];
         audioVC.lyrics = [[QBTLyricsData sharedInstance] lyricsForTask:taskIdx];
+        audioVC.artist = [NSString stringWithFormat:@"%@ (%@)", [[QBTLyricsData sharedInstance] artistForTask:taskIdx], [[QBTLyricsData sharedInstance] yearForTask:taskIdx]];
     }
 }
 
@@ -169,7 +176,7 @@
 - (IBAction) nextPushed:(UIButton*)sender
 {    
     // open task question view
-    [self performSegueWithIdentifier:@"TaskToTaskQuestion" sender:self];
+    self.withMusic ? [self performSegueWithIdentifier:@"TaskToTaskQuestion" sender:self] : [self performSegueWithIdentifier:@"TaskToFamiliarity" sender:self];
 }
 
 #pragma mark - Private Implementation
@@ -216,6 +223,9 @@
     
     // update title text
     self.titleLabel.text = [NSString stringWithFormat:@"%@", [[QBTLyricsData sharedInstance] titleForTask:taskIdx]];
+    self.artistLabel.text = [NSString stringWithFormat:@"%@ (%@)",
+                             [[QBTLyricsData sharedInstance] artistForTask:taskIdx],
+                             [[QBTLyricsData sharedInstance] yearForTask:taskIdx]];
     
     // load new lyrics
     self.lyricsTextView.text = [[QBTLyricsData sharedInstance] lyricsForTask:taskIdx];
@@ -289,13 +299,23 @@
 
 - (void) willCloseQuestionnaire
 {
-    if(self.withMusic) { // prepare lyrics before questionnaire closes
+    // prepare new lyrics before questionnaire closes
         
-        self.taskNumber++; // increment task number
+    self.taskNumber++; // increment task number
         
-        if (self.taskNumber < [[QBTLyricsData sharedInstance] taskCount])
-            [self updateTaskUI];
-    }
+    if (self.taskNumber < [[QBTLyricsData sharedInstance] taskCount])
+        [self updateTaskUI];
+}
+
+- (void) didCloseFamiliarity
+{
+    // save data
+    if (![QBTLyricsData sharedInstance].isTrialRun)
+        [self saveTaskData];
+    
+    // open audio view controller
+    [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
+    // start task when audio view controller closes
 }
 
 - (void) didCloseQuestionnaire
@@ -304,34 +324,24 @@
     if (![QBTLyricsData sharedInstance].isTrialRun)
         [self saveTaskData];
     
-    if(self.withMusic) { // prepare for without music task
-        
-        if (self.taskNumber >= [[QBTLyricsData sharedInstance] taskCount]) { // end session
-    
-            if ([QBTLyricsData sharedInstance].isTrialRun) {
-                
-                [self performSegueWithIdentifier:@"TaskToReady" sender:self];
-            }
-            else {
-                // send data to server - uncomment the code here to send all data after all tasks are finished
-//                [[QBTUserData sharedInstance] sendToServer];
-//                [[QBTSessionData sharedInstance] sendToServer];
-                
-                [self performSegueWithIdentifier:@"TaskToDone" sender:self];
-            }
-        }
-        else { // prepare next task
-            self.withMusic = NO;
+    // prepare for without music task
+    if (self.taskNumber >= [[QBTLyricsData sharedInstance] taskCount]) { // end session
 
-            if (![QBTLyricsData sharedInstance].isTrialRun)
-                [self startTask];
+        if ([QBTLyricsData sharedInstance].isTrialRun) {
+            
+            [self performSegueWithIdentifier:@"TaskToReady" sender:self];
+        }
+        else {
+            
+            [self performSegueWithIdentifier:@"TaskToDone" sender:self];
         }
     }
-    else { // prepare for with music task
+    else { // prepare next task
+        
+        self.withMusic = NO;
 
-        // open audio view controller
-        [self performSegueWithIdentifier:@"TaskToAudio" sender:self];
-        // start task when audio view controller closes
+        if (![QBTLyricsData sharedInstance].isTrialRun)
+            [self startTask];
     }
 }
 

@@ -21,6 +21,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.playButton.enabled = YES;
     [self.playButton setTitle:@"Play"
                      forState:UIControlStateNormal];
 }
@@ -36,6 +37,7 @@
 #endif
     
     self.titleLabel.text = self.songTitle;
+    self.artistLabel.text = self.artist;
     self.lyricsView.text = self.lyrics;
 }
 
@@ -44,7 +46,6 @@
     [super viewWillAppear:animated];
     
     [QBTAudioPlayer sharedInstance].delegate = self;
-//    [[QBTAudioPlayer sharedInstance] play]; // uncomment code to start playing immediately
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,13 +93,9 @@
     
     [self.playButton setTitle:@"Play"
                      forState:UIControlStateNormal];
-
-    // uncomment the following code to close view controller
-    // immediately after audio stops
-//    [self dismissViewControllerAnimated:YES
-//                             completion:^{
-//                                 [self.delegate didCloseAudioViewController];
-//                             }];
+    
+    self.playButton.enabled = NO; // disable play button. subject can only hear the music once.
+    [self.playButton setAlpha:0.5];
 }
 
 @end

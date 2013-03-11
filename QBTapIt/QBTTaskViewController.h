@@ -11,6 +11,7 @@
 @interface QBTTaskViewController : UIViewController
 
 @property IBOutlet UILabel* titleLabel;
+@property IBOutlet UILabel* artistLabel;
 @property IBOutlet UITextView* lyricsTextView;
 @property IBOutlet UILabel* tapLabel;
 

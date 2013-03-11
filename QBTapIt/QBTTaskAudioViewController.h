@@ -22,9 +22,11 @@
 @property IBOutlet UIButton* playButton;
 
 @property IBOutlet UILabel* titleLabel;
+@property IBOutlet UILabel* artistLabel;
 @property IBOutlet UITextView* lyricsView;
 
 @property NSString* songTitle;
+@property NSString* artist;
 @property NSString* lyrics;
 
 - (IBAction) doneClicked:(UIButton*)sender;

@@ -112,6 +112,12 @@ static QBTLyricsData* sharedInstance = nil;
     return [taskData objectForKey:@"Artist"];
 }
 
+- (NSString*) yearForTask:(UInt16)task
+{
+    NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:task];
+    return [taskData objectForKey:@"Year"];
+}
+
 - (NSString*) lyricsForTask:(UInt16)task
 {
     NSDictionary* taskData = [[self.csvParser arrayOfParsedRows] objectAtIndex:task];
@@ -163,7 +169,7 @@ static QBTLyricsData* sharedInstance = nil;
 
 - (CSVParser*) parserWithString:(NSString*)csvString
 {
-    NSArray* keyArray = @[@"Song Title", @"Artist", @"Year", @"Filename", @"Lyrics"];
+    NSArray* keyArray = @[@"Song Title", @"Artist", @"Year", @"Lyrics", @"Filename"];
     
     return [[CSVParser alloc] initWithString:csvString
                                    separator:@","
