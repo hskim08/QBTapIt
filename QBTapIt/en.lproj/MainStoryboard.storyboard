@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SYx-rb-f2K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SYx-rb-f2K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -944,7 +944,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Protocol Approval Date:  2/13/13
+                                        <string key="content">Protocol Approval Date:  3/14/13
 Protocol Expiration Date:  2/13/16</string>
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
@@ -1114,7 +1114,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">: Your participation will take approximately 30 minutes.
+                                        <string key="content">: Your participation will take approximately 45 minutes.
 
 </string>
                                         <attributes>
@@ -1644,7 +1644,6 @@ Copies of this information sheet are available by request. If you would like a c
         <class className="QBTTaskFamiliarityViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTaskFamiliarityViewController.h"/>
             <relationships>
-                <relationship kind="action" name="doneClicked:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="familiaritySlider" candidateClass="UISlider"/>
             </relationships>
         </class>
@@ -1716,8 +1715,8 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3ic-5O-9sf"/>
-        <segue reference="bFU-UO-XeH"/>
         <segue reference="ySn-8w-9am"/>
+        <segue reference="fBF-bT-fqL"/>
+        <segue reference="3ic-5O-9sf"/>
     </inferredMetricsTieBreakers>
 </document>
