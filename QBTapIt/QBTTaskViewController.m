@@ -89,24 +89,23 @@
 {
     [super touchesBegan:touches withEvent:event];
     
+    // light tap label
     self.tapLabel.textColor = [UIColor greenColor];
     
-    // save tap on
+    // get tap on time
     NSTimeInterval tapOnTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
     
-    [self.tapOnData appendFormat:@"%f, ", tapOnTime];
-//    NSLog(@"On: %f", tapOnTime);
-    
-    // save positions
-    assert(touches.count == 1);
-    
-    for (UITouch* touch in touches) {
-        CGPoint point = [touch locationInView:self.view];
+    for (UITouch* touch in touches) { // for each touch
         
+        // save tap on time
+        [self.tapOnData appendFormat:@"%f, ", tapOnTime];
+//        NSLog(@"On: %f", tapOnTime);
+        
+        // save position
+        CGPoint point = [touch locationInView:self.view];
         [self.tapXPosData appendFormat:@"%f, ", point.x];
         [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
 //        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
-        break;
     }
 }
 
@@ -114,23 +113,23 @@
 {
     [super touchesEnded:touches withEvent:event];
     
+    // unlight tap label
     self.tapLabel.textColor = [UIColor blackColor];
     
-    // save tap off
-    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;
-    [self.tapOffData appendFormat:@"%f, ", tapOffTime];
-//    NSLog(@"Off: %f", tapOffTime);
-    
-    // save positions
-    assert(touches.count == 1);
+    // get tap off time
+    NSTimeInterval tapOffTime = [[NSDate date] timeIntervalSince1970] - self.startTime;;
     
     for (UITouch* touch in touches) {
-        CGPoint point = [touch locationInView:self.view];
         
+        // save tap off time
+        [self.tapOffData appendFormat:@"%f, ", tapOffTime];
+//        NSLog(@"Off: %f", tapOffTime);
+        
+        // save position
+        CGPoint point = [touch locationInView:self.view];
         [self.tapOffXPosData appendFormat:@"%f, ", point.x];
         [self.tapOffYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
 //        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
-        break;
     }
 }
 
