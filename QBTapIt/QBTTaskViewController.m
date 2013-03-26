@@ -105,7 +105,8 @@
         CGPoint point = [touch locationInView:self.view];
         [self.tapXPosData appendFormat:@"%f, ", point.x];
         [self.tapYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
-//        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
+        
+        NSLog(@"On: %f (%.1f/%.1f)", tapOnTime, point.x, self.view.frame.size.height - point.y);
     }
 }
 
@@ -123,13 +124,13 @@
         
         // save tap off time
         [self.tapOffData appendFormat:@"%f, ", tapOffTime];
-//        NSLog(@"Off: %f", tapOffTime);
         
         // save position
         CGPoint point = [touch locationInView:self.view];
         [self.tapOffXPosData appendFormat:@"%f, ", point.x];
         [self.tapOffYPosData appendFormat:@"%f, ", self.view.frame.size.height - point.y];
-//        NSLog(@"x/y: %f/%f", point.x, self.view.frame.size.height - point.y);
+        
+        NSLog(@"Off: %f (%.1f/%.1f)", tapOffTime, point.x, self.view.frame.size.height - point.y);
     }
 }
 

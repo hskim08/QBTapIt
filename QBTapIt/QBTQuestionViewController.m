@@ -87,7 +87,7 @@ enum PickerType {
     val = [self.ynArray indexOfObject:self.toneButton.titleLabel.text];
     userData.toneDeaf = val > 1 ? -1 : val; // see user data format in QBTUserData.h
     val = [self.ynArray indexOfObject:self.arrhythmicButton.titleLabel.text];
-    userData.arrythmic = val > 1 ? -1 : val; // see user data format in QBTUserData.h
+    userData.arrhythmic = val > 1 ? -1 : val; // see user data format in QBTUserData.h
     
     userData.instrumentTraining = self.instrumentSlider.value*5;
     userData.theoryTraining = self.theorySlider.value*5;
@@ -211,7 +211,7 @@ enum PickerType {
 - (NSArray*) ynArray
 {
     if (!_ynArray) {
-        _ynArray = @[@"Yes", @"No", @"Don't know"];
+        _ynArray = @[@"No", @"Yes", @"Don't know"];
     }
     return _ynArray;
 }
@@ -220,7 +220,7 @@ enum PickerType {
 - (NSArray*) langArray
 {
     if (!_langArray) {
-        _langArray = @[@"Acholi", @"Afrikaans", @"Akan", @"Albanian", @"Amharic", @"Arabic", @"Armenian", @"Assyrian", @"Azerbaijani", @"Azeri", @"Bajuni", @"Bambara", @"Basque", @"Behdini", @"Belorussian", @"Bengali", @"Berber", @"Bosnian", @"Bravanese", @"Bulgarian", @"Burmese", @"Cantonese", @"Catalan", @"Chaldean", @"Chaochow", @"Chamorro", @"Chavacano", @"Cherokee", @"Chuukese", @"Croatian", @"Czech", @"Dakota", @"Danish", @"Dari", @"Dinka", @"Diula", @"Dutch", @"English", @"Ewe", @"Farsi", @"Fijian ", @"Hindi", @"Finnish", @"Flemish", @"French", @"Fukienese", @"Fula", @"Fulani", @"Fuzhou", @"Gaddang", @"Georgian", @"German", @"Gorani", @"Greek", @"Gujarati", @"Haitian Creole", @"Hakka", @"Hausa", @"Hebrew", @"Hindi", @"Hmong", @"Hunanese", @"Hungarian", @"Ibanag", @"Ibo/Igbo", @"Icelandic", @"Ilocano", @"Indonesian", @"Italian", @"Jakartanese", @"Japanese", @"Javanese", @"Karen", @"Kashmiri", @"Kazakh", @"Khmer (Cambodian)", @"Kinyarwanda", @"Kirghiz", @"Kirundi", @"Korean", @"Kosovan", @"Krio", @"Kurdish", @"Kurmanji", @"Lakota", @"Laotian", @"Latvian", @"Lingala", @"Lithuanian", @"Luganda", @"Luxembourgeois", @"Maay", @"Macedonian", @"Malagasy", @"Malay", @"Malayalam", @"Maltese", @"Mandarin", @"Mandingo", @"Mandinka", @"Maninka", @"Mankon", @"Marathi", @"Marshallese", @"Mien", @"Mina", @"Mirpuri", @"Mixteco", @"Moldavan", @"Mongolian", @"Montenegrin", @"Navajo", @"Neapolitan", @"Nepali", @"Norwegian", @"Nuer", @"Oromo", @"Pahari", @"Pampangan", @"Pamgasinan", @"Pashto", @"Patois", @"Polish", @"Portuguese", @"Portuguese", @"Punjabi", @"Romanian", @"Russian", @"Samoan", @"Serbian", @"Shanghainese", @"Shona", @"Sicilian", @"Sinhalese", @"Sindhi", @"Slovak", @"Slovenian", @"Somali", @"Sorani", @"Spanish", @"Swahili", @"Swedish", @"Sylhetti", @"Tagalog", @"Taiwanese", @"Tajik", @"Tamil", @"Telugu", @"Thai", @"Tibetan", @"Tigre", @"Tigrinya", @"Toishanese", @"Tongan", @"Tshiluba", @"Turkish", @"Twi", @"Ukrainian", @"Urdu", @"Uzbek", @"Vietnamese", @"Visayan", @"Welsh", @"Wolof", @"Yiddish", @"Yoruba", @"Yupik"];
+        _langArray = @[@"Arabic",@"Bengali",@"Cantonese",@"English",@"French",@"German",@"Hindi",@"Italian",@"Japanese",@"Javanese",@"Korean",@"Malay/Indonesian",@"Mandarin",@"Persian",@"Polish",@"Portuguese",@"Punjabi",@"Russian",@"Spanish",@"Tamil",@"Thai",@"Turkish",@"Vietnamese",@"Other"];
     }
     return _langArray;
 }

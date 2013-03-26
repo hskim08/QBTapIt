@@ -41,7 +41,10 @@
 
 - (IBAction)agreePushed:(UIButton*)sender
 {
-    [self performSegueWithIdentifier:@"TextToQuestion"
+//    [self performSegueWithIdentifier:@"TextToQuestion"
+//                              sender:self];
+    
+    [self performSegueWithIdentifier:@"TextToQuestionTable"
                               sender:self];
 }
 

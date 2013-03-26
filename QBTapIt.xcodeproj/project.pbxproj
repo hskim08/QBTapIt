@@ -16,6 +16,7 @@
 		AA1E4A0C16C58BA000238C54 /* QBTDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0B16C58BA000238C54 /* QBTDownloadViewController.m */; };
 		AA1E4A0F16C58EA100238C54 /* QBTDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */; };
 		AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */; };
+		AA2908601701082600DE115E /* QBTQuestionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA29085F1701082600DE115E /* QBTQuestionTableViewController.m */; };
 		AA4B2FDC169B8B5000030E29 /* CSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4B2FDB169B8B5000030E29 /* CSVParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA4F4BD516C09D9B0037E613 /* lyrics_trial.csv in Resources */ = {isa = PBXBuildFile; fileRef = AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */; };
 		AA56120916C9C73A00377661 /* gears.png in Resources */ = {isa = PBXBuildFile; fileRef = AA56120716C9C73A00377661 /* gears.png */; };
@@ -25,6 +26,7 @@
 		AA687E5316BC46050019DA5F /* QBTAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */; };
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
 		AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F916AF35AC00F9D64A /* icon57.png */; };
+		AA80E5911701786C00AFF85D /* QBTSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA80E5901701786C00AFF85D /* QBTSelectViewController.m */; };
 		AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */; };
 		AAA8B440169CE76B00C30C09 /* QBTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */; };
 		AAA8B443169CE95E00C30C09 /* QBTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B442169CE95E00C30C09 /* QBTUserData.m */; };
@@ -68,6 +70,8 @@
 		AA1E4A0E16C58EA100238C54 /* QBTDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTDownloadCell.m; sourceTree = "<group>"; };
 		AA1E4A1016C5A13500238C54 /* QBTSongListDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSongListDownloader.h; sourceTree = "<group>"; };
 		AA1E4A1116C5A13500238C54 /* QBTSongListDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSongListDownloader.m; sourceTree = "<group>"; };
+		AA29085E1701082600DE115E /* QBTQuestionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTQuestionTableViewController.h; sourceTree = "<group>"; };
+		AA29085F1701082600DE115E /* QBTQuestionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTQuestionTableViewController.m; sourceTree = "<group>"; };
 		AA4B2FDA169B8B5000030E29 /* CSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSVParser.h; path = QBTapIt/CSVParser.h; sourceTree = "<group>"; };
 		AA4B2FDB169B8B5000030E29 /* CSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSVParser.m; path = QBTapIt/CSVParser.m; sourceTree = "<group>"; };
 		AA4F4BD016C09D9B0037E613 /* lyrics_trial.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = lyrics_trial.csv; path = Trial/lyrics_trial.csv; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		AA687E5216BC46050019DA5F /* QBTAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTAudioDownloader.m; sourceTree = "<group>"; };
 		AA7324F616AF35A500F9D64A /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		AA7324F916AF35AC00F9D64A /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		AA80E58F1701786C00AFF85D /* QBTSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSelectViewController.h; sourceTree = "<group>"; };
+		AA80E5901701786C00AFF85D /* QBTSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSelectViewController.m; sourceTree = "<group>"; };
 		AA9C4C88169F83D900CD76A0 /* QBTSessionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSessionData.h; sourceTree = "<group>"; };
 		AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSessionData.m; sourceTree = "<group>"; };
 		AAA8B43E169CE76B00C30C09 /* QBTServerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTServerSettings.h; sourceTree = "<group>"; };
@@ -209,6 +215,10 @@
 				AADDFB411644900C004955C1 /* QBTQuestionViewController.m */,
 				AA66D67916DE97EA0052145B /* QBTVolumeAdjustViewController.h */,
 				AA66D67A16DE97EA0052145B /* QBTVolumeAdjustViewController.m */,
+				AA29085E1701082600DE115E /* QBTQuestionTableViewController.h */,
+				AA29085F1701082600DE115E /* QBTQuestionTableViewController.m */,
+				AA80E58F1701786C00AFF85D /* QBTSelectViewController.h */,
+				AA80E5901701786C00AFF85D /* QBTSelectViewController.m */,
 			);
 			name = UserInfo;
 			sourceTree = "<group>";
@@ -426,6 +436,8 @@
 				AA1E4A1216C5A13500238C54 /* QBTSongListDownloader.m in Sources */,
 				AA66D67B16DE97EA0052145B /* QBTVolumeAdjustViewController.m in Sources */,
 				AA05DBC116E9219B000D97C9 /* QBTTaskFamiliarityViewController.m in Sources */,
+				AA2908601701082600DE115E /* QBTQuestionTableViewController.m in Sources */,
+				AA80E5911701786C00AFF85D /* QBTSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

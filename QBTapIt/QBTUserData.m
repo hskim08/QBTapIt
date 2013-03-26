@@ -53,9 +53,9 @@ static QBTUserData* sharedInstance = nil;
     self.age = 0;
     self.gender = nil;
     self.nativeLanguage = nil;
-    self.handedness = -1;
-    self.toneDeaf = -1;
-    self.arrythmic = -1;
+    self.handedness = 1;
+    self.toneDeaf = 0;
+    self.arrhythmic = 0;
 }
 
 - (void) sendToServer
@@ -76,7 +76,7 @@ static QBTUserData* sharedInstance = nil;
     [params appendFormat:@"&native_language=%@", self.nativeLanguage];
     [params appendFormat:@"&handedness=%d", self.handedness];
     [params appendFormat:@"&tone_deaf=%d", self.toneDeaf];
-    [params appendFormat:@"&arrythmic=%d", self.arrythmic];
+    [params appendFormat:@"&arrythmic=%d", self.arrhythmic];
     [params appendFormat:@"&listening_habits=%f", self.listeningHabits];
     [params appendFormat:@"&instrument_training=%f", self.instrumentTraining];
     [params appendFormat:@"&theory_training=%f", self.theoryTraining];

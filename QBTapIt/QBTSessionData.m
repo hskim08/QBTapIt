@@ -38,10 +38,18 @@ static QBTSessionData* sharedInstance = nil;
 
 #pragma mark - Public implementation
 
-@synthesize version = _version;
+// X.X.0 -> debugging
+// X.X.1 -> release version
+//
+// 1.0.X -> first test
+// 1.1.X -> added specific training
 -(NSString*) version
 {
-    return @"1.0.0"; // update version when necessary
+#ifdef DEBUG
+    return @"1.1.0"; // update version when necessary
+#else
+    return @"1.1.1";
+#endif
 }
 
 @synthesize deviceType = _deviceType;
