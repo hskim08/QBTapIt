@@ -43,7 +43,7 @@ class RecordController < ApplicationController
     @user.theory_training = params[:theory_training]
     @user.handedness = params[:handedness]
     @user.tone_deaf = params[:tone_deaf]
-    @user.arrythmic = params[:arrhythmic]
+    @user.arrhythmic = params[:arrhythmic]
     @user.native_language = params[:native_language]
     @user.specific_training = params[:specific_training]
 
