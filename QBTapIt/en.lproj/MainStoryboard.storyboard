@@ -1516,6 +1516,7 @@ Copies of this information sheet are available by request. If you would like a c
                     <connections>
                         <outlet property="ageButton" destination="dlQ-yB-rzR" id="1L4-3a-mbi"/>
                         <outlet property="arrhythmicButton" destination="Jup-Tw-Kp3" id="YRV-sy-Rvs"/>
+                        <outlet property="continueButton" destination="BUq-9h-o3G" id="Qq8-fT-qdA"/>
                         <outlet property="genderButton" destination="OBC-e7-aq7" id="5xN-Vb-e5F"/>
                         <outlet property="habitSlider" destination="s7T-di-YRi" id="VRp-ue-0J2"/>
                         <outlet property="handedButton" destination="WTa-Pr-kqk" id="Ihj-0p-WRh"/>
@@ -2026,6 +2027,7 @@ Copies of this information sheet are available by request. If you would like a c
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="continueButton" destination="bPx-jv-tKg" id="Tv1-UG-5l3"/>
                         <outlet property="durationButton" destination="PR0-ga-iIf" id="NPo-Yr-Zdw"/>
                         <outlet property="durationText" destination="7se-el-UMG" id="SYO-G7-Vd8"/>
                         <outlet property="instrumentText" destination="O0L-Ul-cHN" id="Wdg-KC-JXt"/>
@@ -2131,6 +2133,7 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="tonePushed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="ageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="arrhythmicButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="genderButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="habitSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="handedButton" candidateClass="UIButton"/>
@@ -2247,6 +2250,7 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="continuePushed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="durationPushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="pickerDonePushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="durationText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="instrumentText" candidateClass="UITextField"/>

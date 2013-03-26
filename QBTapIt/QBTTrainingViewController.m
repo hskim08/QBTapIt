@@ -16,6 +16,8 @@
 
 @property (nonatomic) NSArray* durationArray;
 
+@property BOOL showPicker;
+
 - (void)showPickerView:(BOOL)show;
 
 @end
@@ -43,6 +45,8 @@
     
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
+    
+    self.showPicker = NO;
     
     CGRect frame = self.pickerHolder.frame;
     frame.origin.y = self.view.frame.size.height+40;
@@ -128,7 +132,17 @@
 
 - (void)showPickerView:(BOOL)show
 {
+    if (show == self.showPicker) return;
+    
+    self.showPicker = show;
+    
+    self.continueButton.enabled = !show;
+    
     if (show) { // show
+        
+        [self.durationText resignFirstResponder];
+        [self.instrumentText resignFirstResponder];
+        
         NSUInteger idx = [self.durationArray indexOfObject:self.durationButton.titleLabel.text];
         if (idx == NSNotFound)
             idx = 0;
@@ -187,6 +201,11 @@
 }
 
 #pragma mark - UITextFieldDelegate Selectors
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self showPickerView:NO];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

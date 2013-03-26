@@ -252,6 +252,8 @@ enum PickerType {
 
 - (void)showPickerView:(BOOL)show
 {
+    self.continueButton.enabled = !show;
+    
     if (show) { // show
         NSUInteger idx = [[self currentArray] indexOfObject:[self currentButton].titleLabel.text];
         if (idx == NSNotFound)

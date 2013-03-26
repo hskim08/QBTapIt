@@ -28,6 +28,8 @@
 @property IBOutlet UIView* pickerHolder;
 @property IBOutlet UIPickerView* pickerView;
 
+@property IBOutlet UIBarButtonItem* continueButton;
+
 - (IBAction) continuePushed:(UIButton*)sender;
 
 - (IBAction) agePushed:(UIButton*)sender;

@@ -19,6 +19,8 @@
 @property IBOutlet UIView* pickerHolder;
 @property IBOutlet UIPickerView* pickerView;
 
+@property IBOutlet UIBarButtonItem* continueButton;
+
 - (IBAction)continuePushed:(UIBarButtonItem*)sender;
 
 - (IBAction)addPushed:(UIButton*)sender;
