@@ -2,7 +2,7 @@
 //  QBTAppDelegate.h
 //  QBTapIt
 //
-//  Created by Ethan Kim on 11/2/12.
+//  Created by Hyung-Suk Kim on 11/2/12.
 //  Copyright (c) 2012 CCRMA, Stanford University. All rights reserved.
 //
 

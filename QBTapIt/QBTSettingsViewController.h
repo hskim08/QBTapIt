@@ -2,7 +2,7 @@
 //  QBTSettingsViewController.h
 //  QBTapIt
 //
-//  Created by Ethan Kim on 2/7/13.
+//  Created by Hyung-Suk Kim on 2/7/13.
 //  Copyright (c) 2013 CCRMA, Stanford University. All rights reserved.
 //
 

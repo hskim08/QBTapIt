@@ -2,7 +2,7 @@
 //  QBTTextViewController.m
 //  QBTapIt
 //
-//  Created by Ethan Kim on 11/2/12.
+//  Created by Hyung-Suk Kim on 11/2/12.
 //  Copyright (c) 2012 CCRMA, Stanford University. All rights reserved.
 //
 
@@ -43,9 +43,6 @@
 {
     [self performSegueWithIdentifier:@"TextToQuestion"
                               sender:self];
-    
-//    [self performSegueWithIdentifier:@"TextToQuestionTable"
-//                              sender:self];
 }
 
 - (IBAction)disagreePushed:(UIButton*)sender
