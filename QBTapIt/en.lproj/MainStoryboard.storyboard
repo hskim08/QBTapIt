@@ -1896,7 +1896,7 @@ Copies of this information sheet are available by request. If you would like a c
             </objects>
             <point key="canvasLocation" x="1211" y="818"/>
         </scene>
-        <!--Training View Controller - Specific Music Training-->
+        <!--Training View Controller - Training-->
         <scene sceneID="o6q-bs-9Vb">
             <objects>
                 <viewController id="QZd-Fv-KbI" customClass="QBTTrainingViewController" sceneMemberID="viewController">
@@ -1968,7 +1968,7 @@ Copies of this information sheet are available by request. If you would like a c
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="ApY-Mn-lrR">
-                                        <rect key="frame" x="269" y="56" width="29" height="29"/>
+                                        <rect key="frame" x="276" y="56" width="29" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal">
@@ -2025,7 +2025,7 @@ Copies of this information sheet are available by request. If you would like a c
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Specific Music Training" id="pUY-Wz-4yn"/>
+                    <navigationItem key="navigationItem" title="Training" id="pUY-Wz-4yn"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
