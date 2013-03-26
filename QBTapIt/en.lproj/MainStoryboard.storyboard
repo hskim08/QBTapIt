@@ -1418,9 +1418,6 @@ Copies of this information sheet are available by request. If you would like a c
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="546-TP-WBF">
                                         <rect key="frame" x="19" y="276" width="285" height="23"/>
-                                        <connections>
-                                            <segue destination="H7X-u4-UMW" kind="push" identifier="QuestionToStart" id="8rs-Mn-wov"/>
-                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Training" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXi-9I-RMs">
                                         <rect key="frame" x="20" y="369" width="74" height="21"/>
