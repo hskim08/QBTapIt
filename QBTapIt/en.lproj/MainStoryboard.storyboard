@@ -299,6 +299,7 @@ Use the “Start” button to get started on some training tasks to help you get
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D8n-P7-eum">
                                         <rect key="frame" x="82" y="303" width="117" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1289,12 +1290,6 @@ Copies of this information sheet are available by request. If you would like a c
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="s32-fq-fca">
-                                        <rect key="frame" x="210" y="20" width="90" height="30"/>
-                                        <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
-                                    </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zhO-qa-xNO">
                                         <rect key="frame" x="20" y="24" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1319,6 +1314,20 @@ Copies of this information sheet are available by request. If you would like a c
                                         </state>
                                         <connections>
                                             <action selector="genderPushed:" destination="Qbx-kl-b06" eventType="touchUpInside" id="23z-yT-zTg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dlQ-yB-rzR">
+                                        <rect key="frame" x="211" y="20" width="90" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="20">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="agePushed:" destination="Qbx-kl-b06" eventType="touchUpInside" id="yLj-8u-4rm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Handedness:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Igz-Xu-efp">
@@ -1481,7 +1490,7 @@ Copies of this information sheet are available by request. If you would like a c
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
                                         <items>
                                             <navigationItem id="aY7-LB-rVE">
-                                                <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="s6L-gR-m9B">
+                                                <barButtonItem key="rightBarButtonItem" title="Select" style="done" id="s6L-gR-m9B">
                                                     <connections>
                                                         <action selector="pickerDonePushed:" destination="Qbx-kl-b06" id="US3-LD-7zT"/>
                                                     </connections>
@@ -1508,7 +1517,7 @@ Copies of this information sheet are available by request. If you would like a c
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ageText" destination="s32-fq-fca" id="TSP-bU-x8s"/>
+                        <outlet property="ageButton" destination="dlQ-yB-rzR" id="1L4-3a-mbi"/>
                         <outlet property="arrhythmicButton" destination="Jup-Tw-Kp3" id="YRV-sy-Rvs"/>
                         <outlet property="genderButton" destination="OBC-e7-aq7" id="5xN-Vb-e5F"/>
                         <outlet property="habitSlider" destination="s7T-di-YRi" id="VRp-ue-0J2"/>
@@ -1520,6 +1529,7 @@ Copies of this information sheet are available by request. If you would like a c
                         <outlet property="scrollView" destination="RvQ-hu-m5d" id="Pro-87-Ak6"/>
                         <outlet property="theorySlider" destination="oqM-Xy-Qlq" id="BHD-Un-QAC"/>
                         <outlet property="toneButton" destination="8Hs-Yj-ugx" id="74c-wW-u9X"/>
+                        <segue destination="QZd-Fv-KbI" kind="push" identifier="QuestionToTraining" id="0VG-8x-zx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0xQ-qu-bLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1814,6 +1824,7 @@ Copies of this information sheet are available by request. If you would like a c
                         <outlet property="toneLabel" destination="utF-bz-Xoy" id="Xc0-SO-8zS"/>
                         <segue destination="H7X-u4-UMW" kind="push" identifier="QuestionTableToStart" id="RDp-qL-woL"/>
                         <segue destination="Vsu-yq-uyU" kind="push" identifier="QuestionTableToSelect" id="UuK-9D-nnA"/>
+                        <segue destination="QZd-Fv-KbI" kind="push" identifier="QuestionTableToTraining" id="EA6-xv-wIA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thq-ko-2jQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1884,6 +1895,152 @@ Copies of this information sheet are available by request. If you would like a c
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcE-5O-wjE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1211" y="818"/>
+        </scene>
+        <!--Training View Controller - Specific Music Training-->
+        <scene sceneID="o6q-bs-9Vb">
+            <objects>
+                <viewController id="QZd-Fv-KbI" customClass="QBTTrainingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Z7-1o-rTY">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3PS-7y-Rzg">
+                                <rect key="frame" x="0.0" y="96" width="320" height="364"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TrainingCell" textLabel="XxR-0E-3WK" style="IBUITableViewCellStyleDefault" id="mzM-QE-Uve">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="5 years of piano" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XxR-0E-3WK">
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" id="Mr2-QL-EcD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="7se-el-UMG">
+                                        <rect key="frame" x="20" y="56" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PR0-ga-iIf">
+                                        <rect key="frame" x="72" y="56" width="79" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="month">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="durationPushed:" destination="QZd-Fv-KbI" eventType="touchUpInside" id="kqs-Xn-e7b"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="REe-US-yw2">
+                                        <rect key="frame" x="159" y="60" width="15" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="instrument" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="O0L-Ul-cHN">
+                                        <rect key="frame" x="182" y="55" width="87" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="ApY-Mn-lrR">
+                                        <rect key="frame" x="269" y="56" width="29" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPushed:" destination="QZd-Fv-KbI" eventType="touchUpInside" id="P1y-2c-cuA"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add specific training details." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JzT-Lc-UoP">
+                                        <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="2WG-CI-Vzo">
+                                <rect key="frame" x="0.0" y="250" width="321" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" id="MEo-8J-gQN">
+                                        <rect key="frame" x="0.0" y="44" width="321" height="216"/>
+                                    </pickerView>
+                                    <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="nFB-61-Apk">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
+                                        <items>
+                                            <navigationItem id="Xmw-Ht-Pve">
+                                                <barButtonItem key="rightBarButtonItem" title="Select" style="done" id="9JY-ys-pmI">
+                                                    <connections>
+                                                        <action selector="pickerDonePushed:" destination="QZd-Fv-KbI" id="r4h-3l-qVm"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fQg-Vq-Uva"/>
+                        <barButtonItem title="Continue" style="done" id="bPx-jv-tKg">
+                            <connections>
+                                <action selector="continuePushed:" destination="QZd-Fv-KbI" id="hcA-hT-ejQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Specific Music Training" id="pUY-Wz-4yn"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="durationButton" destination="PR0-ga-iIf" id="NPo-Yr-Zdw"/>
+                        <outlet property="durationText" destination="7se-el-UMG" id="SYO-G7-Vd8"/>
+                        <outlet property="instrumentText" destination="O0L-Ul-cHN" id="Wdg-KC-JXt"/>
+                        <outlet property="pickerHolder" destination="2WG-CI-Vzo" id="0lp-Em-8wp"/>
+                        <outlet property="pickerView" destination="MEo-8J-gQN" id="DGN-C2-thj"/>
+                        <outlet property="tableView" destination="3PS-7y-Rzg" id="E9t-Ch-1kZ"/>
+                        <segue destination="H7X-u4-UMW" kind="push" identifier="TrainingToStart" id="Wxj-p4-9Fz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9c-V9-yqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659" y="812"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XVh-6B-0DN">
@@ -1967,6 +2124,7 @@ Copies of this information sheet are available by request. If you would like a c
         <class className="QBTQuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTQuestionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="agePushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="arrhythmicPushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="continuePushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="genderPushed:" candidateClass="UIButton"/>
@@ -1974,7 +2132,7 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="languagePushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="pickerDonePushed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="tonePushed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ageText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="arrhythmicButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="genderButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="habitSlider" candidateClass="UISlider"/>
@@ -2085,6 +2243,21 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="settingsPushed:" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="QBTTrainingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTTrainingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="continuePushed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="durationPushed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="pickerDonePushed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="durationText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="instrumentText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pickerHolder" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="QBTVolumeAdjustViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QBTVolumeAdjustViewController.h"/>
             <relationships>
@@ -2100,9 +2273,10 @@ Copies of this information sheet are available by request. If you would like a c
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3ic-5O-9sf"/>
-        <segue reference="RDp-qL-woL"/>
+        <segue reference="0VG-8x-zx8"/>
         <segue reference="ySn-8w-9am"/>
-        <segue reference="fBF-bT-fqL"/>
+        <segue reference="Wxj-p4-9Fz"/>
+        <segue reference="8fK-cr-Dud"/>
+        <segue reference="bFU-UO-XeH"/>
     </inferredMetricsTieBreakers>
 </document>

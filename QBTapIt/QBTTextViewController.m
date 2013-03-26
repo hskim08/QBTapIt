@@ -41,11 +41,11 @@
 
 - (IBAction)agreePushed:(UIButton*)sender
 {
-//    [self performSegueWithIdentifier:@"TextToQuestion"
-//                              sender:self];
-    
-    [self performSegueWithIdentifier:@"TextToQuestionTable"
+    [self performSegueWithIdentifier:@"TextToQuestion"
                               sender:self];
+    
+//    [self performSegueWithIdentifier:@"TextToQuestionTable"
+//                              sender:self];
 }
 
 - (IBAction)disagreePushed:(UIButton*)sender

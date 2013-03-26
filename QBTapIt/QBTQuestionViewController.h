@@ -12,9 +12,9 @@
 
 @property IBOutlet UIScrollView* scrollView;
 
-@property IBOutlet UITextField* ageText;
+//@property IBOutlet UITextField* ageText;
+@property IBOutlet UIButton* ageButton;
 @property IBOutlet UIButton* genderButton;
-
 @property IBOutlet UIButton* languageButton;
 
 @property IBOutlet UIButton* handedButton;
@@ -30,6 +30,7 @@
 
 - (IBAction) continuePushed:(UIButton*)sender;
 
+- (IBAction) agePushed:(UIButton*)sender;
 - (IBAction) genderPushed:(UIButton*)sender;
 - (IBAction) languagePushed:(UIButton*)sender;
 - (IBAction) handPushed:(UIButton*)sender;

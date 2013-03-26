@@ -27,6 +27,7 @@
 		AA7324F716AF35A500F9D64A /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F616AF35A500F9D64A /* icon114.png */; };
 		AA7324FA16AF35AC00F9D64A /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7324F916AF35AC00F9D64A /* icon57.png */; };
 		AA80E5911701786C00AFF85D /* QBTSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA80E5901701786C00AFF85D /* QBTSelectViewController.m */; };
+		AA80E5941701D6B800AFF85D /* QBTTrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA80E5931701D6B800AFF85D /* QBTTrainingViewController.m */; };
 		AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */; };
 		AAA8B440169CE76B00C30C09 /* QBTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */; };
 		AAA8B443169CE95E00C30C09 /* QBTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B442169CE95E00C30C09 /* QBTUserData.m */; };
@@ -86,6 +87,8 @@
 		AA7324F916AF35AC00F9D64A /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		AA80E58F1701786C00AFF85D /* QBTSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSelectViewController.h; sourceTree = "<group>"; };
 		AA80E5901701786C00AFF85D /* QBTSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSelectViewController.m; sourceTree = "<group>"; };
+		AA80E5921701D6B800AFF85D /* QBTTrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTTrainingViewController.h; sourceTree = "<group>"; };
+		AA80E5931701D6B800AFF85D /* QBTTrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTTrainingViewController.m; sourceTree = "<group>"; };
 		AA9C4C88169F83D900CD76A0 /* QBTSessionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSessionData.h; sourceTree = "<group>"; };
 		AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSessionData.m; sourceTree = "<group>"; };
 		AAA8B43E169CE76B00C30C09 /* QBTServerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTServerSettings.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				AA29085F1701082600DE115E /* QBTQuestionTableViewController.m */,
 				AA80E58F1701786C00AFF85D /* QBTSelectViewController.h */,
 				AA80E5901701786C00AFF85D /* QBTSelectViewController.m */,
+				AA80E5921701D6B800AFF85D /* QBTTrainingViewController.h */,
+				AA80E5931701D6B800AFF85D /* QBTTrainingViewController.m */,
 			);
 			name = UserInfo;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				AA05DBC116E9219B000D97C9 /* QBTTaskFamiliarityViewController.m in Sources */,
 				AA2908601701082600DE115E /* QBTQuestionTableViewController.m in Sources */,
 				AA80E5911701786C00AFF85D /* QBTSelectViewController.m in Sources */,
+				AA80E5941701D6B800AFF85D /* QBTTrainingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

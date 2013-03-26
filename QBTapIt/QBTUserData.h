@@ -38,6 +38,8 @@
 @property Float32 instrumentTraining;
 @property Float32 theoryTraining;
 
+@property NSString* specificTraining;
+
 + (NSString *)createUUID;
 
 - (void) initData;

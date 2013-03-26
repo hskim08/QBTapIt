@@ -11,6 +11,7 @@
 #import "QBTUserData.h"
 
 enum PickerType {
+    PT_AGE = 0,
     PT_GENDER = 1,
     PT_HANDEDNESS = 2,
     PT_TONE_DEAF = 3,
@@ -18,8 +19,9 @@ enum PickerType {
     PT_LANGUAGE = 5
 };
 
-@interface QBTQuestionViewController () <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface QBTQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (nonatomic) NSArray* ageArray;
 @property (nonatomic) NSArray* genderArray;
 @property (nonatomic) NSArray* handArray;
 @property (nonatomic) NSArray* ynArray;
@@ -36,23 +38,11 @@ enum PickerType {
 
 @implementation QBTQuestionViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 470);
-    
-    self.ageText.delegate = self;
     
     self.pickerType = PT_GENDER;
     self.pickerView.delegate = self;
@@ -77,7 +67,7 @@ enum PickerType {
     QBTUserData* userData = [QBTUserData sharedInstance];
     [userData initData];
     
-    userData.age = [self.ageText.text integerValue];
+    userData.age = [self.ageButton.titleLabel.text integerValue];
     userData.gender = self.genderButton.titleLabel.text;
     userData.nativeLanguage = self.languageButton.titleLabel.text;
     
@@ -94,8 +84,17 @@ enum PickerType {
     userData.listeningHabits = self.habitSlider.value*5;
     
     // open next page
-    [self performSegueWithIdentifier:@"QuestionToStart"
+    [self performSegueWithIdentifier:@"QuestionToTraining"
                               sender:self];
+}
+
+- (IBAction) agePushed:(UIButton*)sender
+{
+    // set data source array
+    self.pickerType = PT_AGE;
+    
+    // show picker
+    [self showPickerView:YES];
 }
 
 - (IBAction) genderPushed:(UIButton*)sender
@@ -148,15 +147,6 @@ enum PickerType {
     [self showPickerView:NO];
 }
 
-
-#pragma mark - UITextFieldDelegate Selectors
-
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return NO;
-}
-
 #pragma mark - UIPickerViewDataSource Selectors
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -183,11 +173,26 @@ enum PickerType {
                           forState:UIControlStateNormal] ;
     
     // hide picker
-    if (self.pickerType != PT_LANGUAGE)
+    if ( !(self.pickerType == PT_LANGUAGE || self.pickerType == PT_AGE) )
         [self showPickerView:NO];
 }
 
 #pragma mark - Private Implementation
+
+@synthesize ageArray = _ageArray;
+- (NSArray*) ageArray
+{
+    if (!_ageArray) {
+        NSMutableArray* ar = [NSMutableArray arrayWithCapacity:100];
+        
+        for (int i = 1; i < 101; i++) {
+            [ar addObject:[NSString stringWithFormat:@"%d", i]];
+        }
+        
+        _ageArray = [NSArray arrayWithArray:ar];
+    }
+    return _ageArray;
+}
 
 @synthesize genderArray = _genderArray;
 - (NSArray*) genderArray
@@ -227,7 +232,8 @@ enum PickerType {
 
 - (NSArray*) currentArray
 {
-    if(self.pickerType == PT_GENDER) return self.genderArray;
+    if(self.pickerType == PT_AGE) return self.ageArray;
+    else if(self.pickerType == PT_GENDER) return self.genderArray;
     else if(self.pickerType == PT_HANDEDNESS) return self.handArray;
     else if(self.pickerType == PT_LANGUAGE) return self.langArray;
     else return self.ynArray;
@@ -235,7 +241,8 @@ enum PickerType {
 
 - (UIButton*) currentButton
 {
-    if(self.pickerType == PT_GENDER) return self.genderButton;
+    if(self.pickerType == PT_AGE) return self.ageButton;
+    else if(self.pickerType == PT_GENDER) return self.genderButton;
     else if(self.pickerType == PT_HANDEDNESS) return self.handedButton;
     else if(self.pickerType == PT_TONE_DEAF) return self.toneButton;
     else if(self.pickerType == PT_ARRHYTHMIC) return self.arrhythmicButton;

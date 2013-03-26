@@ -91,7 +91,10 @@
     userData.listeningHabits = self.habitSlider.value*5;
     
     // open next page
+    userData.instrumentTraining == 0 ?
     [self performSegueWithIdentifier:@"QuestionTableToStart"
+                              sender:self] :
+    [self performSegueWithIdentifier:@"QuestionTableToTraining"
                               sender:self];
 }
 
