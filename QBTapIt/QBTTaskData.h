@@ -25,5 +25,7 @@
 @property (nonatomic, readwrite) Float32 songFamiliarity;
 @property (nonatomic, readwrite) SInt8 withMusicHelpful; // only for withMusic
 
+- (void) sendToServer;
+- (void) saveToDisk;
 
 @end

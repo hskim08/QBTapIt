@@ -25,14 +25,13 @@
 
 @property NSString* userId;
 
-@property UInt8 age;
+@property NSInteger age;
 @property NSString* gender;
-
 @property NSString* nativeLanguage;
 
-@property SInt8 handedness;
-@property SInt8 toneDeaf;
-@property SInt8 arrhythmic;
+@property NSInteger handedness;
+@property NSInteger toneDeaf;
+@property NSInteger arrhythmic;
 
 @property Float32 listeningHabits;
 @property Float32 instrumentTraining;

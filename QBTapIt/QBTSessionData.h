@@ -28,8 +28,8 @@
 
 + (QBTSessionData *) sharedInstance;
 
-@property (readonly) NSString* version;
-@property (readonly) NSString* deviceType;
+@property (nonatomic) NSString* version;
+@property (nonatomic) NSString* deviceType;
 
 @property NSString* sessionId;
 @property NSString* userId;
@@ -37,12 +37,10 @@
 
 @property UInt32 taskOrder;
 
-//@property (nonatomic) NSMutableArray* taskDataArray;
+@property (readonly) NSString* sessionDir;
 
 - (void) initData;
 
-- (void) sendTaskToServer:(QBTTaskData*)taskData;
-//- (void) sendToServer;
 - (void) saveToDisk;
 
 @end

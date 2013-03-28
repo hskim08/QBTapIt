@@ -14,9 +14,7 @@
 #import "QBTServerSettings.h"
 
 
-@interface QBTSessionData()<NSURLConnectionDataDelegate>
-
-@property(nonatomic,strong) NSURLConnection* connection;
+@interface QBTSessionData()
 
 - (NSString*) createSessionId;
 
@@ -43,28 +41,29 @@ static QBTSessionData* sharedInstance = nil;
 //
 // 1.0.X -> first test
 // 1.1.X -> added specific training
+@synthesize version = _version;
 -(NSString*) version
 {
+    if (!_version) {
 #ifdef DEBUG
-    return @"1.1.0"; // update version when necessary
+        _version = @"1.1.0"; // update version when necessary
 #else
-    return @"1.1.1";
+        _version = @"1.1.1";
 #endif
+
+    }
+    return _version;
 }
 
 @synthesize deviceType = _deviceType;
 - (NSString*) deviceType
 {
-    return [self platform];
+    if(!_deviceType) {
+        
+        _deviceType = [self platform];
+    }
+    return _deviceType;
 }
-
-//@synthesize taskDataArray = _taskDataArray;
-//- (NSMutableArray*)taskDataArray {
-//    if (_taskDataArray == nil) {
-//        _taskDataArray = [[NSMutableArray alloc] initWithCapacity:1];
-//    }
-//    return _taskDataArray;
-//}
 
 - (void) initData
 {
@@ -72,64 +71,60 @@ static QBTSessionData* sharedInstance = nil;
     NSLog(@"Session ID: %@", self.sessionId);
 
     self.experimenterId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ExperimenterId"];
-    
-//    [self.taskDataArray removeAllObjects];
-}
-
-//- (void) sendToServer
-//{
-//    // For each task
-//    for (QBTTaskData* taskData in self.taskDataArray) {
-//        // Create a request with related data
-//
-//        [self sendTaskToServer:taskData];
-//    }
-//}
-
-- (void) sendTaskToServer:(QBTTaskData*)taskData
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/record/taskInfo",
-                                                                                             [QBTServerSettings sharedInstance].uploadServer]]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                       timeoutInterval:1000];
-    
-    [request setTimeoutInterval:1000];
-    [request setHTTPMethod:@"POST"];
-    
-    NSMutableString* params = [NSMutableString string];
-    [params appendFormat:@"user_id=%@", self.userId];
-    [params appendFormat:@"&version_number=%@", self.version];
-    [params appendFormat:@"&session_id=%@", self.sessionId];
-    [params appendFormat:@"&experimenter_id=%@", self.experimenterId];
-    [params appendFormat:@"&device_type=%@", self.deviceType];
-    
-    [params appendFormat:@"&song_title=%@", taskData.songTitle];
-    [params appendFormat:@"&task_order=%d", taskData.trackOrder];
-    
-    [params appendFormat:@"&tap_data=%@", taskData.tapOnTimeData];
-    [params appendFormat:@"&tap_off_data=%@", taskData.tapOffTimeData];
-    [params appendFormat:@"&tap_y_data=%@", taskData.tapYPositionData];
-    [params appendFormat:@"&tap_x_data=%@", taskData.tapXPositionData];
-    [params appendFormat:@"&tap_off_y_data=%@", taskData.tapOffYPositionData];
-    [params appendFormat:@"&tap_off_x_data=%@", taskData.tapOffXPositionData];
-    
-    [params appendFormat:@"&with_music=%d", taskData.withMusic];
-    [params appendFormat:@"&song_familiarity=%f", taskData.songFamiliarity];
-    [params appendFormat:@"&audio_helpful=%d", taskData.withMusicHelpful];
-    
-    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 - (void) saveToDisk
 {
+    NSString *fileName = [NSString stringWithFormat:@"%@/session", self.sessionDir];
+    [NSKeyedArchiver archiveRootObject:self
+                                toFile:fileName];
 }
 
-#pragma mark - NSURLConnectionDataDelegate selectors
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (NSString*) sessionDir
 {
-    NSLog(@"didFailWithError:%@", error.description);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+
+    NSString* ssDir = [NSString stringWithFormat:@"%@/saved/%@", docDir, self.sessionId];
+    
+    // check if directory exists
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if ( ![fileManager fileExistsAtPath:ssDir] ) { // create if directory doesn't exist
+        
+        NSError* error;
+        [fileManager createDirectoryAtPath:ssDir
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:&error];
+        if (error)
+            NSLog(@"Failed to create temp directory:: %@", error.description);
+    }
+
+    return ssDir;
+}
+
+#pragma mark - NSCoding Selectors
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        
+        self.userId = [decoder decodeObjectForKey:@"userId"];
+        self.version = [decoder decodeObjectForKey:@"version"];
+        self.sessionId = [decoder decodeObjectForKey:@"sessionId"];
+        self.experimenterId = [decoder decodeObjectForKey:@"experimenterId"];
+        self.deviceType = [decoder decodeObjectForKey:@"deviceType"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.userId forKey:@"userId"];
+    [encoder encodeObject:self.version forKey:@"version"];
+    [encoder encodeObject:self.sessionId forKey:@"sessionId"];
+    [encoder encodeObject:self.experimenterId forKey:@"experimenterId"];
+    [encoder encodeObject:self.deviceType forKey:@"deviceType"];
 }
 
 #pragma mark - Private implementation

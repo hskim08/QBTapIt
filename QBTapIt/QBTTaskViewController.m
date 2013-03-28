@@ -67,8 +67,13 @@
     sessionData.userId = [QBTUserData sharedInstance].userId;
     
     // send user data to server
-    if (![QBTLyricsData sharedInstance].isTrialRun)
+    if (![QBTLyricsData sharedInstance].isTrialRun) {
+        
+        // TODO: save to disk only when there is no internet connection
+        [sessionData saveToDisk];
+        
         [[QBTUserData sharedInstance] sendToServer];
+    }
     
     // create random order
     [self createRandomOrder];
@@ -259,12 +264,9 @@
     self.currentTask.tapYPositionData = self.tapYPosData;
     self.currentTask.tapOffXPositionData = self.tapOffXPosData;
     self.currentTask.tapOffYPositionData = self.tapOffYPosData;
-        
-    QBTSessionData* sessionData = [QBTSessionData sharedInstance];
-//    [sessionData.taskDataArray addObject:self.currentTask];
     
     // send task data to server
-    [sessionData sendTaskToServer:self.currentTask];
+    [self.currentTask sendToServer];
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors

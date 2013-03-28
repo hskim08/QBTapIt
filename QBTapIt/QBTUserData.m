@@ -8,6 +8,8 @@
 
 #import "QBTUserData.h"
 
+#import "QBTSessionData.h"
+
 #import "QBTServerSettings.h"
 
 @interface QBTUserData()<NSURLConnectionDataDelegate>
@@ -86,10 +88,62 @@ static QBTUserData* sharedInstance = nil;
     
     [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    // TODO: save to disk only when there is no internet connection
+    [self saveToDisk];
 }
 
 - (void) saveToDisk
 {
+    NSString *fileName = [NSString stringWithFormat:@"%@/user", [QBTSessionData sharedInstance].sessionDir];
+    [NSKeyedArchiver archiveRootObject:self
+                                toFile:fileName];
+}
+
+#pragma mark - NSCoding Selectors
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        
+        self.userId = [decoder decodeObjectForKey:@"userId"];
+    
+        self.age = [decoder decodeIntegerForKey:@"age"];
+        self.gender = [decoder decodeObjectForKey:@"gender"];
+        self.nativeLanguage = [decoder decodeObjectForKey:@"nativeLanguage"];
+        
+        self.handedness = [decoder decodeIntegerForKey:@"handedness"];
+        self.toneDeaf = [decoder decodeIntegerForKey:@"toneDeaf"];
+        self.arrhythmic = [decoder decodeIntegerForKey:@"arrhythmic"];
+        
+        self.listeningHabits = [decoder decodeFloatForKey:@"listeningHabits"];
+        self.instrumentTraining = [decoder decodeFloatForKey:@"instrumentTraining"];
+        self.theoryTraining = [decoder decodeFloatForKey:@"theoryTraining"];
+        
+        self.specificTraining = [decoder decodeObjectForKey:@"specificTraining"];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.userId forKey:@"userId"];
+    
+    [encoder encodeInteger:self.age forKey:@"age"];
+    [encoder encodeObject:self.gender forKey:@"gender"];
+    [encoder encodeObject:self.nativeLanguage forKey:@"nativeLanguage"];
+    
+    [encoder encodeInteger:self.handedness forKey:@"handedness"];
+    [encoder encodeInteger:self.toneDeaf forKey:@"toneDeaf"];
+    [encoder encodeInteger:self.arrhythmic forKey:@"arrhythmic"];
+    
+    [encoder encodeFloat:self.listeningHabits forKey:@"listeningHabits"];
+    [encoder encodeFloat:self.instrumentTraining forKey:@"instrumentTraining"];
+    [encoder encodeFloat:self.theoryTraining forKey:@"theoryTraining"];
+    
+    if (self.specificTraining)
+        [encoder encodeObject:self.specificTraining forKey:@"specificTraining"];
 }
 
 #pragma mark - NSURLConnectionDataDelegate selectors
@@ -98,21 +152,6 @@ static QBTUserData* sharedInstance = nil;
 {
     NSLog(@"didFailWithError:%@", error.description);
 }
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-//    NSString* ss = [[NSString alloc] initWithBytes:data.bytes
-//                                            length:data.length
-//                                          encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"UserInfo: %@", ss);
-}
-
-#pragma mark - Private implementation
 
 @end
 
