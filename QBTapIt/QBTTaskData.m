@@ -8,13 +8,11 @@
 
 #import "QBTTaskData.h"
 
-#import "QBTSessionData.h"
-
 #import "QBTServerSettings.h"
 
 @interface QBTTaskData()<NSURLConnectionDataDelegate>
 
-@property(nonatomic,strong) NSURLConnection* connection;
+@property NSURLConnection* connection;
 
 @end
 
@@ -34,12 +32,11 @@
     
     NSMutableString* params = [NSMutableString string];
     
-    QBTSessionData* sessionData = [QBTSessionData sharedInstance];
-    [params appendFormat:@"user_id=%@", sessionData.userId];
-    [params appendFormat:@"&version_number=%@", sessionData.version];
-    [params appendFormat:@"&session_id=%@", sessionData.sessionId];
-    [params appendFormat:@"&experimenter_id=%@", sessionData.experimenterId];
-    [params appendFormat:@"&device_type=%@", sessionData.deviceType];
+    [params appendFormat:@"user_id=%@", self.sessionData.userId];
+    [params appendFormat:@"&version_number=%@", self.sessionData.version];
+    [params appendFormat:@"&session_id=%@", self.sessionData.sessionId];
+    [params appendFormat:@"&experimenter_id=%@", self.sessionData.experimenterId];
+    [params appendFormat:@"&device_type=%@", self.sessionData.deviceType];
     
     [params appendFormat:@"&song_title=%@", self.songTitle];
     [params appendFormat:@"&task_order=%d", self.trackOrder];
@@ -57,23 +54,27 @@
     
     [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    // TODO: save to disk only when there is no internet connection
-    [self saveToDisk];
 }
 
 - (void) saveToDisk
 {
-    NSString *fileName = [NSString stringWithFormat:@"%@/task_%3d_%d", [QBTSessionData sharedInstance].sessionDir, self.trackOrder, self.withMusic];
-    [NSKeyedArchiver archiveRootObject:self
-                                toFile:fileName];
+    NSString *fileName = [NSString stringWithFormat:@"%@/task_%03d_%d", [QBTSessionData sharedInstance].sessionDir, self.trackOrder, self.withMusic];
+    
+    NSLog(@"Saving task to: %@", fileName);
+    
+    BOOL result = [NSKeyedArchiver archiveRootObject:self
+                                              toFile:fileName];
+    
+    if (!result)
+        NSLog(@"Failed to save task data to disk");
 }
 
 #pragma mark - NSCoding Selectors
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         
         self.songTitle = [decoder decodeObjectForKey:@"songTitle"];
         self.trackOrder = [decoder decodeIntegerForKey:@"trackOrder"];

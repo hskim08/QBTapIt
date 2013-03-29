@@ -18,6 +18,8 @@
 @property IBOutlet UITextField* downloadText;
 @property IBOutlet UITextField* uploadText;
 
+@property IBOutlet UILabel* savedLabel;
+
 - (IBAction)donePushed:(UIButton*)sender;
 
 - (IBAction)trialStepperPushed:(UIStepper*)sender;

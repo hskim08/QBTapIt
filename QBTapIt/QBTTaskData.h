@@ -8,22 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+#import "QBTSessionData.h"
+
 @interface QBTTaskData : NSObject
 
-@property (nonatomic, strong) NSString* songTitle;
-@property (nonatomic, readwrite) NSUInteger trackOrder;
+@property QBTSessionData* sessionData;
 
-@property (nonatomic, strong) NSString* tapOnTimeData;
-@property (nonatomic, strong) NSString* tapOffTimeData;
-@property (nonatomic, strong) NSString* tapYPositionData;
-@property (nonatomic, strong) NSString* tapXPositionData;
-@property (nonatomic, strong) NSString* tapOffYPositionData;
-@property (nonatomic, strong) NSString* tapOffXPositionData;
+@property NSString* songTitle;
+@property NSUInteger trackOrder;
 
-@property (nonatomic, readwrite) SInt8 withMusic;
+@property NSString* tapOnTimeData;
+@property NSString* tapOffTimeData;
+@property NSString* tapYPositionData;
+@property NSString* tapXPositionData;
+@property NSString* tapOffYPositionData;
+@property NSString* tapOffXPositionData;
 
-@property (nonatomic, readwrite) Float32 songFamiliarity;
-@property (nonatomic, readwrite) SInt8 withMusicHelpful; // only for withMusic
+@property NSInteger withMusic;
+
+@property Float32 songFamiliarity;
+@property NSInteger withMusicHelpful; // only for withMusic
 
 - (void) sendToServer;
 - (void) saveToDisk;

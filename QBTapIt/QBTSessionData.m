@@ -44,14 +44,16 @@ static QBTSessionData* sharedInstance = nil;
 @synthesize version = _version;
 -(NSString*) version
 {
+    // this uses the app version the the plist for the version number
     if (!_version) {
+        
 #ifdef DEBUG
-        _version = @"1.1.0"; // update version when necessary
+        _version = [NSString stringWithFormat:@"%@.0", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
 #else
-        _version = @"1.1.1";
+        _version = [NSString stringWithFormat:@"%@.1", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
 #endif
-
     }
+    
     return _version;
 }
 
@@ -76,38 +78,31 @@ static QBTSessionData* sharedInstance = nil;
 - (void) saveToDisk
 {
     NSString *fileName = [NSString stringWithFormat:@"%@/session", self.sessionDir];
-    [NSKeyedArchiver archiveRootObject:self
-                                toFile:fileName];
+    
+    NSLog(@"Saving session to: %@", fileName);
+    
+    BOOL result = [NSKeyedArchiver archiveRootObject:self
+                                              toFile:fileName];
+    
+    if (!result)
+        NSLog(@"Failed to save session data to disk");
 }
 
 - (NSString*) sessionDir
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docDir = [paths objectAtIndex:0];
-
-    NSString* ssDir = [NSString stringWithFormat:@"%@/saved/%@", docDir, self.sessionId];
+    NSString* pathString = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings savedDirectory], self.sessionId];
     
-    // check if directory exists
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    if ( ![fileManager fileExistsAtPath:ssDir] ) { // create if directory doesn't exist
-        
-        NSError* error;
-        [fileManager createDirectoryAtPath:ssDir
-               withIntermediateDirectories:YES
-                                attributes:nil
-                                     error:&error];
-        if (error)
-            NSLog(@"Failed to create temp directory:: %@", error.description);
-    }
-
-    return ssDir;
+    [QBTServerSettings checkDirectoryPath:pathString];
+    
+    return pathString;
 }
 
 #pragma mark - NSCoding Selectors
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         
         self.userId = [decoder decodeObjectForKey:@"userId"];
         self.version = [decoder decodeObjectForKey:@"version"];
@@ -133,7 +128,7 @@ static QBTSessionData* sharedInstance = nil;
 {
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat:@"yyyyMMdd-HH:mm:ss"];
+    [dateFormat setDateFormat:@"yyyyMMdd-HHmmss"];
     NSString *dateString = [dateFormat stringFromDate:date];
     
     return dateString;

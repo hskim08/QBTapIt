@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "QBTTaskData.h"
-
 //t.string   "version_number"
 //t.string   "session_id"           (format: yyyy/MM/DD-HH:mm:ss)
 //t.string   "song_id"

@@ -14,6 +14,8 @@
 
 + (NSString*) documentsDirectory;
 + (NSString*) tempDirectory;
++ (NSString*) savedDirectory;
++ (void) checkDirectoryPath:(NSString*)pathString;
 
 @property (nonatomic) NSString* uploadServer;
 @property (nonatomic) NSString* songListServer;

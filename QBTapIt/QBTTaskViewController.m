@@ -70,7 +70,7 @@
     if (![QBTLyricsData sharedInstance].isTrialRun) {
         
         // TODO: save to disk only when there is no internet connection
-        [sessionData saveToDisk];
+//        [sessionData saveToDisk];
         
         [[QBTUserData sharedInstance] sendToServer];
     }
@@ -225,6 +225,7 @@
     
     // initialize task data object
     self.currentTask = [[QBTTaskData alloc] init];
+    self.currentTask.sessionData = [QBTSessionData sharedInstance];
     self.currentTask.trackOrder = self.taskNumber+1;
     self.currentTask.songTitle = [[QBTLyricsData sharedInstance] titleForTask:taskIdx];
     self.currentTask.withMusic = self.withMusic;

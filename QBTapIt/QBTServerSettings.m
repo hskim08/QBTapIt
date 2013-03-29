@@ -76,19 +76,56 @@ static QBTServerSettings* sharedInstance = nil;
 {
     NSString* pathString = [NSString stringWithFormat:@"%@/temp", [QBTServerSettings documentsDirectory]];
     
-    // check if temp dir exists
+//    // check if temp dir exists
+//    NSFileManager* fileManager = [NSFileManager defaultManager];
+//    if ( ![fileManager fileExistsAtPath:pathString] ) {
+//        NSError* error;
+//        [fileManager createDirectoryAtPath:pathString
+//               withIntermediateDirectories:NO
+//                                attributes:nil
+//                                     error:&error];
+//        if (error)
+//            NSLog(@"Failed to create temp directory:: %@", error.description);
+//    }
+    
+    [QBTServerSettings checkDirectoryPath:pathString];
+    
+    return pathString;
+}
+
++ (NSString*) savedDirectory
+{
+    NSString* pathString = [NSString stringWithFormat:@"%@/saved", [QBTServerSettings documentsDirectory]];
+    
+//    // check if saved dir exists
+//    NSFileManager* fileManager = [NSFileManager defaultManager];
+//    if ( ![fileManager fileExistsAtPath:pathString] ) {
+//        NSError* error;
+//        [fileManager createDirectoryAtPath:pathString
+//               withIntermediateDirectories:NO
+//                                attributes:nil
+//                                     error:&error];
+//        if (error)
+//            NSLog(@"Failed to create saved directory:: %@", error.description);
+//    }
+    [QBTServerSettings checkDirectoryPath:pathString];
+    
+    return pathString;
+}
+
++ (void) checkDirectoryPath:(NSString*)pathString
+{
+    // check if saved dir exists
     NSFileManager* fileManager = [NSFileManager defaultManager];
     if ( ![fileManager fileExistsAtPath:pathString] ) {
         NSError* error;
         [fileManager createDirectoryAtPath:pathString
-               withIntermediateDirectories:NO
+               withIntermediateDirectories:YES
                                 attributes:nil
                                      error:&error];
         if (error)
-            NSLog(@"Failed to create temp directory:: %@", error.description);
+            NSLog(@"Failed to create saved directory:: %@", error.description);
     }
-    
-    return pathString;
 }
 
 @end

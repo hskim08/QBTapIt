@@ -29,6 +29,7 @@
 		AA9C4C8A169F83D900CD76A0 /* QBTSessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C4C89169F83D900CD76A0 /* QBTSessionData.m */; };
 		AAA8B440169CE76B00C30C09 /* QBTServerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */; };
 		AAA8B443169CE95E00C30C09 /* QBTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA8B442169CE95E00C30C09 /* QBTUserData.m */; };
+		AAB29C0317061710001AA244 /* QBTSessionDataUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB29C0217061710001AA244 /* QBTSessionDataUploader.m */; };
 		AAB9CEDF16ED8E58001093F9 /* testSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AAB9CEDE16ED8E58001093F9 /* testSong.mp3 */; };
 		AACE7A7C16C0923500B7C0C7 /* QBTTaskReadyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACE7A7B16C0923500B7C0C7 /* QBTTaskReadyViewController.m */; };
 		AADDFB1A16448D68004955C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADDFB1916448D68004955C1 /* UIKit.framework */; };
@@ -89,6 +90,8 @@
 		AAA8B43F169CE76B00C30C09 /* QBTServerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTServerSettings.m; sourceTree = "<group>"; };
 		AAA8B441169CE95E00C30C09 /* QBTUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTUserData.h; sourceTree = "<group>"; };
 		AAA8B442169CE95E00C30C09 /* QBTUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTUserData.m; sourceTree = "<group>"; };
+		AAB29C0117061710001AA244 /* QBTSessionDataUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTSessionDataUploader.h; sourceTree = "<group>"; };
+		AAB29C0217061710001AA244 /* QBTSessionDataUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTSessionDataUploader.m; sourceTree = "<group>"; };
 		AAB9CEDE16ED8E58001093F9 /* testSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSong.mp3; sourceTree = "<group>"; };
 		AACE7A7A16C0923500B7C0C7 /* QBTTaskReadyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBTTaskReadyViewController.h; sourceTree = "<group>"; };
 		AACE7A7B16C0923500B7C0C7 /* QBTTaskReadyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBTTaskReadyViewController.m; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 		AA33AA4B1704F9F400192D4C /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				AAB29C0117061710001AA244 /* QBTSessionDataUploader.h */,
+				AAB29C0217061710001AA244 /* QBTSessionDataUploader.m */,
 			);
 			name = Upload;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				AA66D67B16DE97EA0052145B /* QBTVolumeAdjustViewController.m in Sources */,
 				AA05DBC116E9219B000D97C9 /* QBTTaskFamiliarityViewController.m in Sources */,
 				AA80E5941701D6B800AFF85D /* QBTTrainingViewController.m in Sources */,
+				AAB29C0317061710001AA244 /* QBTSessionDataUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

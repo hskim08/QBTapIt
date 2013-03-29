@@ -9,11 +9,14 @@
 #import "QBTSettingsViewController.h"
 
 #import "QBTServerSettings.h"
+#import "QBTSessionDataUploader.h"
 
 @interface QBTSettingsViewController () <UITextFieldDelegate>
 
 @property (nonatomic) NSString* experimenterId;
 @property (nonatomic) NSInteger trialCount;
+
+- (void) updateSavedSessions;
 
 @end
 
@@ -55,6 +58,8 @@
     
     self.uploadText.delegate = self;
     self.downloadText.delegate = self;
+    
+    [self updateSavedSessions];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,7 +87,6 @@
     self.trialCount = sender.value;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,6 +98,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    if (indexPath.section == 4) {
+        
+        [[QBTSessionDataUploader sharedInstance] sendSavedSessions];
+    }
 }
 
 #pragma mark - UITextFieldDelegate Selectors
@@ -158,6 +167,18 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     return [defaults integerForKey:@"TrialCount"];
+}
+
+- (void) updateSavedSessions
+{
+    // count number of sessions saved
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+    
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:[QBTServerSettings savedDirectory]
+                                                      error:&error];
+    
+    self.savedLabel.text = [NSString stringWithFormat:@"%d", files.count];
 }
 
 @end

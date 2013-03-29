@@ -50,7 +50,6 @@ static QBTUserData* sharedInstance = nil;
 - (void) initData
 {
     self.userId = [QBTUserData createUUID];
-    NSLog(@"User ID: %@", self.userId);
     
     self.age = 0;
     self.gender = nil;
@@ -88,23 +87,29 @@ static QBTUserData* sharedInstance = nil;
     
     [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    // TODO: save to disk only when there is no internet connection
-    [self saveToDisk];
 }
 
 - (void) saveToDisk
 {
     NSString *fileName = [NSString stringWithFormat:@"%@/user", [QBTSessionData sharedInstance].sessionDir];
-    [NSKeyedArchiver archiveRootObject:self
-                                toFile:fileName];
+    
+    NSLog(@"Saving user to: %@", fileName);
+    
+    BOOL result = [NSKeyedArchiver archiveRootObject:self
+                                              toFile:fileName];
+    
+    if (!result)
+        NSLog(@"Failed to save user data to disk");
 }
 
 #pragma mark - NSCoding Selectors
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
+        
+        NSLog(@"Decoding user data");
         
         self.userId = [decoder decodeObjectForKey:@"userId"];
     
@@ -128,6 +133,8 @@ static QBTUserData* sharedInstance = nil;
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
+    NSLog(@"Encoding user data");
+    
     [encoder encodeObject:self.userId forKey:@"userId"];
     
     [encoder encodeInteger:self.age forKey:@"age"];

@@ -212,6 +212,35 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection footerTitle="Tap to send all data saved on the device to the server." id="yQ9-G1-O2F">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XtG-Hc-eWU">
+                                        <rect key="frame" x="0.0" y="444" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Saved Sessions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oYv-8L-yHy">
+                                                    <rect key="frame" x="10" y="11" width="130" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wfm-ST-TlN">
+                                                    <rect key="frame" x="254" y="11" width="36" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.19215688110000001" green="0.35686275360000003" blue="0.58431375029999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="pR8-kk-fcA" id="yoG-yI-NAS"/>
@@ -229,6 +258,7 @@
                     <connections>
                         <outlet property="downloadText" destination="Svj-y3-b8m" id="UEt-J5-EWv"/>
                         <outlet property="experimenterIdText" destination="QET-pZ-rGQ" id="Jnv-Jr-7xo"/>
+                        <outlet property="savedLabel" destination="Wfm-ST-TlN" id="U45-5c-oKo"/>
                         <outlet property="trialLabel" destination="Z9J-vf-fWR" id="hvr-yv-1Yu"/>
                         <outlet property="trialStepper" destination="ZfD-OR-pEN" id="Hog-v1-MJJ"/>
                         <outlet property="uploadText" destination="cKR-IY-2s8" id="kZt-zc-AVi"/>
@@ -1776,6 +1806,7 @@ Copies of this information sheet are available by request. If you would like a c
                 <relationship kind="action" name="trialStepperPushed:" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="downloadText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="experimenterIdText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="savedLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="trialLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="trialStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="uploadText" candidateClass="UITextField"/>
