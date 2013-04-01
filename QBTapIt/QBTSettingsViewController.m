@@ -11,12 +11,17 @@
 #import "QBTServerSettings.h"
 #import "QBTSessionDataUploader.h"
 
-@interface QBTSettingsViewController () <UITextFieldDelegate>
+#import "Reachability.h"
+
+@interface QBTSettingsViewController () <UITextFieldDelegate, QBTSessionDataUploaderDelegate>
 
 @property (nonatomic) NSString* experimenterId;
 @property (nonatomic) NSInteger trialCount;
 
 - (void) updateSavedSessions;
+- (NSInteger) savedSessions;
+
+- (void) savedSessionSelected;
 
 @end
 
@@ -91,18 +96,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
-    if (indexPath.section == 4) {
-        
-        [[QBTSessionDataUploader sharedInstance] sendSavedSessions];
-    }
+    if (indexPath.section == 4)
+        [self savedSessionSelected];
 }
 
 #pragma mark - UITextFieldDelegate Selectors
@@ -171,6 +166,11 @@
 
 - (void) updateSavedSessions
 {
+    self.savedLabel.text = [NSString stringWithFormat:@"%d", [self savedSessions]];
+}
+
+- (NSInteger) savedSessions
+{
     // count number of sessions saved
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSError* error;
@@ -178,7 +178,38 @@
     NSArray* files = [fileManager contentsOfDirectoryAtPath:[QBTServerSettings savedDirectory]
                                                       error:&error];
     
-    self.savedLabel.text = [NSString stringWithFormat:@"%d", files.count];
+    return files.count;
+}
+
+- (void) savedSessionSelected
+{
+    if ([self savedSessions] < 1) return;
+    
+    if ([QBTServerSettings checkWifiConnection]) { // TODO: check reachability of upload server url, not just wifi connection
+        
+        QBTSessionDataUploader* uploader = [[QBTSessionDataUploader alloc] init];
+        uploader.delegate = self;
+        
+        [uploader sendSavedSessions];
+        
+        [self updateSavedSessions];
+    }
+    else {
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Internet Connection!"
+                                                          message:@"The device is not connected to the internet. Please check the connection status of the device and retry sending the data when connected."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+}
+
+#pragma mark - QBTSessionDataUploaderDelegate Selectors
+
+- (void) didSendSession:(BOOL)success
+{
+    [self updateSavedSessions];
 }
 
 @end

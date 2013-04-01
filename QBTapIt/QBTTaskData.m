@@ -56,16 +56,20 @@
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+- (void) saveData
+{
+    if (self.sessionData.isConnected)
+        [self sendToServer];
+    else
+        [self saveToDisk];
+}
+
 - (void) saveToDisk
 {
     NSString *fileName = [NSString stringWithFormat:@"%@/task_%03d_%d", [QBTSessionData sharedInstance].sessionDir, self.trackOrder, self.withMusic];
     
-    NSLog(@"Saving task to: %@", fileName);
-    
-    BOOL result = [NSKeyedArchiver archiveRootObject:self
-                                              toFile:fileName];
-    
-    if (!result)
+    if (![NSKeyedArchiver archiveRootObject:self
+                                     toFile:fileName])
         NSLog(@"Failed to save task data to disk");
 }
 
@@ -111,6 +115,15 @@
 }
 
 #pragma mark - NSURLConnectionDataDelegate selectors
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    if ([response class] == [NSHTTPURLResponse class]) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        
+        NSLog(@"Status Code: %d", httpResponse.statusCode);
+    }
+}
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {

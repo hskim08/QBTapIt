@@ -15,7 +15,11 @@
 + (NSString*) documentsDirectory;
 + (NSString*) tempDirectory;
 + (NSString*) savedDirectory;
++ (NSString*) backupDirectory;
+
 + (void) checkDirectoryPath:(NSString*)pathString;
+
++ (BOOL) checkWifiConnection;
 
 @property (nonatomic) NSString* uploadServer;
 @property (nonatomic) NSString* songListServer;

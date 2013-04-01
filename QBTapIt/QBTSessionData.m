@@ -36,8 +36,8 @@ static QBTSessionData* sharedInstance = nil;
 
 #pragma mark - Public implementation
 
-// X.X.0 -> debugging
-// X.X.1 -> release version
+// X.X.Xa -> debugging
+// X.X.X -> release version
 //
 // 1.0.X -> first test
 // 1.1.X -> added specific training
@@ -48,9 +48,9 @@ static QBTSessionData* sharedInstance = nil;
     if (!_version) {
         
 #ifdef DEBUG
-        _version = [NSString stringWithFormat:@"%@.0", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
+        _version = [NSString stringWithFormat:@"%@a", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
 #else
-        _version = [NSString stringWithFormat:@"%@.1", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
+        _version = [NSString stringWithFormat:@"%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];;
 #endif
     }
     
@@ -73,18 +73,16 @@ static QBTSessionData* sharedInstance = nil;
     NSLog(@"Session ID: %@", self.sessionId);
 
     self.experimenterId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ExperimenterId"];
+    
+    self.connected = [QBTServerSettings checkWifiConnection];
 }
 
 - (void) saveToDisk
 {
     NSString *fileName = [NSString stringWithFormat:@"%@/session", self.sessionDir];
     
-    NSLog(@"Saving session to: %@", fileName);
-    
-    BOOL result = [NSKeyedArchiver archiveRootObject:self
-                                              toFile:fileName];
-    
-    if (!result)
+    if (![NSKeyedArchiver archiveRootObject:self
+                                     toFile:fileName])
         NSLog(@"Failed to save session data to disk");
 }
 

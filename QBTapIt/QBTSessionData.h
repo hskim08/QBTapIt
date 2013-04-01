@@ -26,6 +26,8 @@
 
 + (QBTSessionData *) sharedInstance;
 
+@property (getter = isConnected) BOOL connected;
+
 @property (nonatomic) NSString* version;
 @property (nonatomic) NSString* deviceType;
 

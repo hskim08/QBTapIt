@@ -60,6 +60,14 @@ static QBTUserData* sharedInstance = nil;
     self.specificTraining = nil;
 }
 
+- (void) saveData
+{
+    if ([QBTSessionData sharedInstance].isConnected)
+        [self sendToServer];
+    else
+        [self saveToDisk];
+}
+
 - (void) sendToServer
 {
     NSMutableURLRequest *request = [NSMutableURLRequest
@@ -93,12 +101,8 @@ static QBTUserData* sharedInstance = nil;
 {
     NSString *fileName = [NSString stringWithFormat:@"%@/user", [QBTSessionData sharedInstance].sessionDir];
     
-    NSLog(@"Saving user to: %@", fileName);
-    
-    BOOL result = [NSKeyedArchiver archiveRootObject:self
-                                              toFile:fileName];
-    
-    if (!result)
+    if (![NSKeyedArchiver archiveRootObject:self
+                                     toFile:fileName])
         NSLog(@"Failed to save user data to disk");
 }
 
@@ -154,6 +158,15 @@ static QBTUserData* sharedInstance = nil;
 }
 
 #pragma mark - NSURLConnectionDataDelegate selectors
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    if ([response class] == [NSHTTPURLResponse class]) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        
+        NSLog(@"Status Code: %d", httpResponse.statusCode);
+    }
+}
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {

@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol QBTSessionDataUploaderDelegate <NSObject>
+
+@optional
+
+- (void) didSendSession:(BOOL)success;
+
+@end
+
 @interface QBTSessionDataUploader : NSObject
 
 + (QBTSessionDataUploader *) sharedInstance;
+
+@property id<QBTSessionDataUploaderDelegate> delegate;
 
 - (void) sendSavedSessions;
 

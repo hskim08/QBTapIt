@@ -19,6 +19,9 @@
 @property QBTSessionData* sessionData;
 
 - (void) sendSession:(NSString*)sessionDir;
+- (void) moveSessionToBackup:(NSString*)session;
+- (void) deleteSession:(NSString*)sessionDir;
+
 - (void) sendUserData:(NSString*)fileName;
 - (void) loadSessionData:(NSString*)fileName;
 - (void) sendTaskData:(NSString*)fileName;
@@ -46,11 +49,52 @@ static QBTSessionDataUploader* sharedInstance = nil;
                                                       error:&error];
     for (NSString* file in files) {
         
-        [self sendSession:[NSString stringWithFormat:@"%@/%@", [QBTServerSettings savedDirectory], file]];
+        NSString* sessionDir = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings savedDirectory], file];
+        
+        // send the session
+        // TODO: check if the session data was successfully sent
+        [self sendSession:sessionDir];
+        
+        // move session to backup
+        [self moveSessionToBackup:file];
+        
+        // delete the session (Don't delete unless absolutely sure the data has been sent. We will copy a backup in the meantime)
+//        [self deleteSession:sessionDir];
+        
+        // signal delegate
+        [self.delegate didSendSession:YES];
     }
 }
 
-// TODO: move this code to session uploader class
+- (void) moveSessionToBackup:(NSString*)session
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+    
+    NSString* sessionDir = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings savedDirectory], session];
+    NSString* backupDir = [NSString stringWithFormat:@"%@/%@", [QBTServerSettings backupDirectory], session];
+    
+    [fileManager moveItemAtPath:sessionDir
+                         toPath:backupDir
+                          error:&error];
+    
+    if (error)
+        NSLog(@"Failed to move session (%@)", error.description);
+    
+}
+
+- (void) deleteSession:(NSString*)sessionDir
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSError* error;
+
+    [fileManager removeItemAtPath:sessionDir
+                            error:&error];
+    
+    if (error)
+        NSLog(@"Failed to delete session directory at %@ (%@)", sessionDir, error.description);
+}
+
 - (void) sendSession:(NSString*)sessionDir
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
@@ -73,8 +117,6 @@ static QBTSessionDataUploader* sharedInstance = nil;
             [self sendTaskData:[NSString stringWithFormat:@"%@/%@", sessionDir, file]];
         }
     }
-    
-    
 }
 
 - (void) sendUserData:(NSString*)fileName

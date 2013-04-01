@@ -29,6 +29,7 @@
 @property Float32 songFamiliarity;
 @property NSInteger withMusicHelpful; // only for withMusic
 
+- (void) saveData;
 - (void) sendToServer;
 - (void) saveToDisk;
 

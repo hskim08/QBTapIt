@@ -43,6 +43,7 @@
 
 - (void) initData;
 
+- (void) saveData;
 - (void) sendToServer;
 - (void) saveToDisk;
 

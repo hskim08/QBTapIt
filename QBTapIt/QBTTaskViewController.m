@@ -69,10 +69,11 @@
     // send user data to server
     if (![QBTLyricsData sharedInstance].isTrialRun) {
         
-        // TODO: save to disk only when there is no internet connection
-//        [sessionData saveToDisk];
+        if (!sessionData.isConnected) {
+            [sessionData saveToDisk];
+        }
         
-        [[QBTUserData sharedInstance] sendToServer];
+        [[QBTUserData sharedInstance] saveData];
     }
     
     // create random order
@@ -104,7 +105,6 @@
         
         // save tap on time
         [self.tapOnData appendFormat:@"%f, ", tapOnTime];
-//        NSLog(@"On: %f", tapOnTime);
         
         // save position
         CGPoint point = [touch locationInView:self.view];
@@ -266,8 +266,8 @@
     self.currentTask.tapOffXPositionData = self.tapOffXPosData;
     self.currentTask.tapOffYPositionData = self.tapOffYPosData;
     
-    // send task data to server
-    [self.currentTask sendToServer];
+    // save to disk or send to server
+    [self.currentTask saveData];
 }
 
 #pragma mark - QBTTaskQuestionViewControllerDelegate Selectors

@@ -8,6 +8,8 @@
 
 #import "QBTServerSettings.h"
 
+#import "Reachability.h"
+
 @implementation QBTServerSettings
 
 - (id) init
@@ -76,18 +78,6 @@ static QBTServerSettings* sharedInstance = nil;
 {
     NSString* pathString = [NSString stringWithFormat:@"%@/temp", [QBTServerSettings documentsDirectory]];
     
-//    // check if temp dir exists
-//    NSFileManager* fileManager = [NSFileManager defaultManager];
-//    if ( ![fileManager fileExistsAtPath:pathString] ) {
-//        NSError* error;
-//        [fileManager createDirectoryAtPath:pathString
-//               withIntermediateDirectories:NO
-//                                attributes:nil
-//                                     error:&error];
-//        if (error)
-//            NSLog(@"Failed to create temp directory:: %@", error.description);
-//    }
-    
     [QBTServerSettings checkDirectoryPath:pathString];
     
     return pathString;
@@ -97,17 +87,15 @@ static QBTServerSettings* sharedInstance = nil;
 {
     NSString* pathString = [NSString stringWithFormat:@"%@/saved", [QBTServerSettings documentsDirectory]];
     
-//    // check if saved dir exists
-//    NSFileManager* fileManager = [NSFileManager defaultManager];
-//    if ( ![fileManager fileExistsAtPath:pathString] ) {
-//        NSError* error;
-//        [fileManager createDirectoryAtPath:pathString
-//               withIntermediateDirectories:NO
-//                                attributes:nil
-//                                     error:&error];
-//        if (error)
-//            NSLog(@"Failed to create saved directory:: %@", error.description);
-//    }
+    [QBTServerSettings checkDirectoryPath:pathString];
+    
+    return pathString;
+}
+
++ (NSString*) backupDirectory
+{
+    NSString* pathString = [NSString stringWithFormat:@"%@/backup", [QBTServerSettings documentsDirectory]];
+    
     [QBTServerSettings checkDirectoryPath:pathString];
     
     return pathString;
@@ -126,6 +114,14 @@ static QBTServerSettings* sharedInstance = nil;
         if (error)
             NSLog(@"Failed to create saved directory:: %@", error.description);
     }
+}
+
++ (BOOL) checkWifiConnection
+{
+    Reachability* reachability = [Reachability reachabilityForLocalWiFi];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    
+    return (networkStatus != NotReachable);
 }
 
 @end
